@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="加密（哈希、AES、RSA）哈希（散列）函数 MD5 SHA1 SHA256/512 HMAC  特点：  算法公开 对不同数据加密结果是定长的!32位字符!! 信息摘要(加密之后的数据是不可逆!!)  应用：  一般用来做密码加密! 版权问题，MD5值! 搜索引擎 云盘秒传（服务器上只要有这个文件,那么用户可以实现秒传） 签名验证 (信息+信息MD5发送给服务器) HMAC （可用于设备锁）">
+  <meta name="description" content="Cookie的作用Cookie是用来记录服务器和客户端的状态，或者说记录用户的登录信息。我们的HTTP是无连接的，所以我们需要Cookie来进行用户和连接信息的记录。利用cookie我们就可以跟踪用户了  在HTTP响应报文中有一个cookie的首部行Set-Cookie HTTP请求报文中有一个cookie的首部行，每次请求都会加上这个cookie 客户端保存一个cookie，用户浏览器管理 w">
 <meta property="og:type" content="article">
-<meta property="og:title" content="加密（哈希、AES、RSA）">
-<meta property="og:url" content="http://yoursite.com/2019/08/12/加密（哈希、AES、RSA）/index.html">
+<meta property="og:title" content="Cookie and session">
+<meta property="og:url" content="http://yoursite.com/2019/08/17/Cookie-and-session/index.html">
 <meta property="og:site_name" content="Aaron&#39;s blog">
-<meta property="og:description" content="加密（哈希、AES、RSA）哈希（散列）函数 MD5 SHA1 SHA256/512 HMAC  特点：  算法公开 对不同数据加密结果是定长的!32位字符!! 信息摘要(加密之后的数据是不可逆!!)  应用：  一般用来做密码加密! 版权问题，MD5值! 搜索引擎 云盘秒传（服务器上只要有这个文件,那么用户可以实现秒传） 签名验证 (信息+信息MD5发送给服务器) HMAC （可用于设备锁）">
+<meta property="og:description" content="Cookie的作用Cookie是用来记录服务器和客户端的状态，或者说记录用户的登录信息。我们的HTTP是无连接的，所以我们需要Cookie来进行用户和连接信息的记录。利用cookie我们就可以跟踪用户了  在HTTP响应报文中有一个cookie的首部行Set-Cookie HTTP请求报文中有一个cookie的首部行，每次请求都会加上这个cookie 客户端保存一个cookie，用户浏览器管理 w">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-12T04:48:35.363Z">
+<meta property="og:updated_time" content="2019-08-17T13:38:28.115Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="加密（哈希、AES、RSA）">
-<meta name="twitter:description" content="加密（哈希、AES、RSA）哈希（散列）函数 MD5 SHA1 SHA256/512 HMAC  特点：  算法公开 对不同数据加密结果是定长的!32位字符!! 信息摘要(加密之后的数据是不可逆!!)  应用：  一般用来做密码加密! 版权问题，MD5值! 搜索引擎 云盘秒传（服务器上只要有这个文件,那么用户可以实现秒传） 签名验证 (信息+信息MD5发送给服务器) HMAC （可用于设备锁）">
-  <link rel="canonical" href="http://yoursite.com/2019/08/12/加密（哈希、AES、RSA）/">
+<meta name="twitter:title" content="Cookie and session">
+<meta name="twitter:description" content="Cookie的作用Cookie是用来记录服务器和客户端的状态，或者说记录用户的登录信息。我们的HTTP是无连接的，所以我们需要Cookie来进行用户和连接信息的记录。利用cookie我们就可以跟踪用户了  在HTTP响应报文中有一个cookie的首部行Set-Cookie HTTP请求报文中有一个cookie的首部行，每次请求都会加上这个cookie 客户端保存一个cookie，用户浏览器管理 w">
+  <link rel="canonical" href="http://yoursite.com/2019/08/17/Cookie-and-session/">
 
 
 <script id="page-configurations">
@@ -80,7 +80,7 @@
   };
 </script>
 
-  <title>加密（哈希、AES、RSA） | Aaron's blog</title>
+  <title>Cookie and session | Aaron's blog</title>
   
 
 
@@ -212,7 +212,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/加密（哈希、AES、RSA）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/17/Cookie-and-session/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -226,7 +226,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">加密（哈希、AES、RSA）
+          <h1 class="post-title" itemprop="name headline">Cookie and session
 
             
           </h1>
@@ -243,7 +243,7 @@
                 
               
 
-              <time title="Created: 2019-08-12 12:36:08 / Modified: 12:48:35" itemprop="dateCreated datePublished" datetime="2019-08-12T12:36:08+08:00">2019-08-12</time>
+              <time title="Created: 2019-08-17 21:18:25 / Modified: 21:38:28" itemprop="dateCreated datePublished" datetime="2019-08-17T21:18:25+08:00">2019-08-17</time>
             </span>
           
             
@@ -256,7 +256,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/加密算法/" itemprop="url" rel="index"><span itemprop="name">加密算法</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/网络/" itemprop="url" rel="index"><span itemprop="name">网络</span></a></span>
 
                 
                 
@@ -283,41 +283,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="加密（哈希、AES、RSA）"><a href="#加密（哈希、AES、RSA）" class="headerlink" title="加密（哈希、AES、RSA）"></a>加密（哈希、AES、RSA）</h2><h3 id="哈希（散列）函数"><a href="#哈希（散列）函数" class="headerlink" title="哈希（散列）函数"></a>哈希（散列）函数</h3><ul>
-<li>MD5</li>
-<li>SHA1</li>
-<li>SHA256/512</li>
-<li>HMAC</li>
-</ul>
-<p><strong>特点：</strong></p>
-<ul>
-<li>算法公开</li>
-<li>对不同数据加密结果是定长的!32位字符!!</li>
-<li>信息摘要(加密之后的数据是不可逆!!)</li>
-</ul>
-<p><strong>应用：</strong></p>
-<ul>
-<li>一般用来做密码加密!</li>
-<li>版权问题，MD5值!</li>
-<li>搜索引擎</li>
-<li>云盘秒传（服务器上只要有这个文件,那么用户可以实现秒传）</li>
-<li>签名验证 (信息+信息MD5发送给服务器)</li>
-<li>HMAC （可用于设备锁）</li>
-</ul>
-<h3 id="对称加密算法（传统加密算法）"><a href="#对称加密算法（传统加密算法）" class="headerlink" title="对称加密算法（传统加密算法）"></a>对称加密算法（传统加密算法）</h3><p>加密和解密都是同一个密钥</p>
-<ul>
-<li>DES 目前几乎不用，强度不够</li>
-<li>3DES 使用3个密钥,对相同的数据执行三次加密,强度增强</li>
-<li>AES 高级密码标准,苹果钥匙串访问</li>
-</ul>
-<p><strong>每个对称加密算法有两种加密方式</strong></p>
+        <h2 id="Cookie的作用"><a href="#Cookie的作用" class="headerlink" title="Cookie的作用"></a>Cookie的作用</h2><p>Cookie是用来记录服务器和客户端的状态，或者说记录用户的登录信息。<br>我们的HTTP是无连接的，所以我们需要Cookie来进行用户和连接信息的记录。<br>利用cookie我们就可以跟踪用户了</p>
 <ol>
-<li>ECB加密： 电子代码本，就是简单的将数据拆包，每一块独立加密</li>
-<li>CBC（密码块链）加密： 也是独立加密一块数据，但是第二块数据和第一块数据有密切的联系</li>
+<li>在HTTP响应报文中有一个cookie的首部行Set-Cookie</li>
+<li>HTTP请求报文中有一个cookie的首部行，每次请求都会加上这个cookie</li>
+<li>客户端保存一个cookie，用户浏览器管理</li>
+<li>web站点服务器有一个数据库，当服务器解析接收到的请求报文中的cookie时就可以根据这个cookie中的值来判断是哪个用户或者说是哪个id，然后如果需要返回特定的信息就去数据库中获取然后返回给客户端。</li>
 </ol>
-<h3 id="非对称加密算法（现在加密算法）"><a href="#非对称加密算法（现在加密算法）" class="headerlink" title="非对称加密算法（现在加密算法）"></a>非对称加密算法（现在加密算法）</h3><p>私钥加密 公钥解密<br>公钥加密 私钥解密</p>
-<hr>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://www.jianshu.com/p/047e6a37e73c" target="_blank" rel="noopener">https://www.jianshu.com/p/047e6a37e73c</a></p>
+<h3 id="Cookie的问题"><a href="#Cookie的问题" class="headerlink" title="Cookie的问题"></a>Cookie的问题</h3><p>我们单纯使用cookie来做用户认证，其实是非常大风险的。 因为服务器没有什么手段来判断这个cookie是不是我们的真实用户说发送的，很多第三方可以获取到这个cookie，里面的信息就可以被它用来伪造HTTP请求获取我们服务器的数据了。</p>
+<h2 id="引入Session"><a href="#引入Session" class="headerlink" title="引入Session"></a>引入Session</h2><p>session会话机制。<br>Session一般是指浏览器这个页面打开到关闭的这段时间。所谓的使用session机制其实就是不把用户信息存到浏览器(客户端)而是全部存到服务器上，我们只存一个被称为sessionid的值作为cookie存在浏览器端。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>Session原理是服务端端每一个session维护一份会话信息数据，客户端和服务端依靠一个全局唯一标识sesssion_id来访问会话信息数据。用户访问web应用时，服务端程序决定何时创建session。</p>
+<p><strong>对于Java后台来说</strong><br>其实我们可以认为，Session是调用HttpServletRequest.getSession(true)这样的语句时才被创建。这里的Session就是一个Java对象了，提供给请求者使用。 服务器再次接受到请求的时候就会收到这个Sesssion_id，然后根据ID在内存中找到之前创建的session对象，提供给请求者使用。</p>
+<p>Session一般放在内存中，一旦服务器重启或者进程停止就会被清空。设置了session持久化才能使得重启服务器都能拿到session。</p>
+<h3 id="Session删除时间"><a href="#Session删除时间" class="headerlink" title="Session删除时间"></a>Session删除时间</h3><ol>
+<li>Session超时：超时指的是连续一定时间服务器没有收到该Session所对应客户端的请求，并且这个时间超过了服务器设置的Session超时的最大时间。 </li>
+<li>程序调用HttpSession.invalidate() </li>
+<li>服务器关闭或服务停止</li>
+</ol>
+<p>session的id是从哪里来的，sessionID是如何使用的：当客户端第一次请求session对象时候，服务器会为客户端创建一个session，并将通过特殊算法算出一个session的ID，用来标识该session对象，当浏览器下次（session继续有效时）请求别的资源的时候，浏览器会将sessionID(实质是cookie)放置到请求头中，服务器接收到请求后就得到该请求的sessionID，服务器找到该id的session返还给请求者（Servlet）使用。一个会话只能有一个session对象，对session来说是只认id不认人。</p>
+<p>对于Java后台来说，session是一个容器，可以存放会话过程中的任何对象</p>
+<h3 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h3><p>Session机制中，数据是存储在服务器上面，所以你不能伪造，你要获得这些数据就必须使用服务提供的sesssion_id，Cookie是保存在客户端的，安全性很难得到保证。</p>
+<p>其实我们使用session的话session是不会因为浏览器的关闭而删除的。</p>
+<h3 id="关于session-id的时效性"><a href="#关于session-id的时效性" class="headerlink" title="关于session_id的时效性"></a>关于session_id的时效性</h3><p>一般来说我们用session保持持久连接，也就是用户登录认证通过后，保持对这个用户的识别。 但是我们这个登录必须设置一个时效，也就是说登录了一段时间后我们要求用户重新登录。<br>其实也就是设置cookie(session_ID)的有效时间，当超过时了这个session_Id就无效了，我们就要再次登录，再次输入认证信息，然后服务器接收这些信息再次生成一个新的session，并把用户认证的信息存入这个session。<br>一般session也是有有效期的，可能是用户主要销毁，比如登出操作，这个session就销毁了。</p>
+<h2 id="Session和Cookie过期的对比"><a href="#Session和Cookie过期的对比" class="headerlink" title="Session和Cookie过期的对比"></a>Session和Cookie过期的对比</h2><h3 id="首先Cookie过期"><a href="#首先Cookie过期" class="headerlink" title="首先Cookie过期"></a>首先Cookie过期</h3><p>Cookie一般有两种，一种是不设置过期时间，浏览器关闭就过期，一种是设置过期时间，存在硬盘中，下次打开浏览器仍然存在。<br>注意一般来说，cookie过期的话，再次打开浏览器就会被删除了.</p>
+<h3 id="再者Session-id和session"><a href="#再者Session-id和session" class="headerlink" title="再者Session_id和session"></a>再者Session_id和session</h3><p>Session的话其实主要看session_id，大部分的会话机制是利用session_id(也是cookie)，如果cookie过期了也就是session_id过期了，那么显然服务器中的session也会结束生命周期(被销毁)。(如果浏览器没有删除cookie，你发送了一个过期的cookie，服务器需要判断然后就会拒绝你的请求)</p>
+<h3 id="Session过期"><a href="#Session过期" class="headerlink" title="Session过期"></a>Session过期</h3><p>session自动失效：一般服务器也会设置Session的过期时间，一旦session过期了，就算客户端的cookie(session_id)没有过期，session照样会结束自己的生命周期。</p>
+<h2 id="SessionID如何产生，由谁产生，保存在哪？"><a href="#SessionID如何产生，由谁产生，保存在哪？" class="headerlink" title="SessionID如何产生，由谁产生，保存在哪？"></a>SessionID如何产生，由谁产生，保存在哪？</h2><p><strong>创建：</strong><br>服务器端程序运行的过程中创建的，不同语言实现的应用程序有不同创建Session的方法，而在Java中是通过调用HttpServletRequest的getSession方法（使用true作为参数）创建的。</p>
+<p><strong>sessionid生成算法</strong><br>tomcat的ManagerBase类提供创建sessionid的方法：随机数+时间+jvmid；</p>
+<p><strong>存储在内存中。</strong></p>
+<p><strong>如何持久化？</strong> cookie memcache redis 存到数据库中</p>
 
     </div>
 
@@ -334,8 +328,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/12/HEXO-搭建过程总结及注意事项/" rel="next" title="HEXO 搭建过程总结及注意事项 1">
-                  <i class="fa fa-chevron-left"></i> HEXO 搭建过程总结及注意事项 1
+                <a href="/2019/08/14/思想的转变/" rel="next" title="思想的转变">
+                  <i class="fa fa-chevron-left"></i> 思想的转变
                 </a>
               
             </div>
@@ -343,10 +337,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/12/分布式数据库与区块链的区别/" rel="prev" title="分布式数据库与区块链的区别">
-                  分布式数据库与区块链的区别 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -477,7 +467,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加密（哈希、AES、RSA）"><span class="nav-number">1.</span> <span class="nav-text">加密（哈希、AES、RSA）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希（散列）函数"><span class="nav-number">1.1.</span> <span class="nav-text">哈希（散列）函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对称加密算法（传统加密算法）"><span class="nav-number">1.2.</span> <span class="nav-text">对称加密算法（传统加密算法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非对称加密算法（现在加密算法）"><span class="nav-number">1.3.</span> <span class="nav-text">非对称加密算法（现在加密算法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">1.4.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie的作用"><span class="nav-number">1.</span> <span class="nav-text">Cookie的作用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie的问题"><span class="nav-number">1.1.</span> <span class="nav-text">Cookie的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入Session"><span class="nav-number">2.</span> <span class="nav-text">引入Session</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">2.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Session删除时间"><span class="nav-number">2.2.</span> <span class="nav-text">Session删除时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全"><span class="nav-number">2.3.</span> <span class="nav-text">安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于session-id的时效性"><span class="nav-number">2.4.</span> <span class="nav-text">关于session_id的时效性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session和Cookie过期的对比"><span class="nav-number">3.</span> <span class="nav-text">Session和Cookie过期的对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先Cookie过期"><span class="nav-number">3.1.</span> <span class="nav-text">首先Cookie过期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#再者Session-id和session"><span class="nav-number">3.2.</span> <span class="nav-text">再者Session_id和session</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Session过期"><span class="nav-number">3.3.</span> <span class="nav-text">Session过期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SessionID如何产生，由谁产生，保存在哪？"><span class="nav-number">4.</span> <span class="nav-text">SessionID如何产生，由谁产生，保存在哪？</span></a></li></ol></div>
             
 
           </div>

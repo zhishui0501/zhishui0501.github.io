@@ -242,7 +242,7 @@
                 
               
 
-              <time title="Created: 2019-08-25 18:21:48 / Modified: 19:30:12" itemprop="dateCreated datePublished" datetime="2019-08-25T18:21:48+08:00">2019-08-25</time>
+              <time title="Created: 2019-08-25 18:21:48 / Modified: 19:48:07" itemprop="dateCreated datePublished" datetime="2019-08-25T18:21:48+08:00">2019-08-25</time>
             </span>
           
             
@@ -319,96 +319,105 @@
 <p>⑦\表示一个斜杠\。</p>
 <h2 id="数据类型之间的转换"><a href="#数据类型之间的转换" class="headerlink" title="数据类型之间的转换"></a>数据类型之间的转换</h2><h3 id="简单类型数据间的转换"><a href="#简单类型数据间的转换" class="headerlink" title="简单类型数据间的转换"></a>简单类型数据间的转换</h3><p>两种方式:自动转换和强制转换,通常发生在表达式中或方法的参数传递时。</p>
 <p>自动转换</p>
-<pre><code>具体地讲,当一个较&quot;小&quot;数据与一个较&quot;大&quot;的数据一起运算时,系统将自动将&quot;小&quot;数据转换成&quot;大&quot;数据,再进行运算。而在方法调用时,实际参数较&quot;小&quot;,而被调用的方法的形式参数数据又较&quot;大&quot;时(若有匹配的,当然会直接调用匹配的方法),系统也将自动将&quot;小&quot;数据转换成&quot;大&quot;数据,再进行方法的调用,自然,对于多个同名的重载方法,会转换成最&quot;接近&quot;的&quot;大&quot;数据并进行调用。这些类型由&quot;小&quot;到&quot;大&quot;分别为 (byte，short，char)--int--long--float—double。这里我们所说的&quot;大&quot;与&quot;小&quot;,并不是指占用字节的多少,而是指表示值的范围的大小。
+<p>具体地讲,当一个较”小”数据与一个较”大”的数据一起运算时,系统将自动将”小”数据转换成”大”数据,再进行运算。而在方法调用时,实际参数较”小”,而被调用的方法的形式参数数据又较”大”时(若有匹配的,当然会直接调用匹配的方法),系统也将自动将”小”数据转换成”大”数据,再进行方法的调用,自然,对于多个同名的重载方法,会转换成最”接近”的”大”数据并进行调用。这些类型由”小”到”大”分别为 (byte，short，char)–int–long–float—double。这里我们所说的”大”与”小”,并不是指占用字节的多少,而是指表示值的范围的大小。</p>
+<ol>
+<li><p>下面的语句可以在Java中直接通过：</p>
+<p> byte b;int i=b; long l=b; float f=b; double d=b;</p>
+</li>
+<li><p>如果低级类型为char型，向高级类型（整型）转换时，会转换为对应ASCII码值，例如</p>
+<p> char c=’c’; int i=c;</p>
+<p> System.out.println(“output:”+i);输出：output:99;</p>
+</li>
+<li><p>对于byte,short,char三种类型而言，他们是平级的，因此不能相互自动转换，可以使用下述的强制类型转换。</p>
+<p> short i=99 ; char c=(char)i; System.out.println(“output:”+c);输出：output:c;</p>
+</li>
+</ol>
+<p>强制转换</p>
+<p>将”大”数据转换为”小”数据时，你可以使用强制类型转换。即你必须采用下面这种语句格式： int n=(int)3.14159/2;可以想象，这种转换肯定可能会导致溢出或精度的下降。</p>
+<h3 id="表达式的数据类型自动提升"><a href="#表达式的数据类型自动提升" class="headerlink" title="表达式的数据类型自动提升"></a>表达式的数据类型自动提升</h3><ol>
+<li><p>所有的byte,short,char型的值将被提升为int型；</p>
+</li>
+<li><p>如果有一个操作数是long型，计算结果是long型；</p>
+</li>
+<li><p>如果有一个操作数是float型，计算结果是float型；</p>
+</li>
+<li><p>如果有一个操作数是double型，计算结果是double型；</p>
+<p> 例， byte b; b=3; b=(byte)(b*3);//必须声明byte。</p>
+</li>
+</ol>
+<h3 id="包装类过渡类型转换"><a href="#包装类过渡类型转换" class="headerlink" title="包装类过渡类型转换"></a>包装类过渡类型转换</h3><p>一般情况下，我们首先声明一个变量，然后生成一个对应的包装类，就可以利用包装类的各种方法进行类型转换了。例如：</p>
+<ol>
+<li><p>当希望把float型转换为double型时：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">float f1=100.00f;</span><br><span class="line"></span><br><span class="line">Float F1=new Float(f1);</span><br><span class="line"></span><br><span class="line">double d1=F1.doubleValue();//F1.doubleValue()为Float类的返回double值型的方法</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当希望把double型转换为int型时：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">double d1=100.00;</span><br><span class="line"></span><br><span class="line">Double D1=new Double(d1);</span><br><span class="line"></span><br><span class="line">int i1=D1.intValue();</span><br></pre></td></tr></table></figure>
 
-①下面的语句可以在Java中直接通过：
-
-byte b;int i=b; long l=b; float f=b; double d=b;
-
-②如果低级类型为char型，向高级类型（整型）转换时，会转换为对应ASCII码值，例如
-
-char c=&apos;c&apos;; int i=c;
-
-System.out.println(&quot;output:&quot;+i);输出：output:99;
-
-③对于byte,short,char三种类型而言，他们是平级的，因此不能相互自动转换，可以使用下述的强制类型转换。
-
-short i=99 ; char c=(char)i; System.out.println(&quot;output:&quot;+c);输出：output:c;</code></pre><p>强制转换</p>
-<pre><code>将&quot;大&quot;数据转换为&quot;小&quot;数据时，你可以使用强制类型转换。即你必须采用下面这种语句格式： int n=(int)3.14159/2;可以想象，这种转换肯定可能会导致溢出或精度的下降。</code></pre><h3 id="表达式的数据类型自动提升"><a href="#表达式的数据类型自动提升" class="headerlink" title="表达式的数据类型自动提升"></a>表达式的数据类型自动提升</h3><pre><code>①所有的byte,short,char型的值将被提升为int型；
-
-②如果有一个操作数是long型，计算结果是long型；
-
-③如果有一个操作数是float型，计算结果是float型；
-
-④如果有一个操作数是double型，计算结果是double型；
-
-例， byte b; b=3; b=(byte)(b*3);//必须声明byte。</code></pre><h3 id="包装类过渡类型转换"><a href="#包装类过渡类型转换" class="headerlink" title="包装类过渡类型转换"></a>包装类过渡类型转换</h3><pre><code>一般情况下，我们首先声明一个变量，然后生成一个对应的包装类，就可以利用包装类的各种方法进行类型转换了。例如：
-
-①当希望把float型转换为double型时：</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">float f1=100.00f;</span><br><span class="line"></span><br><span class="line">Float F1=new Float(f1);</span><br><span class="line"></span><br><span class="line">double d1=F1.doubleValue();//F1.doubleValue()为Float类的返回double值型的方法</span><br></pre></td></tr></table></figure>
-
-<pre><code>②当希望把double型转换为int型时：</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">double d1=100.00;</span><br><span class="line"></span><br><span class="line">Double D1=new Double(d1);</span><br><span class="line"></span><br><span class="line">int i1=D1.intValue();</span><br></pre></td></tr></table></figure>
-
-<pre><code>简单类型的变量转换为相应的包装类，可以利用包装类的构造函数。即：Boolean(boolean value)、Character(char value)、Integer(int value)、Long(long value)、Float(float value)、Double(double value)
-
-而在各个包装类中，总有形为××Value()的方法，来得到其对应的简单类型数据。利用这种方法，也可以实现不同数值型变量间的转换，例如，对于一个双精度实型类，intValue()可以得到其对应的整型变量，而doubleValue()可以得到其对应的双精度实型变量。</code></pre><h3 id="字符串与其它类型间的转换"><a href="#字符串与其它类型间的转换" class="headerlink" title="字符串与其它类型间的转换"></a>字符串与其它类型间的转换</h3><p>其它类型向字符串的转换</p>
-<pre><code>①调用类的串转换方法:X.toString();
-
-②自动转换:X+&quot;&quot;;
-
-③使用String的方法:String.volueOf(X);
-
-字符串作为值,向其它类型的转换
-
-①先转换成相应的封装器实例,再调用对应的方法转换成其它类型
-
-例如，字符中&quot;32.1&quot;转换double型的值的格式为:new Float(&quot;32.1&quot;).doubleValue()。也可以用:Double.valueOf(&quot;32.1&quot;).doubleValue()
-
-②静态parseXXX方法
-
-String s = &quot;1&quot;;
-
-byte b = Byte.parseByte( s );
-
-short t = Short.parseShort( s );
-
-int i = Integer.parseInt( s );
-
-long l = Long.parseLong( s );
-
-Float f = Float.parseFloat( s );
-
-Double d = Double.parseDouble( s );
-
-③Character的getNumericValue(char ch)方法</code></pre><h3 id="Date类与其它数据类型的相互转换"><a href="#Date类与其它数据类型的相互转换" class="headerlink" title="Date类与其它数据类型的相互转换"></a>Date类与其它数据类型的相互转换</h3><p>整型和Date类之间并不存在直接的对应关系，只是你可以使用int型为分别表示年、月、日、时、分、秒，这样就在两者之间建立了一个对应关系，在作这种转换时，你可以使用Date类构造函数的三种形式：</p>
-<pre><code>①Date(int year, int month, int date)：以int型表示年、月、日
-
-②Date(int year, int month, int date, int hrs, int min)：以int型表示年、月、日、时、分
-
-③Date(int year, int month, int date, int hrs, int min, int sec)：以int型表示年、月、日、时、分、秒
-
-在长整型和Date类之间有一个很有趣的对应关系，就是将一个时间表示为距离格林尼治标准时间1970年1月1日0时0分0秒的毫秒数。对于这种对应关系，Date类也有其相应的构造函数：Date(long date)。
-
-获取Date类中的年、月、日、时、分、秒以及星期你可以使用Date类的getYear()、getMonth()、getDate()、getHours()、getMinutes()、getSeconds()、getDay()方法，你也可以将其理解为将Date类转换成int。
-
-而Date类的getTime()方法可以得到我们前面所说的一个时间对应的长整型数，与包装类一样，Date类也有一个toString()方法可以将其转换为String类。
-
-有时我们希望得到Date的特定格式，例如20020324，我们可以使用以下方法，首先在文件开始引入，
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import java.text.SimpleDateFormat;</span><br><span class="line"></span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">java.util.Date date = new java.util.Date();</span><br><span class="line"></span><br><span class="line">//如果希望得到YYYYMMDD的格式</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sy1=new SimpleDateFormat(&quot;yyyyMMDD&quot;);</span><br><span class="line"></span><br><span class="line">String dateFormat=sy1.format(date);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//如果希望分开得到年，月，日</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sy=new SimpleDateFormat(&quot;yyyy&quot;);</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sm=new SimpleDateFormat(&quot;MM&quot;);</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sd=new SimpleDateFormat(&quot;dd&quot;);</span><br><span class="line"></span><br><span class="line">String syear=sy.format(date);</span><br><span class="line"></span><br><span class="line">String smon=sm.format(date);</span><br><span class="line"></span><br><span class="line">String sday=sd.format(date);</span><br></pre></td></tr></table></figure></code></pre><h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>只有boolean不参与数据类型的转换</p>
-<p>自动类型的转换：</p>
-<pre><code>a.常数在表数范围内是能够自动类型转换的
-
-b.数据范围小的能够自动数据类型大的转换（注意特例）
-
-int到float，long到float，long到double 是不会自动转换的，不然将会丢失精度
-
-c.引用类型能够自动转换为父类的
-
-d.基本类型和它们包装类型是能够互相转换的</code></pre><p>强制类型转换：用圆括号括起来目标类型，置于变量前</p>
-<h3 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h3><p>1：java开发过程中整型用int、小数用double、布尔用boolean；</p>
-<p>2：类型转换都是小范围向大范围转换，大范围往小范围转化需要用到强制转换；</p>
-<pre><code>例如：(1)int a=12; double b=a;(2) double a=3.0;int b=(int)a;</code></pre><p>3: long, byte, char等很少用到，一般在数据处理的时候会用到；</p>
-<p>4：int跟char之间的转换是通过ASCII转化的；<br>   例如：char a =’A’;int b=a;System.out.prientln(b);最后输出的结果为65；</p>
-<p>5：String类型，String是项目中必不可少且使用最多的数据类型，它属于引用数据类型中“类”的范畴。</p>
+<p> 简单类型的变量转换为相应的包装类，可以利用包装类的构造函数。即：Boolean(boolean value)、Character(char value)、Integer(int value)、Long(long value)、Float(float value)、Double(double value)</p>
+<p> 而在各个包装类中，总有形为××Value()的方法，来得到其对应的简单类型数据。利用这种方法，也可以实现不同数值型变量间的转换，例如，对于一个双精度实型类，intValue()可以得到其对应的整型变量，而doubleValue()可以得到其对应的双精度实型变量。</p>
+</li>
+</ol>
+<h3 id="字符串与其它类型间的转换"><a href="#字符串与其它类型间的转换" class="headerlink" title="字符串与其它类型间的转换"></a>字符串与其它类型间的转换</h3><p>其它类型向字符串的转换</p>
+<ol>
+<li><p>调用类的串转换方法:X.toString();</p>
+</li>
+<li><p>自动转换:X+””;</p>
+</li>
+<li><p>使用String的方法:String.volueOf(X);</p>
+<p> 字符串作为值,向其它类型的转换</p>
+</li>
+<li><p>先转换成相应的封装器实例,再调用对应的方法转换成其它类型</p>
+<p> 例如，字符中”32.1”转换double型的值的格式为:new Float(“32.1”).doubleValue()。也可以用:Double.valueOf(“32.1”).doubleValue()</p>
+</li>
+<li><p>静态parseXXX方法</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">String s = &quot;1&quot;;</span><br><span class="line"></span><br><span class="line">byte b = Byte.parseByte( s );</span><br><span class="line"></span><br><span class="line">short t = Short.parseShort( s );</span><br><span class="line"></span><br><span class="line">int i = Integer.parseInt( s );</span><br><span class="line"></span><br><span class="line">long l = Long.parseLong( s );</span><br><span class="line"></span><br><span class="line">Float f = Float.parseFloat( s );</span><br><span class="line"></span><br><span class="line">Double d = Double.parseDouble( s );</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Character的getNumericValue(char ch)方法</p>
+</li>
+</ol>
+<h3 id="Date类与其它数据类型的相互转换"><a href="#Date类与其它数据类型的相互转换" class="headerlink" title="Date类与其它数据类型的相互转换"></a>Date类与其它数据类型的相互转换</h3><p>整型和Date类之间并不存在直接的对应关系，只是你可以使用int型为分别表示年、月、日、时、分、秒，这样就在两者之间建立了一个对应关系，在作这种转换时，你可以使用Date类构造函数的三种形式：</p>
+<ol>
+<li><p>Date(int year, int month, int date)：以int型表示年、月、日</p>
+</li>
+<li><p>Date(int year, int month, int date, int hrs, int min)：以int型表示年、月、日、时、分</p>
+</li>
+<li><p>Date(int year, int month, int date, int hrs, int min, int sec)：以int型表示年、月、日、时、分、秒</p>
+</li>
+</ol>
+<p>在长整型和Date类之间有一个很有趣的对应关系，就是将一个时间表示为距离格林尼治标准时间1970年1月1日0时0分0秒的毫秒数。对于这种对应关系，Date类也有其相应的构造函数：Date(long date)。</p>
+<p>获取Date类中的年、月、日、时、分、秒以及星期你可以使用Date类的getYear()、getMonth()、getDate()、getHours()、getMinutes()、getSeconds()、getDay()方法，你也可以将其理解为将Date类转换成int。</p>
+<p>而Date类的getTime()方法可以得到我们前面所说的一个时间对应的长整型数，与包装类一样，Date类也有一个toString()方法可以将其转换为String类。</p>
+<p>有时我们希望得到Date的特定格式，例如20020324，我们可以使用以下方法，首先在文件开始引入，<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import java.text.SimpleDateFormat;</span><br><span class="line"></span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">java.util.Date date = new java.util.Date();</span><br><span class="line"></span><br><span class="line">//如果希望得到YYYYMMDD的格式</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sy1=new SimpleDateFormat(&quot;yyyyMMDD&quot;);</span><br><span class="line"></span><br><span class="line">String dateFormat=sy1.format(date);</span><br><span class="line"></span><br><span class="line">//如果希望分开得到年，月，日</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sy=new SimpleDateFormat(&quot;yyyy&quot;);</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sm=new SimpleDateFormat(&quot;MM&quot;);</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sd=new SimpleDateFormat(&quot;dd&quot;);</span><br><span class="line"></span><br><span class="line">String syear=sy.format(date);</span><br><span class="line"></span><br><span class="line">String smon=sm.format(date);</span><br><span class="line"></span><br><span class="line">String sday=sd.format(date);</span><br></pre></td></tr></table></figure></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li><p>只有boolean不参与数据类型的转换</p>
+</li>
+<li><p>自动类型的转换：</p>
+<ul>
+<li><p>常数在表数范围内是能够自动类型转换的</p>
+</li>
+<li><p>数据范围小的能够自动数据类型大的转换（注意特例）int到float，long到float，long到double 是不会自动转换的，不然将会丢失精度</p>
+</li>
+<li><p>引用类型能够自动转换为父类的</p>
+</li>
+<li><p>基本类型和它们包装类型是能够互相转换的</p>
+</li>
+</ul>
+</li>
+<li><p>强制类型转换：用圆括号括起来目标类型，置于变量前</p>
+</li>
+</ol>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li><p>java开发过程中整型用int、小数用double、布尔用boolean；</p>
+</li>
+<li><p>类型转换都是小范围向大范围转换，大范围往小范围转化需要用到强制转换；<br> 例如：(1)int a=12; double b=a;(2) double a=3.0;int b=(int)a;</p>
+</li>
+<li><p>long, byte, char等很少用到，一般在数据处理的时候会用到；</p>
+</li>
+<li><p>int跟char之间的转换是通过ASCII转化的；<br> 例如：char a = ‘A’;int b = a; System.out.prientln(b);最后输出的结果为65；</p>
+</li>
+<li><p>String类型，String是项目中必不可少且使用最多的数据类型，它属于引用数据类型中“类”的范畴。</p>
+</li>
+</ol>
 <h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><p>Java有 5种引用类型（对象类型）：类 接口 数组 枚举 标注</p>
 <p>引用类型：底层结构和基本类型差别较大</p>
 <p>JVM的内存空间：</p>
@@ -433,8 +442,12 @@ d.基本类型和它们包装类型是能够互相转换的</code></pre><p>强�
 </ol>
 <p>Java把内存分成两种，一种叫做栈内存，一种叫做堆内存在函数中定义的一些基本类型的变量和对象的引用变量都是在函数的栈内存中分配。当在一段代码块中定义一个变量时，java就在栈中为这个变量分配内存空间，当超过变量的作用域后，java会自动释放掉为该变量分配的内存空间，该内存空间可以立刻被另作他用。堆内存用于存放由new创建的对象和数组。在堆中分配的内存，由java虚拟机自动垃圾回收器来管理。在堆中产生了一个数组或者对象后，还可以在栈中定义一个特殊的变量，这个变量的取值等于数组或者对象在堆内存中的首地址，在栈中的这个特殊的变量就变成了数组或者对象的引用变量，以后就可以在程序中使用栈内存中的引用变量来访问堆中的数组或者对象，引用变量相当于为数组或者对象起的一个别名。</p>
 <p>引用变量是普通变量，定义时在栈中分配内存，引用变量在程序运行到作用域外释放。而数组＆对象本身在堆中分配，即使程序运行到使用new产生数组和对象的语句所在地代码块之外，数组和对象本身占用的堆内存也不会被释放，数组和对象在没有引用变量指向它的时候，才变成垃圾，不能再被使用，但是仍然占着内存，在随后的一个不确定的时间被垃圾回收器释放掉。这个也是java比较占内存的主要原因，实际上，栈中的变量指向堆内存中的变量，这就是 Java 中的指针! </p>
-<h3 id="类Class"><a href="#类Class" class="headerlink" title="类Class"></a>类Class</h3><p>可以是我们创建的，主要是讲解几个java库中的类<br>Object ：Object是一个很重要的类，Object是类层次结构的根类，每个类都使用Object作为超类，所有对象（包括数组）都实现这个类的方法。用Object可以定义所有的类<br>              如：<br>              Object object= new Integer(1); 来定义一个Interger类<br>               Integer i=(Integer) object;     在来把这个Object强制转换成Interger类<br>String ：String类代表字符串，Java 程序中的所有字符串字面值（如”abc”）都作为此类的实例来实现。检查序列的单个字符、比较字符串、搜索字符串、提取子字符串、创建字符串副本、在该副本中、所有的字符都被转换为大写或小写形式。<br>Date ：Date表示特定的瞬间，精确到毫秒。Date的类一般现在都被Calendar 和GregorianCalendar所有代替<br>Void ：Void 类是一个不可实例化的占位符类，它保持一个对代表 Java 关键字 void 的 Class 对象的引用。<br>同时也有对应的Class如：Integer  Long  Boolean  Byte  Character  Double  Float   Short </p>
-<h3 id="接口interface"><a href="#接口interface" class="headerlink" title="接口interface"></a>接口interface</h3><p>可以是我们创建的，主要是讲解几个java库中的接口interface<br>List<e>：列表 ，此接口的用户可以对列表中每个元素的插入位置进行精确地控制。用户可以根据元素的整数索引 （在列表中的位置）访问元素，并搜索列表中的元素。List 接口提供了两种搜索指定对象的方法。从性能的观点来看，应该小心使用这些方法。在很多实现中，它们将执行高开销的线性搜索。 List 接口提供了两种在列表的任意位置高效插入和移除多个元素的方法。<br>add() : 在列表的插入指定元素。<br>remove()：移除列表中指定位置的元素。<br>get(int index)：返回列表中指定位置的元素。<br>Map&lt;K,V&gt;：<br>K - 此映射所维护的键的类型<br>V - 映射值的类型 将键映射到值的对象。一个映射不能包含重复的键；每个键最多只能映射到一个值。<br>put(K key,V value)：将指定的值与此映射中的指定键关联（可选操作）。如果此映射以前包含一个该键的映射关系，则用指定值替换旧值（当且仅当，返回 true 时，才能说映射 m 包含键 k 的映射关系）。<br>remove(Object key)如果存在一个键的映射关系，则将其从此映射中移除（可选操作）。更确切地讲，如果此 映射包含从满足(key==null ? k==null :key.equals(k))的键 k 到值 v 的映射关系，则移除该映射关系。（该映射最多只能包含一个这样的映射关系.） get(Object key)：返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 null。</e></p>
+<h3 id="类Class"><a href="#类Class" class="headerlink" title="类Class"></a>类Class</h3><p>可以是我们创建的，主要是讲解几个java库中的类<br>Object ：Object是一个很重要的类，Object是类层次结构的根类，每个类都使用Object作为超类，所有对象（包括数组）都实现这个类的方法。用Object可以定义所有的类<br>如： Object object= new Integer(1); 来定义一个Interger类<br>     Integer i=(Integer) object;     在来把这个Object强制转换成Interger类 </p>
+<p>String ：String类代表字符串，Java 程序中的所有字符串字面值（如”abc”）都作为此类的实例来实现。检查序列的单个字符、比较字符串、搜索字符串、提取子字符串、创建字符串副本、在该副本中、所有的字符都被转换为大写或小写形式。 </p>
+<p>Date ：Date表示特定的瞬间，精确到毫秒。Date的类一般现在都被Calendar 和GregorianCalendar所有代替 </p>
+<p>Void ：Void 类是一个不可实例化的占位符类，它保持一个对代表 Java 关键字 void 的 Class 对象的引用。</p>
+<h3 id="接口interface"><a href="#接口interface" class="headerlink" title="接口interface"></a>接口interface</h3><p>可以是我们创建的，主要是讲解几个java库中的接口interface<br>List<e>：列表 ，此接口的用户可以对列表中每个元素的插入位置进行精确地控制。用户可以根据元素的整数索引 （在列表中的位置）访问元素，并搜索列表中的元素。List 接口提供了两种搜索指定对象的方法。从性能的观点来看，应该小心使用这些方法。在很多实现中，它们将执行高开销的线性搜索。 List 接口提供了两种在列表的任意位置高效插入和移除多个元素的方法。<br>add() : 在列表的插入指定元素。<br>remove()：移除列表中指定位置的元素。<br>get(int index)：返回列表中指定位置的元素。</e></p>
+<p>Map&lt;K,V&gt;：<br>K - 此映射所维护的键的类型<br>V - 映射值的类型 将键映射到值的对象。一个映射不能包含重复的键；每个键最多只能映射到一个值。<br>put(K key,V value)：将指定的值与此映射中的指定键关联（可选操作）。如果此映射以前包含一个该键的映射关系，则用指定值替换旧值（当且仅当，返回 true 时，才能说映射 m 包含键 k 的映射关系）。<br>remove(Object key)如果存在一个键的映射关系，则将其从此映射中移除（可选操作）。更确切地讲，如果此 映射包含从满足(key==null ? k==null :key.equals(k))的键 k 到值 v 的映射关系，则移除该映射关系。（该映射最多只能包含一个这样的映射关系.） get(Object key)：返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 null。</p>
 <h3 id="数组Array"><a href="#数组Array" class="headerlink" title="数组Array"></a>数组Array</h3><p>数组：存储在一个连续的内存块中的相同数据类型（引用数据类型）的元素集合。<br>数组中的每一个数据称之为数组元素，数组中的元素以索引来表示其存放的位置，索引（下标）从0开始。</p>
 <p>数组的定义<br>第一种方式：类型[] 数组名; 如 int[] nums;<br>第二种方式：类型数组名[]; 如 int nums[];<br>大多数Java程序员喜欢使用第一种风格,因为它把数据类型int[],和变量名num分开了.</p>
 <p>数组的初始化<br>Java中数组必先初始化后才能使用.<br>初始化就是给数组元素分配内存，并为每个元素赋初始值。</p>

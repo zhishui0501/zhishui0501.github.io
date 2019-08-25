@@ -62,13 +62,13 @@
 <meta property="og:site_name" content="Aaron&#39;s blog">
 <meta property="og:description" content="this关键字主要有三个应用： 调用属性(代码示例): 1234567891011121314151617181920public class thisDemo01 &amp;#123;	public static void main(String[] args) throws Exception &amp;#123;		BlueMoon bm=new BlueMoon(&amp;quot;渣渣辉&amp;quot;, 100)">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://pw3uur8yd.bkt.clouddn.com/20180226120141508">
-<meta property="og:image" content="http://pw3uur8yd.bkt.clouddn.com/1908133.png">
-<meta property="og:updated_time" content="2019-08-13T03:26:28.856Z">
+<meta property="og:image" content="http://yoursite.com/2019/08/13/Java-this关键字-调用属性，调用方法，调用当前对象/1908131.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/13/Java-this关键字-调用属性，调用方法，调用当前对象/1908133.png">
+<meta property="og:updated_time" content="2019-08-23T01:34:23.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java this关键字(调用属性，调用方法，调用当前对象)">
 <meta name="twitter:description" content="this关键字主要有三个应用： 调用属性(代码示例): 1234567891011121314151617181920public class thisDemo01 &amp;#123;	public static void main(String[] args) throws Exception &amp;#123;		BlueMoon bm=new BlueMoon(&amp;quot;渣渣辉&amp;quot;, 100)">
-<meta name="twitter:image" content="http://pw3uur8yd.bkt.clouddn.com/20180226120141508">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/13/Java-this关键字-调用属性，调用方法，调用当前对象/1908131.png">
   <link rel="canonical" href="http://yoursite.com/2019/08/13/Java-this关键字-调用属性，调用方法，调用当前对象/">
 
 
@@ -246,11 +246,19 @@
                 
               
 
-              <time title="Created: 2019-08-13 10:38:34 / Modified: 11:26:28" itemprop="dateCreated datePublished" datetime="2019-08-13T10:38:34+08:00">2019-08-13</time>
+              <time title="Created: 2019-08-13 10:38:34" itemprop="dateCreated datePublished" datetime="2019-08-13T10:38:34+08:00">2019-08-13</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-23 09:34:23" itemprop="dateModified" datetime="2019-08-23T09:34:23+08:00">2019-08-23</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -286,7 +294,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="this关键字主要有三个应用："><a href="#this关键字主要有三个应用：" class="headerlink" title="this关键字主要有三个应用："></a>this关键字主要有三个应用：</h3><p><img src="http://pw3uur8yd.bkt.clouddn.com/20180226120141508" alt="应用"></p>
+        <h3 id="this关键字主要有三个应用："><a href="#this关键字主要有三个应用：" class="headerlink" title="this关键字主要有三个应用："></a>this关键字主要有三个应用：</h3><p><img src="/2019/08/13/Java-this关键字-调用属性，调用方法，调用当前对象/1908131.png" alt="应用"></p>
 <p><strong>调用属性(代码示例):</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class thisDemo01 &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		BlueMoon bm=new BlueMoon(&quot;渣渣辉&quot;, 100);</span><br><span class="line">		System.out.println(bm.getInfo());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">class BlueMoon &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int level;</span><br><span class="line"> </span><br><span class="line">	public BlueMoon(String name, int level) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.level = level;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	public String getInfo() &#123;</span><br><span class="line">		return &quot;大家好!我是&quot; + this.name + &quot;，我是贪玩蓝月的战士，等级：&quot; + this.level;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -301,7 +309,7 @@
 </ul>
 <h3 id="当前对象调用"><a href="#当前对象调用" class="headerlink" title="当前对象调用:"></a>当前对象调用:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class BlueMoon &#123;</span><br><span class="line">	public void print() &#123;</span><br><span class="line">		//哪个对象调用了print()方法,this就自动与此对象指向同一块内存地址</span><br><span class="line">		System.out.println(&quot;this=&quot; + this);//this 就是当前调用对象</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">public class thisDemo02 &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		BlueMoon bm = new BlueMoon();</span><br><span class="line">		BlueMoon bm2 = new BlueMoon();</span><br><span class="line">		System.out.println(&quot;bm=&quot; + bm);</span><br><span class="line">		bm.print();</span><br><span class="line">		System.out.println(&quot;---------------------&quot;);</span><br><span class="line">		System.out.println(&quot;bm2=&quot; + bm2);</span><br><span class="line">		bm.print();</span><br><span class="line"> </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://pw3uur8yd.bkt.clouddn.com/1908133.png" alt></p>
+<p><img src="/2019/08/13/Java-this关键字-调用属性，调用方法，调用当前对象/1908133.png" alt></p>
 <hr>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://blog.csdn.net/yanwenwennihao/article/details/79375611" target="_blank" rel="noopener">https://blog.csdn.net/yanwenwennihao/article/details/79375611</a><br><a href="https://blog.csdn.net/ikv1989/article/details/79182432" target="_blank" rel="noopener">https://blog.csdn.net/ikv1989/article/details/79182432</a></p>
 

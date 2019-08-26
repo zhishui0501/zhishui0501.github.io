@@ -55,18 +55,23 @@
   };
 </script>
 
-  <meta name="description" content="Hexo博客框架发布文章流程Hexo clean：清空资源文件 hexo g：重新生成资源文件 hexo d：发布文章到github.io 最后两部可简写成：hexo g -d 创建Tag页面$ hexo new page &amp;quot;tags&amp;quot;编辑刚新建的页面，将页面的类型设置为tags，主题将自动为这个页面显示标签云。页面内容如下： 123title: Tagclouddate: 2">
+  <meta name="description" content="逻辑结构我们从上可以发现：上面这三种逻辑结构之间的节点与节点之间的关系是不一样的，对于线性结构来说，节点之间的关系是一对一的；树形结构的节点是一对多；图形结构的节点是多对多的关系。  线性结构：开始节点和终端节点都是唯一的，我们可以把第一个节点认为是开始节点，第四个节点认为是终端节点。除了开始节点和终端节点以外，其余节点都有且仅有一个前驱节点，有且仅有一个后继节点。对于第二个节点来说，它的前驱节点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HEXO 搭建过程总结及注意事项 1">
-<meta property="og:url" content="http://yoursite.com/2019/08/12/HEXO-搭建过程总结及注意事项/index.html">
+<meta property="og:title" content="数据的逻辑结构和存储结构">
+<meta property="og:url" content="http://yoursite.com/2019/08/26/数据的逻辑结构和存储结构/index.html">
 <meta property="og:site_name" content="Aaron&#39;s blog">
-<meta property="og:description" content="Hexo博客框架发布文章流程Hexo clean：清空资源文件 hexo g：重新生成资源文件 hexo d：发布文章到github.io 最后两部可简写成：hexo g -d 创建Tag页面$ hexo new page &amp;quot;tags&amp;quot;编辑刚新建的页面，将页面的类型设置为tags，主题将自动为这个页面显示标签云。页面内容如下： 123title: Tagclouddate: 2">
+<meta property="og:description" content="逻辑结构我们从上可以发现：上面这三种逻辑结构之间的节点与节点之间的关系是不一样的，对于线性结构来说，节点之间的关系是一对一的；树形结构的节点是一对多；图形结构的节点是多对多的关系。  线性结构：开始节点和终端节点都是唯一的，我们可以把第一个节点认为是开始节点，第四个节点认为是终端节点。除了开始节点和终端节点以外，其余节点都有且仅有一个前驱节点，有且仅有一个后继节点。对于第二个节点来说，它的前驱节点">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-12T04:15:57.892Z">
+<meta property="og:image" content="http://yoursite.com/2019/08/26/数据的逻辑结构和存储结构/1908261.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/26/数据的逻辑结构和存储结构/1908262.png">
+<meta property="og:image" content="http://yoursite.com/2019/08/26/数据的逻辑结构和存储结构/1908263.gif">
+<meta property="og:image" content="http://yoursite.com/2019/08/26/数据的逻辑结构和存储结构/1908264.gif">
+<meta property="og:updated_time" content="2019-08-26T14:05:19.292Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HEXO 搭建过程总结及注意事项 1">
-<meta name="twitter:description" content="Hexo博客框架发布文章流程Hexo clean：清空资源文件 hexo g：重新生成资源文件 hexo d：发布文章到github.io 最后两部可简写成：hexo g -d 创建Tag页面$ hexo new page &amp;quot;tags&amp;quot;编辑刚新建的页面，将页面的类型设置为tags，主题将自动为这个页面显示标签云。页面内容如下： 123title: Tagclouddate: 2">
-  <link rel="canonical" href="http://yoursite.com/2019/08/12/HEXO-搭建过程总结及注意事项/">
+<meta name="twitter:title" content="数据的逻辑结构和存储结构">
+<meta name="twitter:description" content="逻辑结构我们从上可以发现：上面这三种逻辑结构之间的节点与节点之间的关系是不一样的，对于线性结构来说，节点之间的关系是一对一的；树形结构的节点是一对多；图形结构的节点是多对多的关系。  线性结构：开始节点和终端节点都是唯一的，我们可以把第一个节点认为是开始节点，第四个节点认为是终端节点。除了开始节点和终端节点以外，其余节点都有且仅有一个前驱节点，有且仅有一个后继节点。对于第二个节点来说，它的前驱节点">
+<meta name="twitter:image" content="http://yoursite.com/2019/08/26/数据的逻辑结构和存储结构/1908261.png">
+  <link rel="canonical" href="http://yoursite.com/2019/08/26/数据的逻辑结构和存储结构/">
 
 
 <script id="page-configurations">
@@ -80,7 +85,7 @@
   };
 </script>
 
-  <title>HEXO 搭建过程总结及注意事项 1 | Aaron's blog</title>
+  <title>数据的逻辑结构和存储结构 | Aaron's blog</title>
   
 
 
@@ -212,7 +217,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/HEXO-搭建过程总结及注意事项/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/26/数据的逻辑结构和存储结构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -226,7 +231,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">HEXO 搭建过程总结及注意事项 1
+          <h1 class="post-title" itemprop="name headline">数据的逻辑结构和存储结构
 
             
           </h1>
@@ -243,7 +248,7 @@
                 
               
 
-              <time title="Created: 2019-08-12 10:42:28 / Modified: 12:15:57" itemprop="dateCreated datePublished" datetime="2019-08-12T10:42:28+08:00">2019-08-12</time>
+              <time title="Created: 2019-08-26 21:42:12 / Modified: 22:05:19" itemprop="dateCreated datePublished" datetime="2019-08-26T21:42:12+08:00">2019-08-26</time>
             </span>
           
             
@@ -256,7 +261,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HEXO/" itemprop="url" rel="index"><span itemprop="name">HEXO</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
 
                 
                 
@@ -283,36 +288,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Hexo博客框架发布文章流程"><a href="#Hexo博客框架发布文章流程" class="headerlink" title="Hexo博客框架发布文章流程"></a>Hexo博客框架发布文章流程</h2><p>Hexo clean：清空资源文件</p>
-<p>hexo g：重新生成资源文件</p>
-<p>hexo d：发布文章到github.io</p>
-<p>最后两部可简写成：hexo g -d</p>
-<h2 id="创建Tag页面"><a href="#创建Tag页面" class="headerlink" title="创建Tag页面"></a>创建Tag页面</h2><p><code>$ hexo new page &quot;tags&quot;</code><br>编辑刚新建的页面，将页面的类型设置为tags，主题将自动为这个页面显示标签云。页面内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: Tagcloud</span><br><span class="line">date: 2017-06-22 12:39:04</span><br><span class="line">type: &quot;tags&quot;</span><br></pre></td></tr></table></figure>
-
-<p>注意：如果有启用多说 或者Disqus评论，默认页面也会带有评论。需要关闭的话，请添加字段 comments 并将值设置为 false，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: Tagcloud</span><br><span class="line">date: 2017-06-22 12:39:04</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">comments: false</span><br></pre></td></tr></table></figure>
-
-<h2 id="添加分类页面"><a href="#添加分类页面" class="headerlink" title="添加分类页面"></a>添加分类页面</h2><p>使用： <code>hexo new page categories</code> 新建一个 分类 页面<br>主题的 _config.yml 文件中的 menu 中进行匹配</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /      //主页</span><br><span class="line">  categories: /categories //分类        （添加此行即可）</span><br><span class="line">  archives: /archives   //归档</span><br><span class="line">  tags: /tags   //标签                  </span><br><span class="line">  about: /about   //关于</span><br></pre></td></tr></table></figure>
-
-<p>底下代码是一篇包含 分类 文章的例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">title: 分类测试</span><br><span class="line">categories:</span><br><span class="line">- hexo                       （这个就是文章的分类了）</span><br></pre></td></tr></table></figure>
-
-<h2 id="添加-时间线页面"><a href="#添加-时间线页面" class="headerlink" title="添加 时间线页面"></a>添加 时间线页面</h2><p>使用： <code>hexo new page timeline</code>新建一个 归档 页面。</p>
-<p>主题的 _config.yml 文件中的 menu 中进行匹配</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /      //主页</span><br><span class="line">  categories: /categories //分类        </span><br><span class="line">  archives: /archives   //归档             （添加此行即可）</span><br><span class="line">  tags: /tags   //标签    </span><br><span class="line">-page: history   (时间线)</span><br><span class="line">     directory: timeline/</span><br><span class="line">      icon: fa-history              </span><br><span class="line">  about: /about   //关于</span><br></pre></td></tr></table></figure>
-
-<p>修改timeline对应的列表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">timeline:</span><br><span class="line">  - num: 1</span><br><span class="line">    word: 2018/08/16-Start </span><br><span class="line">  - num: 2</span><br><span class="line">    word: writing</span><br><span class="line">  - num: 3</span><br><span class="line">    word: More</span><br></pre></td></tr></table></figure>
-
-<h2 id="添加-自定义页面"><a href="#添加-自定义页面" class="headerlink" title="添加 自定义页面"></a>添加 自定义页面</h2><p>使用： <code>hexo new page &quot;guestbook&quot;</code> 新建一个 自定义 页面。<br>主题的 _config.yml 文件中的 menu 中进行匹配</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /      //主页</span><br><span class="line">  categories: /categories //分类        </span><br><span class="line">  archives: /archives   //归档   </span><br><span class="line">  tags: /tags   //标签                  </span><br><span class="line">  about: /about   //关于</span><br><span class="line">  guestbook: /guestbook    //自定义             （添加此行即可）</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://blog.csdn.net/qq_42249896/article/details/84378291" target="_blank" rel="noopener">https://blog.csdn.net/qq_42249896/article/details/84378291</a></p>
-<p><a href="https://www.jianshu.com/p/3d2e7b3ec182" target="_blank" rel="noopener">https://www.jianshu.com/p/3d2e7b3ec182</a></p>
-<p><a href="https://www.jianshu.com/p/ebbbc8edcc24" target="_blank" rel="noopener">https://www.jianshu.com/p/ebbbc8edcc24</a></p>
+        <h2 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h2><p><img src="/2019/08/26/数据的逻辑结构和存储结构/1908261.png" alt><br>我们从上可以发现：上面这三种逻辑结构之间的节点与节点之间的关系是不一样的，对于线性结构来说，节点之间的关系是一对一的；树形结构的节点是一对多；图形结构的节点是多对多的关系。</p>
+<ol>
+<li><p>线性结构：开始节点和终端节点都是唯一的，我们可以把第一个节点认为是开始节点，第四个节点认为是终端节点。除了开始节点和终端节点以外，其余节点都有且仅有一个前驱节点，有且仅有一个后继节点。对于第二个节点来说，它的前驱节点就是第一个节点，它的后继节点是第三个节点。</p>
+</li>
+<li><p>树形结构：开始节点唯一，终端节点不唯一，开始节点就是指的根节点，终端节点就是指的最下面的节点。除终端节点以外，每个节点有一个或多个后继节点，在根节点的左节点中有三个后继节点，右节点有两个后继节点，除开始节点外（根节点没有前驱节点），每个节点有且仅有一个前驱节点。</p>
+</li>
+<li><p>图形结构：没有开始节点和终端节点，所有节点都可能有多个前驱节点和多个后继节点，也就是说形成了一个多对多的图形结构，我们在图形结构中也看到了，节点之间是相互连接的。<br>下面这张图是数据逻辑结构的层次组织关系<br><img src="/2019/08/26/数据的逻辑结构和存储结构/1908262.png" alt><br>数据逻辑结构主要分为线性结构和非线性结构，在非线性结构中又包括了之前讲过的树和图两种结构，在树结构中又分为一般树和二叉树，图结构又分为有向图和无向图；在线性结构中包括了一般的线性表，受限线性表，线性表推广等，在受线性表中分为栈和队列。因此我们应该根据数据逻辑结构把所有的数据结构中的内容通过上图的方式组织起来，起码做到对这张图有个印象，这将会指导后面的学习。</p>
+</li>
+</ol>
+<p>  另外，我们在学习掌握数据的逻辑结构时，还应该掌握逻辑结构的二元组表示方法。对于线性结构，树形结构，图形结构都可以通过这种二元组来表示.</p>
+<h2 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h2><p>数据的存储方式可分为线性表、树和图三种存储结构，而每种存储结构又可细分为顺序存储结构和链式存储结构。数据存储方式如此之多，针对不同类型的数据选择合适的存储方式是至关重要的。<br>那么，到底如何选择呢？数据存储结构的选择取决于两方面，即数据的逻辑结构和存储结构（又称物理结构）。</p>
+<h3 id="逻辑结构-1"><a href="#逻辑结构-1" class="headerlink" title="逻辑结构"></a>逻辑结构</h3><p>数据的逻辑结构，简单地理解，就是指的数据之间的逻辑关系。<br><img src="/2019/08/26/数据的逻辑结构和存储结构/1908263.gif" alt><br>例如，图 1 显示是一张家庭的成员关系图，从图中可以看到，张平、张华和张群是兄弟，他们的父亲是张亮，其中张平有两个儿子，分别是张晶和张磊。</p>
+<p>以上所说，父子、兄弟等这些关系都指的是数据间的逻辑关系，假设我们要存储这样一张家庭成员关系图，不仅要存储张平、张华等数据，还要存储它们之间的关系，两者缺一不可。</p>
+<p>一组数据成功存储到计算机的衡量标准是要能将其完整的复原。例如图 1 所示的成员关系图，如果所存储的数据能将此成员关系图彻底复原，则说明数据存储成功。</p>
+<ol>
+<li>线性表用于存储具有“一对一”逻辑关系的数据；</li>
+<li>树结构用于存储具有“一对多”关系的数据；</li>
+<li>图结构用于存储具有“多对多”关系的数据；</li>
+</ol>
+<p>由此，我们可以通过分析数据之间的逻辑关系来决定使用哪种存储结构，但具体使用顺序存储还是链式存储，还要通过数据的物理结构来决定。</p>
+<h3 id="存储结构（物理结构）"><a href="#存储结构（物理结构）" class="headerlink" title="存储结构（物理结构）"></a>存储结构（物理结构）</h3><p>数据的存储结构，也就是物理结构，指的是数据在物理存储空间上选择集中存放还是分散存放。假设要存储大小为 10G 的数据，则集中存放就如图 3a) 所示，分散存放就如图 3b）所示。<br><img src="/2019/08/26/数据的逻辑结构和存储结构/1908264.gif" alt><br>如果选择集中存储，就使用顺序存储结构；反之，就使用链式存储。至于如何选择，主要取决于存储设备的状态以及数据的用途。</p>
+<p>我们知道，集中存储（底层实现使用的是数组）需要使用一大块连续的物理空间，假设要存储大小为 1G 的数据，若存储设备上没有整块大小超过 1G 的空间，就无法使用顺序存储，此时就要选择链式存储，因为链式存储是随机存储数据，占用的都是存储设备中比较小的存储空间，因此有一定几率可以存储成功。</p>
+<p>并且，数据的用途不同，选择的存储结构也不同。将数据进行集中存储有利于后期对数据进行遍历操作，而分散存储更有利于后期增加或删除数据。因此，如果后期需要对数据进行大量的检索（遍历），就选择集中存储；反之，若后期需要对数据做进一步更新（增加或删除），则选择分散存储。</p>
 
     </div>
 
@@ -329,8 +327,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/11/初学者应该如何开启自己的编程生涯？/" rel="next" title="初学者应该如何开启自己的编程生涯？">
-                  <i class="fa fa-chevron-left"></i> 初学者应该如何开启自己的编程生涯？
+                <a href="/2019/08/25/Java数据类型总结：基本类型、引用类型/" rel="next" title="Java数据类型总结：基本类型、引用类型">
+                  <i class="fa fa-chevron-left"></i> Java数据类型总结：基本类型、引用类型
                 </a>
               
             </div>
@@ -338,10 +336,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/12/加密（哈希、AES、RSA）/" rel="prev" title="加密（哈希、AES、RSA）">
-                  加密（哈希、AES、RSA） <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -476,7 +470,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo博客框架发布文章流程"><span class="nav-number">1.</span> <span class="nav-text">Hexo博客框架发布文章流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Tag页面"><span class="nav-number">2.</span> <span class="nav-text">创建Tag页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加分类页面"><span class="nav-number">3.</span> <span class="nav-text">添加分类页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-时间线页面"><span class="nav-number">4.</span> <span class="nav-text">添加 时间线页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加-自定义页面"><span class="nav-number">5.</span> <span class="nav-text">添加 自定义页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑结构"><span class="nav-number">1.</span> <span class="nav-text">逻辑结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储结构"><span class="nav-number">2.</span> <span class="nav-text">存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑结构-1"><span class="nav-number">2.1.</span> <span class="nav-text">逻辑结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储结构（物理结构）"><span class="nav-number">2.2.</span> <span class="nav-text">存储结构（物理结构）</span></a></li></ol></li></ol></div>
             
 
           </div>

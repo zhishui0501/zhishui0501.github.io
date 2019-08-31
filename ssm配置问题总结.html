@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="google-site-verification" content="I0jUNsp40jMLLvChVvaEUlXNcTs1cSJSG4ktU1HF5-M" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="MySQL安装配置及操作安装完成后进入MySQL的安装目录，进入MySQL Sever：bin目录下保存了MySQL常用的命令工具以及管理工具、data目录是MySQL默认用来保存数据文件以及日志文件的地方、docs目录下是MySQL的帮助文档、include目录和lib目录是MySQL所依赖的头文件以及库文件、share目录下保存目录文件以及日志文件。 进入bin目录，按住shift键然后点击鼠">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ssm配置问题总结">
+<meta property="og:url" content="https://zhishui0501.github.io/ssm配置问题总结.html">
+<meta property="og:site_name" content="Aaron&#39;s blog">
+<meta property="og:description" content="MySQL安装配置及操作安装完成后进入MySQL的安装目录，进入MySQL Sever：bin目录下保存了MySQL常用的命令工具以及管理工具、data目录是MySQL默认用来保存数据文件以及日志文件的地方、docs目录下是MySQL的帮助文档、include目录和lib目录是MySQL所依赖的头文件以及库文件、share目录下保存目录文件以及日志文件。 进入bin目录，按住shift键然后点击鼠">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://zhishui0501.github.io/ssm配置问题总结.htm/1908221.png">
+<meta property="og:updated_time" content="2019-08-23T01:27:19.222Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ssm配置问题总结">
+<meta name="twitter:description" content="MySQL安装配置及操作安装完成后进入MySQL的安装目录，进入MySQL Sever：bin目录下保存了MySQL常用的命令工具以及管理工具、data目录是MySQL默认用来保存数据文件以及日志文件的地方、docs目录下是MySQL的帮助文档、include目录和lib目录是MySQL所依赖的头文件以及库文件、share目录下保存目录文件以及日志文件。 进入bin目录，按住shift键然后点击鼠">
+<meta name="twitter:image" content="https://zhishui0501.github.io/ssm配置问题总结.htm/1908221.png">
+  <link rel="canonical" href="https://zhishui0501.github.io/ssm配置问题总结">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>ssm配置问题总结 | Aaron's blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">11</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">17</span></a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/ssm配置问题总结.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="Keep Learning">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">ssm配置问题总结
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-22 09:36:26" itemprop="dateCreated datePublished" datetime="2019-08-22T09:36:26+08:00">2019-08-22</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-08-23 09:27:19" itemprop="dateModified" datetime="2019-08-23T09:27:19+08:00">2019-08-23</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="MySQL安装配置及操作"><a href="#MySQL安装配置及操作" class="headerlink" title="MySQL安装配置及操作"></a>MySQL安装配置及操作</h2><p>安装完成后进入MySQL的安装目录，进入MySQL Sever：bin目录下保存了MySQL常用的命令工具以及管理工具、data目录是MySQL默认用来保存数据文件以及日志文件的地方、docs目录下是MySQL的帮助文档、include目录和lib目录是MySQL所依赖的头文件以及库文件、share目录下保存目录文件以及日志文件。</p>
+<p>进入bin目录，按住shift键然后点击鼠标右键可以选择在该目录下打开命令窗口，或者在地址栏中输入cmd进入命令窗口。输入mysql -u root -p后回车，然后会提示输入密码，输入密码后就会进入MySQL的操作管理界面。<br>输入show databases；（注意末尾有分号）可以查看当前MySQL中的数据库列表，输入use test；可以进入test数据库（前提是要有此数据库），输入show tables可以查看test数据库中的所有表，输入quit可以退出MySQL的操作管理界面。<br> ————————————————<br><a href="https://blog.csdn.net/theLostLamb/article/details/78797643" target="_blank" rel="noopener">https://blog.csdn.net/theLostLamb/article/details/78797643</a></p>
+<h2 id="Mysql安装提示one-more-product-requirements-have-not-been-satisified"><a href="#Mysql安装提示one-more-product-requirements-have-not-been-satisified" class="headerlink" title="Mysql安装提示one more product requirements have not been satisified"></a>Mysql安装提示one more product requirements have not been satisified</h2><p>点击否，先关掉对话框，一定要先点击Execute，会先安装所需要的插件<br>若不执行excute,并且本地没有安装环境，第一次点击next安装会失败<br>执行excute之后，点击next此时仍会提示，选择OK继续安装即可，此时会安装成功<br> ————————————————<br><a href="https://blog.csdn.net/weixin_41996632/article/details/84934635" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41996632/article/details/84934635</a><br><a href="https://blog.csdn.net/m0_37860933/article/details/81981663" target="_blank" rel="noopener">https://blog.csdn.net/m0_37860933/article/details/81981663</a></p>
+<h2 id="Tomcat服务器下载、安装、配置环境变量"><a href="#Tomcat服务器下载、安装、配置环境变量" class="headerlink" title="Tomcat服务器下载、安装、配置环境变量"></a>Tomcat服务器下载、安装、配置环境变量</h2><p>Windows键+R，输入cmd，回车<br>输入 startup.bat 后回车（你也可以到你解压的tomcat文件夹下的bin目录中点击startup.bat）<br>之后出现了Tomcat的启动窗口，若没有报错或者一闪而过，那么说明启动成功了，让黑窗口保持运行，不能关，否则你的服务器也就关闭了<br>可以直接点击进入<a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a><br> ————————————————<br><a href="https://blog.csdn.net/qq_40881680/article/details/83582484" target="_blank" rel="noopener">https://blog.csdn.net/qq_40881680/article/details/83582484</a></p>
+<h2 id="Eclipse项目配置maven"><a href="#Eclipse项目配置maven" class="headerlink" title="Eclipse项目配置maven"></a>Eclipse项目配置maven</h2><p>没什么问题<br> ————————————————<br> <a href="https://blog.csdn.net/feidi7783/article/details/80523030" target="_blank" rel="noopener">https://blog.csdn.net/feidi7783/article/details/80523030</a></p>
+<h2 id="Eclipse配置Tomcat找不到server或者eclipse不支持tomcat8、tomcat8-5、tomcat9-0"><a href="#Eclipse配置Tomcat找不到server或者eclipse不支持tomcat8、tomcat8-5、tomcat9-0" class="headerlink" title="Eclipse配置Tomcat找不到server或者eclipse不支持tomcat8、tomcat8.5、tomcat9.0"></a>Eclipse配置Tomcat找不到server或者eclipse不支持tomcat8、tomcat8.5、tomcat9.0</h2><p>不用安装JST Server AdaptersExtensions 没有用<br>直接重新安装下载eclipse时，版本选择要选javaEE而不是第一个，之后再打开什么都有了<br>官方网址：<a href="http://www.eclipse.org/downloads/" target="_blank" rel="noopener">http://www.eclipse.org/downloads/</a> </p>
+<h2 id="Eclipse添加Tomcat"><a href="#Eclipse添加Tomcat" class="headerlink" title="Eclipse添加Tomcat"></a>Eclipse添加Tomcat</h2><p><img src="/ssm配置问题总结.htm/1908221.png" alt="结构"><br><a href="https://jingyan.baidu.com/article/e5c39bf5c8afd039d660335b.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/e5c39bf5c8afd039d660335b.html</a></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/单步跳入-单步跳过-单步返回.html" rel="next" title="单步跳入 单步跳过 单步返回">
+                  <i class="fa fa-chevron-left"></i> 单步跳入 单步跳过 单步返回
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/Java数据类型总结：基本类型、引用类型.html" rel="prev" title="Java数据类型总结：基本类型、引用类型">
+                  Java数据类型总结：基本类型、引用类型 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/touxiang.jpg"
+      alt="Aaron">
+  <p class="site-author-name" itemprop="name">Aaron</p>
+  <div class="site-description motion-element" itemprop="description">Keep Learning</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zhishui0501" title="GitHub &rarr; https://github.com/zhishui0501" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:876944049@qq.com" title="E-Mail &rarr; mailto:876944049@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL安装配置及操作"><span class="nav-number">1.</span> <span class="nav-text">MySQL安装配置及操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql安装提示one-more-product-requirements-have-not-been-satisified"><span class="nav-number">2.</span> <span class="nav-text">Mysql安装提示one more product requirements have not been satisified</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat服务器下载、安装、配置环境变量"><span class="nav-number">3.</span> <span class="nav-text">Tomcat服务器下载、安装、配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eclipse项目配置maven"><span class="nav-number">4.</span> <span class="nav-text">Eclipse项目配置maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eclipse配置Tomcat找不到server或者eclipse不支持tomcat8、tomcat8-5、tomcat9-0"><span class="nav-number">5.</span> <span class="nav-text">Eclipse配置Tomcat找不到server或者eclipse不支持tomcat8、tomcat8.5、tomcat9.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eclipse添加Tomcat"><span class="nav-number">6.</span> <span class="nav-text">Eclipse添加Tomcat</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

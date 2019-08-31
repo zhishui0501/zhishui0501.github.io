@@ -214,7 +214,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/2019/08/13/Java-this关键字-调用属性，调用方法，调用当前对象/">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/Java-this关键字-调用属性，调用方法，调用当前对象.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -230,7 +230,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/13/Java-this关键字-调用属性，调用方法，调用当前对象/" class="post-title-link" itemprop="url">Java this关键字(调用属性，调用方法，调用当前对象)</a>
+              <a href="/Java-this关键字-调用属性，调用方法，调用当前对象.html" class="post-title-link" itemprop="url">Java this关键字(调用属性，调用方法，调用当前对象)</a>
             
           </h1>
         
@@ -287,7 +287,7 @@
 
       
           
-            <h3 id="this关键字主要有三个应用："><a href="#this关键字主要有三个应用：" class="headerlink" title="this关键字主要有三个应用："></a>this关键字主要有三个应用：</h3><p><img src="/2019/08/13/Java-this关键字-调用属性，调用方法，调用当前对象/1908131.png" alt="应用"></p>
+            <h3 id="this关键字主要有三个应用："><a href="#this关键字主要有三个应用：" class="headerlink" title="this关键字主要有三个应用："></a>this关键字主要有三个应用：</h3><p><img src="/Java-this关键字-调用属性，调用方法，调用当前对象.htm/1908131.png" alt="应用"></p>
 <p><strong>调用属性(代码示例):</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class thisDemo01 &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		BlueMoon bm=new BlueMoon(&quot;渣渣辉&quot;, 100);</span><br><span class="line">		System.out.println(bm.getInfo());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">class BlueMoon &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int level;</span><br><span class="line"> </span><br><span class="line">	public BlueMoon(String name, int level) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.level = level;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	public String getInfo() &#123;</span><br><span class="line">		return &quot;大家好!我是&quot; + this.name + &quot;，我是贪玩蓝月的战士，等级：&quot; + this.level;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -302,7 +302,7 @@
 </ul>
 <h3 id="当前对象调用"><a href="#当前对象调用" class="headerlink" title="当前对象调用:"></a>当前对象调用:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class BlueMoon &#123;</span><br><span class="line">	public void print() &#123;</span><br><span class="line">		//哪个对象调用了print()方法,this就自动与此对象指向同一块内存地址</span><br><span class="line">		System.out.println(&quot;this=&quot; + this);//this 就是当前调用对象</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">public class thisDemo02 &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		BlueMoon bm = new BlueMoon();</span><br><span class="line">		BlueMoon bm2 = new BlueMoon();</span><br><span class="line">		System.out.println(&quot;bm=&quot; + bm);</span><br><span class="line">		bm.print();</span><br><span class="line">		System.out.println(&quot;---------------------&quot;);</span><br><span class="line">		System.out.println(&quot;bm2=&quot; + bm2);</span><br><span class="line">		bm.print();</span><br><span class="line"> </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/08/13/Java-this关键字-调用属性，调用方法，调用当前对象/1908133.png" alt></p>
+<p><img src="/Java-this关键字-调用属性，调用方法，调用当前对象.htm/1908133.png" alt></p>
 <hr>
 <h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://blog.csdn.net/yanwenwennihao/article/details/79375611" target="_blank" rel="noopener">https://blog.csdn.net/yanwenwennihao/article/details/79375611</a><br><a href="https://blog.csdn.net/ikv1989/article/details/79182432" target="_blank" rel="noopener">https://blog.csdn.net/ikv1989/article/details/79182432</a></p>
 
@@ -332,7 +332,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/2019/08/12/分布式数据库与区块链的区别/">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/分布式数据库与区块链的区别.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -348,7 +348,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/12/分布式数据库与区块链的区别/" class="post-title-link" itemprop="url">分布式数据库与区块链的区别</a>
+              <a href="/分布式数据库与区块链的区别.html" class="post-title-link" itemprop="url">分布式数据库与区块链的区别</a>
             
           </h1>
         
@@ -490,7 +490,7 @@
 <li>分布式数据库各节点之间的关系是：信任，协作。</li>
 <li>区块链各节点之间的关系是：怀疑，制约。</li>
 </ul>
-<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p><img src="/2019/08/12/分布式数据库与区块链的区别/%E5%AF%B9%E6%AF%94.jpg" alt="比较"></p>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p><img src="/分布式数据库与区块链的区别.htm/%E5%AF%B9%E6%AF%94.jpg" alt="比较"></p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>分布式数据库是在互联网背景下应对大数据量和分布式请求的需求下产生的，其在中心化控制下假设每个节点都诚实，从而由多节点共同维护一个具有逻辑整体性的分布式数据库。其主要解决的是节点宕机或节点间通信不可靠的问题</p>
 <p>区块链由多个节点共同维护一个分布式账本，没有中心化控制机构。区块链假设任何一个单点均不可靠但系统内诚实节点占大多数，由此搭建起了一个无需信任的信任体系。其主要解决的是节点本身不可靠的问题。</p>
 <p>区块链应该属于分布式数据库的一种，它以牺牲一致性为代价把CAP定理中的Availability（可用性）和Partition tolerance（分区容错性）落实到了极致。当然，虽然区块链读取速度很快，但是其写入速度一直有严重瓶颈，如何在多方需求间找到均衡点，应该就是区块链创业者的使命了</p>
@@ -524,7 +524,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/2019/08/12/加密（哈希、AES、RSA）/">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/加密（哈希、AES、RSA）.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -540,7 +540,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/12/加密（哈希、AES、RSA）/" class="post-title-link" itemprop="url">加密（哈希、AES、RSA）</a>
+              <a href="/加密（哈希、AES、RSA）.html" class="post-title-link" itemprop="url">加密（哈希、AES、RSA）</a>
             
           </h1>
         
@@ -651,7 +651,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/2019/08/12/HEXO-搭建过程总结及注意事项/">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/HEXO-搭建过程总结及注意事项.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -667,7 +667,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/12/HEXO-搭建过程总结及注意事项/" class="post-title-link" itemprop="url">HEXO 搭建过程总结及注意事项 1</a>
+              <a href="/HEXO-搭建过程总结及注意事项.html" class="post-title-link" itemprop="url">HEXO 搭建过程总结及注意事项 1</a>
             
           </h1>
         
@@ -773,7 +773,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/2019/08/11/初学者应该如何开启自己的编程生涯？/">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/初学者应该如何开启自己的编程生涯？.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -789,7 +789,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/11/初学者应该如何开启自己的编程生涯？/" class="post-title-link" itemprop="url">初学者应该如何开启自己的编程生涯？</a>
+              <a href="/初学者应该如何开启自己的编程生涯？.html" class="post-title-link" itemprop="url">初学者应该如何开启自己的编程生涯？</a>
             
           </h1>
         
@@ -942,7 +942,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/2019/08/11/My-First-Blog/">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/My-First-Blog.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -958,7 +958,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/11/My-First-Blog/" class="post-title-link" itemprop="url">My First Essay</a>
+              <a href="/My-First-Blog.html" class="post-title-link" itemprop="url">My First Essay</a>
             
           </h1>
         
@@ -1045,7 +1045,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/2019/08/11/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/hello-world.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -1061,7 +1061,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/2019/08/11/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+              <a href="/hello-world.html" class="post-title-link" itemprop="url">Hello World</a>
             
           </h1>
         

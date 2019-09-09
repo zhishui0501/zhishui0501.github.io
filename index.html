@@ -187,7 +187,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">25</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">26</span></a>
 
   </li>
   </ul>
@@ -207,6 +207,135 @@
           <div id="content" class="content page-home">
             
   <section id="posts" class="posts-expand">
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/二层交换机与三层交换机区别.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="Keep Learning">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/二层交换机与三层交换机区别.html" class="post-title-link" itemprop="url">二层交换机与三层交换机区别</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-09 21:34:40 / Modified: 22:03:53" itemprop="dateCreated datePublished" datetime="2019-09-09T21:34:40+08:00">2019-09-09</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>我们习惯说，在二层网络环境中相同VLAN（Virtual Local Area Network）之间可以通信，不同vlan之间不可以通信，如果想通信必须借助三层设备，所以说三层交换机必须要做的事情是路由转发，但是二、三层交换机具体有什么区别呢？</p>
+<h2 id="二层交换机"><a href="#二层交换机" class="headerlink" title="二层交换机"></a>二层交换机</h2><p>二层交换机工作于OSI模型的第2层(数据链路层)，故而称为二层交换机。二层交换技术发展比较成熟，二层交换机属数据链路层设备，可以识别数据包中的MAC地址信息，根据MAC地址进行转发，并将这些MAC地址与对应的端口记录在自己内部的一个地址表中。具体的工作流程如下：</p>
+<ol>
+<li><p>当交换机从某个端口收到一个数据包，它先读取包头中的源MAC地址，这样它就知道源MAC地址的机器是连在哪个端口上的；</p>
+</li>
+<li><p>再去读取包头中的目的MAC地址，并在地址表中查找相应的端口；</p>
+</li>
+<li><p>如表中有与这目的MAC地址对应的端口，把数据包直接复制到这端口上；</p>
+</li>
+<li><p>如表中找不到相应的端口则把数据包广播到所有端口上，当目的机器对源机器回应时，交换机又可以学习一目的MAC地址与哪个端口对应，在下次传送数据时就不再需要对所有端口进行广播了。</p>
+</li>
+</ol>
+<p>不断的循环这个过程，对于全网的MAC地址信息都可以学习到，二层交换机就是这样建立和维护它自己的地址表。</p>
+<p>二层交换技术从网桥发展到VLAN（虚拟局域网），在局域网建设和改造中得到了广泛的应用。第二层交换技术是工作在OSI七层网络模型中的第二层，即数据链路层。它按照所接收到数据包的目的MAC地址来进行转发，对于网络层或者高层协议来说是透明的。它不处理网络层的IP地址，不处理高层协议的诸如TCP、UDP的端口地址，它只需要数据包的物理地址即MAC地址，数据交换是靠硬件来实现的，其速度相当快，这是二层交换的一个显著的优点。但是，它不能处理不同IP子网之间的数据交换。传统的路由器可以处理大量的跨越IP子网的数据包，但是它的转发效率比二层低，因此要想利用二层转发效率高这一优点，又要处理三层IP数据包，三层交换技术就诞生了。</p>
+<h2 id="三层交换机"><a href="#三层交换机" class="headerlink" title="三层交换机"></a>三层交换机</h2><h3 id="诞生"><a href="#诞生" class="headerlink" title="诞生"></a>诞生</h3><p>传统交换技术是在OSI网络标准模型第二层–数据链路层进行操作的，而三层交换技术是在网络模型中的第三层实现了数据包的高速转发，既可实现网络路由功能，又可根据不同网络状况做到最优网络性能。</p>
+<p>二层交换技术从网桥发展到VLAN（虚拟局域网），在局域网建设和改造中得到了广泛的应用。第二层交换技术是工作在OSI七层网络模型中的第二层，即数据链路层。它按照所接收到数据包的目的MAC地址来进行转发，对于网络层或者高层协议来说是透明的。</p>
+<p>它不处理网络层的IP地址，不处理高层协议的诸如TCP、UDP的端口地址，它只需要数据包的物理地址即MAC地址，数据交换是靠硬件来实现的，其速度相当快，这是二层交换的一个显著的优点。但是，它不能处理不同IP子网之间的数据交换。传统的路由器可以处理大量的跨越IP子网的数据包，但是它的转发效率比二层低，因此要想利用二层转发效率高这一优点，又要处理三层IP数据包，三层交换技术就诞生了。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>三层交换（也称多层交换技术，或IP交换技术）是相对于传统交换概念而提出的。众所周知，传统的交换技术是在OSI网络标准模型中的第二层——数据链路层进行操作的，而三层交换技术是在网络模型中的第三层实现了数据包的高速转发。三层交换机就是具有部分路由器功能的交换机，三层交换机的最重要目的是加快大型局域网内部的数据交换，所具有的路由功能也是为这目的服务的，能够做到一次路由，多次转发。对于数据包转发等规律性的过程由硬件高速实现，而像路由信息更新、路由表维护、路由计算、路由确定等功能，由软件实现。简单地说，三层交换技术就是：二层交换技术＋三层转发技术。<br><img src="images/1909091.PNG" alt><br>三层交换机就是具有部分路由器功能的交换机。</p>
+<p>三层交换机的最重要目的是加快大型局域网内部的数据交换，所具有的路由功能也是为这目的服务的，能够做到一次路由，多次转发。对于数据包转发等规律性的过程由硬件高速实现，而像路由信息更新、路由表维护、路由计算、路由确定等功能，由软件实现。三层交换技术就是二层交换技术+三层转发技术。</p>
+<p>三层交换技术的出现，解决了局域网中网段划分之后，网段中子网必须依赖路由器进行管理的局面，解决了传统路由器低速、复杂所造成的网络瓶颈问题。<br><img src="images/1909092.PNG" alt><br>交换机在判断出目的IP不是自己的时候是不是一定就去查看路由表呢 ？不是，这个就是交换机的关键所在了，交换机此时不会查看路由表，不会查看arp表，不会查看mac地址表；那交换机会查看什么表？</p>
+<p>交换机此时会查看自己集成在ASIC硬件转发卡中的硬件转发表，那这个硬件转发表都包含了什么内容呢？</p>
+<ul>
+<li>当第一个包过来的时候，发现硬件转发表并没有什么表项，所以此时必须将数据包交由路由进程处理，一旦交由cpu处理，必然会消耗cpu资源，此时会查看路由表，然后发现此IP地址和自己是直连的，此时就去查看arp找出此地址对应的mac地址，就可以转发出去了</li>
+<li>在决定转发出去过程中，交换机至少会做三件事情，一，修改IP包头的ttl值；二，修改原mac地址，改成自己出接口mac地址；三，建立交换机硬件转发表，包括目的IP地址，目的IP地址（下一跳）对应的mac地址，mac地址对应的vlan，以及对应的端口（这个每个厂家有自己的理解）</li>
+<li>这样当一下包过来的时候，交换机就会查看硬件转发表直接转发而不会在经过路由表的查询了，也即是交换机的一次路由，多次交换机原理。</li>
+</ul>
+<h3 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h3><p>假设两个使用IP协议的站点A、B通过第三层交换机进行通信，发送站点A在开始发送时，把自己的IP地址与B站的IP地址比较，判断B站是否与自己在同一子网内。若目的站B与发送站A在同一子网内，则进行二层的转发。若两个站点不在同一子网内，如发送站A要与目的站B通信，发送站A要向“缺省网关”发出ARP(地址解析)封包，而“缺省网关”的IP地址其实是三层交换机的三层交换模块。</p>
+<p>当发送站A对“缺省网关”的IP地址广播出一个ARP请求时，如果三层交换模块在以前的通信过程中已经知道B站的MAC地址，则向发送站A回复B的MAC地址。否则三层交换模块根据路由信息向B站广播一个ARP请求，B站得到此ARP请求后向三层交换模块回复其MAC地址，三层交换模块保存此地址并回复给发送站A,同时将B站的MAC地址发送到二层交换引擎的MAC地址表中。</p>
+<p>从这以后，当A向B发送的数据包便全部交给二层交换处理，信息得以高速交换。由于仅仅在路由过程中才需要三层处理，绝大部分数据都通过二层交换转发，因此三层交换机的速度很快，接近二层交换机的速度，同时比相同路由器的价格低很多。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>简单点来说，二层和三层交换机最基本的区别就是，三层交换机具有路由功能，可以看作是网络层的设备（当然，也可以做二层用）。二层交换机是数据链路层的设备，不具备路由功能。</p>
+<p>总之，二层交换机用于小型的局域网络。这个就不用多言了，在小型局域网中，广播包影响不大，二层交换机的快速交换功能、多个接入端口和低廉价格为小型网络用户提供了很完善的解决方案。</p>
+<p>而三层交换机的最重要的功能是加快大型局域网络内部的数据的快速转发，加入路由功能也是为这个目的服务的。如果把大型网络按照部门，地域等等因素划分成一个个小局域网，这将导致大量的网际互访，单纯的使用二层交换机不能实现网际互访；如单纯的使用路由器，由于接口数量有限和路由转发速度慢，将限制网络的速度和网络规模，采用具有路由功能的快速转发的三层交换机就成为首选。</p>
+<p>一般来说，在内网数据流量大，要求快速转发响应的网络中，如全部由三层交换机来做这个工作，会造成三层交换机负担过重，响应速度受影响，将网间的路由交由路由器去完成，充分发挥不同设备的优点，不失为一种好的组网策略，当然，前提是你的腰包很鼓，不然就退而求其次，让三层交换机也兼为网际互连。</p>
+<p>传统交换技术是在OSI网络标准模型第二层–数据链路层进行操作的，而三层交换技术是在网络模型中的第三层实现了数据包的高速转发，既可实现网络路由功能，又可根据不同网络状况做到最优网络性能。</p>
+<h2 id="扩展资料"><a href="#扩展资料" class="headerlink" title="扩展资料"></a>扩展资料</h2><p>二层交换机和三层交换机都属于以太网交换机。</p>
+<p>以太网交换机是基于以太网传输数据的交换机，以太网采用共享总线型传输媒体方式的局域网。以太网交换机的结构是每个端口都直接与主机相连，并且一般都工作在全双工方式。交换机能同时连通许多对端口，使每一对相互通信的主机都能像独占通信媒体那样，进行无冲突地传输数据。</p>
+<p>以太网交换机应用最为普遍，价格也较便宜，档次齐全。因此，应用领域非常广泛，在大大小小的局域网都可以见到它们的踪影。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
       
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1364,129 +1493,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/数据的逻辑结构和存储结构.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="Keep Learning">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's blog">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/数据的逻辑结构和存储结构.html" class="post-title-link" itemprop="url">数据的逻辑结构和存储结构</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-26 21:42:12" itemprop="dateCreated datePublished" datetime="2019-08-26T21:42:12+08:00">2019-08-26</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-02 20:49:42" itemprop="dateModified" datetime="2019-09-02T20:49:42+08:00">2019-09-02</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h2 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h2><p><img src="images/1908261.png" alt><br>我们从上可以发现：上面这三种逻辑结构之间的节点与节点之间的关系是不一样的，对于线性结构来说，节点之间的关系是一对一的；树形结构的节点是一对多；图形结构的节点是多对多的关系。</p>
-<ol>
-<li><p>线性结构：开始节点和终端节点都是唯一的，我们可以把第一个节点认为是开始节点，第四个节点认为是终端节点。除了开始节点和终端节点以外，其余节点都有且仅有一个前驱节点，有且仅有一个后继节点。对于第二个节点来说，它的前驱节点就是第一个节点，它的后继节点是第三个节点。</p>
-</li>
-<li><p>树形结构：开始节点唯一，终端节点不唯一，开始节点就是指的根节点，终端节点就是指的最下面的节点。除终端节点以外，每个节点有一个或多个后继节点，在根节点的左节点中有三个后继节点，右节点有两个后继节点，除开始节点外（根节点没有前驱节点），每个节点有且仅有一个前驱节点。</p>
-</li>
-<li><p>图形结构：没有开始节点和终端节点，所有节点都可能有多个前驱节点和多个后继节点，也就是说形成了一个多对多的图形结构，我们在图形结构中也看到了，节点之间是相互连接的。<br>下面这张图是数据逻辑结构的层次组织关系<br><img src="images/1908262.png" alt><br>数据逻辑结构主要分为线性结构和非线性结构，在非线性结构中又包括了之前讲过的树和图两种结构，在树结构中又分为一般树和二叉树，图结构又分为有向图和无向图；在线性结构中包括了一般的线性表，受限线性表，线性表推广等，在受线性表中分为栈和队列。因此我们应该根据数据逻辑结构把所有的数据结构中的内容通过上图的方式组织起来，起码做到对这张图有个印象，这将会指导后面的学习。</p>
-</li>
-</ol>
-<p>另外，我们在学习掌握数据的逻辑结构时，还应该掌握逻辑结构的二元组表示方法。对于线性结构，树形结构，图形结构都可以通过这种二元组来表示.</p>
-<h2 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h2><p>数据的存储方式可分为线性表、树和图三种存储结构，而每种存储结构又可细分为顺序存储结构和链式存储结构。数据存储方式如此之多，针对不同类型的数据选择合适的存储方式是至关重要的。<br>那么，到底如何选择呢？数据存储结构的选择取决于两方面，即数据的逻辑结构和存储结构（又称物理结构）。</p>
-<h3 id="逻辑结构-1"><a href="#逻辑结构-1" class="headerlink" title="逻辑结构"></a>逻辑结构</h3><p>数据的逻辑结构，简单地理解，就是指的数据之间的逻辑关系。<br><img src="images/1908263.gif" alt><br>例如，图 1 显示是一张家庭的成员关系图，从图中可以看到，张平、张华和张群是兄弟，他们的父亲是张亮，其中张平有两个儿子，分别是张晶和张磊。</p>
-<p>以上所说，父子、兄弟等这些关系都指的是数据间的逻辑关系，假设我们要存储这样一张家庭成员关系图，不仅要存储张平、张华等数据，还要存储它们之间的关系，两者缺一不可。</p>
-<p>一组数据成功存储到计算机的衡量标准是要能将其完整的复原。例如图 1 所示的成员关系图，如果所存储的数据能将此成员关系图彻底复原，则说明数据存储成功。</p>
-<ol>
-<li>线性表用于存储具有“一对一”逻辑关系的数据；</li>
-<li>树结构用于存储具有“一对多”关系的数据；</li>
-<li>图结构用于存储具有“多对多”关系的数据；</li>
-</ol>
-<p>由此，我们可以通过分析数据之间的逻辑关系来决定使用哪种存储结构，但具体使用顺序存储还是链式存储，还要通过数据的物理结构来决定。</p>
-<h3 id="存储结构（物理结构）"><a href="#存储结构（物理结构）" class="headerlink" title="存储结构（物理结构）"></a>存储结构（物理结构）</h3><p>数据的存储结构，也就是物理结构，指的是数据在物理存储空间上选择集中存放还是分散存放。假设要存储大小为 10G 的数据，则集中存放就如图 3a) 所示，分散存放就如图 3b）所示。<br><img src="images/1908264.gif" alt><br>如果选择集中存储，就使用顺序存储结构；反之，就使用链式存储。至于如何选择，主要取决于存储设备的状态以及数据的用途。</p>
-<p>我们知道，集中存储（底层实现使用的是数组）需要使用一大块连续的物理空间，假设要存储大小为 1G 的数据，若存储设备上没有整块大小超过 1G 的空间，就无法使用顺序存储，此时就要选择链式存储，因为链式存储是随机存储数据，占用的都是存储设备中比较小的存储空间，因此有一定几率可以存储成功。</p>
-<p>并且，数据的用途不同，选择的存储结构也不同。将数据进行集中存储有利于后期对数据进行遍历操作，而分散存储更有利于后期增加或删除数据。因此，如果后期需要对数据进行大量的检索（遍历），就选择集中存储；反之，若后期需要对数据做进一步更新（增加或删除），则选择分散存储。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1525,7 +1531,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

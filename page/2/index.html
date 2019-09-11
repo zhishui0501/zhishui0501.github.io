@@ -187,7 +187,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">26</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">27</span></a>
 
   </li>
   </ul>
@@ -207,6 +207,116 @@
           <div id="content" class="content page-home">
             
   <section id="posts" class="posts-expand">
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/对jQuery对象的理解.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="Keep Learning">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/对jQuery对象的理解.html" class="post-title-link" itemprop="url">对jQuery对象的理解</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-27 21:44:23 / Modified: 21:48:27" itemprop="dateCreated datePublished" datetime="2019-08-27T21:44:23+08:00">2019-08-27</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h2 id="什么是jQuery对象？"><a href="#什么是jQuery对象？" class="headerlink" title="什么是jQuery对象？"></a>什么是jQuery对象？</h2><p>jQuery对象是通过jQuery包装DOM对象后产生的对象。</p>
+<p>这里首先要理解DOM文档对象模型：</p>
+<p>（1）DOM解析XML文档时，DOM为XML文档在逻辑上建立一个树模型；</p>
+<p>（2）DOM把XML文档作为树结构来查看，XML文档的树形结构节点就是XML文档上的元素、文本和属性。</p>
+<p>还要理解HTML页面为什么与DOM对象联系在一起？</p>
+<p>因为HTML页面中的元素都表现为类似XML文档的树形结构：存在元素节点、属性节点和文本节点，所以用</p>
+<p>DOM对象也可以解析HTML页面中的元素（这也是形成jQuery选择器的原因）。</p>
+<p>再者，还要理解DOM对象如何转化为jQuery对象？</p>
+<p>HTML DOM 定义了多种查找HTML页面元素的方法，除了 getElementById() 之外，</p>
+<p>还有 getElementsByName() 和 getElementsByTagName()。找到的这个页面元素就是一个DOM对象。</p>
+<p>用jQuery构造这个DOM对象，就获得一个jQuery对象。示例：</p>
+<p>var domObj = document.getElementById(“element”);</p>
+<p>var $obj=jQuery(domObj);</p>
+<h2 id="jQuery对象的表示："><a href="#jQuery对象的表示：" class="headerlink" title="jQuery对象的表示："></a>jQuery对象的表示：</h2><p>在jQuery库中，$是jQuery的一个简写形式，所以一个节点元素的jQuery对象可以写成：</p>
+<p>$(nodeString)</p>
+<p>其中，nodeString是：Html标签的id、class、或者标签名等。</p>
+<h2 id="jQuery中DOM的操作"><a href="#jQuery中DOM的操作" class="headerlink" title="jQuery中DOM的操作"></a>jQuery中DOM的操作</h2><p>DOM是一种与浏览器、语言无关的接口，利用该接口可以方便地访问HTML页面中的标准组件。jQuery提供了一系列方法对DOM进行各种操作，从而通过DOM实现对HTML页面中各种元素的操作。</p>
+<p>每一个HTML页面都可以使用DOM表示，在使用jQuery进行DOM操作之前，HTML页面首先被看作一棵DOM树。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
       
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1491,124 +1601,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/Java-this关键字-调用属性，调用方法，调用当前对象.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="Keep Learning">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's blog">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/Java-this关键字-调用属性，调用方法，调用当前对象.html" class="post-title-link" itemprop="url">Java this关键字(调用属性，调用方法，调用当前对象)</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-13 10:38:34" itemprop="dateCreated datePublished" datetime="2019-08-13T10:38:34+08:00">2019-08-13</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-01 10:04:02" itemprop="dateModified" datetime="2019-09-01T10:04:02+08:00">2019-09-01</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h3 id="this关键字主要有三个应用："><a href="#this关键字主要有三个应用：" class="headerlink" title="this关键字主要有三个应用："></a>this关键字主要有三个应用：</h3><p><img src="/images/1908131.png" alt="应用"></p>
-<p><strong>调用属性(代码示例):</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class thisDemo01 &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		BlueMoon bm=new BlueMoon(&quot;渣渣辉&quot;, 100);</span><br><span class="line">		System.out.println(bm.getInfo());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">class BlueMoon &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int level;</span><br><span class="line"> </span><br><span class="line">	public BlueMoon(String name, int level) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.level = level;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	public String getInfo() &#123;</span><br><span class="line">		return &quot;大家好!我是&quot; + this.name + &quot;，我是贪玩蓝月的战士，等级：&quot; + this.level;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="调用方法-普通方法与构造方法"><a href="#调用方法-普通方法与构造方法" class="headerlink" title="调用方法(普通方法与构造方法)"></a>调用方法(普通方法与构造方法)</h3><ul>
-<li><p>调用普通方法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public class thisDemo01 &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		BlueMoon bm = new BlueMoon(&quot;渣渣辉&quot;, 100);</span><br><span class="line">		System.out.println(bm.getInfo());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">class BlueMoon &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int level;</span><br><span class="line"> </span><br><span class="line">	public BlueMoon(String name, int level) &#123;</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.level = level;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	public void print() &#123;</span><br><span class="line">		System.out.println(&quot;************************&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	public String getInfo() &#123;</span><br><span class="line">		this.print();//调用普通方法</span><br><span class="line">		return &quot;大家好!我是&quot; + this.name + &quot;，我是贪玩蓝月的战士，等级：&quot; + this.level;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>调用构造方法:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">public class thisDemo01 &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		BlueMoon bm1 = new BlueMoon();</span><br><span class="line">		BlueMoon bm2 = new BlueMoon(&quot;古天乐&quot;);</span><br><span class="line">		BlueMoon bm3 = new BlueMoon(&quot;小志传奇&quot;, &quot;陈赫&quot;, &quot;法师&quot;);</span><br><span class="line"> </span><br><span class="line">		System.out.println(bm1.getInfo());</span><br><span class="line">		System.out.println(bm2.getInfo());</span><br><span class="line">		System.out.println(bm3.getInfo());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">class BlueMoon &#123;</span><br><span class="line">	private String game;</span><br><span class="line">	private String name;</span><br><span class="line">	private String title;</span><br><span class="line">	private int level;</span><br><span class="line"> </span><br><span class="line">	public BlueMoon() &#123;</span><br><span class="line">		this(&quot;贪玩蓝月&quot;, &quot;无名氏&quot;, &quot;未定&quot;, 0);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	public BlueMoon(String name) &#123;</span><br><span class="line">		this(&quot;贪玩蓝月&quot;, name, &quot;剑士&quot;, 90);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	public BlueMoon(String game, String name) &#123;</span><br><span class="line">		this(game, name, &quot;战士&quot;, 100);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	public BlueMoon(String game, String name, String title) &#123;</span><br><span class="line">		this();</span><br><span class="line">		this.game = game;</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.title = title;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	public BlueMoon(String game, String name, String title, int level) &#123;</span><br><span class="line">		this.game = game;</span><br><span class="line">		this.name = name;</span><br><span class="line">		this.title = title;</span><br><span class="line">		this.level = level;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	public String getInfo() &#123;</span><br><span class="line">		return &quot;欢迎来到&quot; + this.game + &quot;！我是&quot; + this.name + &quot;,职业:&quot; + this.title + &quot;,等级:&quot; + this.level + &quot;级&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="当前对象调用"><a href="#当前对象调用" class="headerlink" title="当前对象调用:"></a>当前对象调用:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class BlueMoon &#123;</span><br><span class="line">	public void print() &#123;</span><br><span class="line">		//哪个对象调用了print()方法,this就自动与此对象指向同一块内存地址</span><br><span class="line">		System.out.println(&quot;this=&quot; + this);//this 就是当前调用对象</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">public class thisDemo02 &#123;</span><br><span class="line">	public static void main(String[] args) throws Exception &#123;</span><br><span class="line">		BlueMoon bm = new BlueMoon();</span><br><span class="line">		BlueMoon bm2 = new BlueMoon();</span><br><span class="line">		System.out.println(&quot;bm=&quot; + bm);</span><br><span class="line">		bm.print();</span><br><span class="line">		System.out.println(&quot;---------------------&quot;);</span><br><span class="line">		System.out.println(&quot;bm2=&quot; + bm2);</span><br><span class="line">		bm.print();</span><br><span class="line"> </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="images/1908133.png" alt></p>
-<hr>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://blog.csdn.net/yanwenwennihao/article/details/79375611" rel="external nofollow noopener noreferrer" target="_blank">https://blog.csdn.net/yanwenwennihao/article/details/79375611</a><br><a href="https://blog.csdn.net/ikv1989/article/details/79182432" rel="external nofollow noopener noreferrer" target="_blank">https://blog.csdn.net/ikv1989/article/details/79182432</a></p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1647,7 +1639,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

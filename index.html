@@ -187,7 +187,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">26</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">27</span></a>
 
   </li>
   </ul>
@@ -207,6 +207,103 @@
           <div id="content" class="content page-home">
             
   <section id="posts" class="posts-expand">
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/有了IP为什么还要有MAC.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="Keep Learning">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/有了IP为什么还要有MAC.html" class="post-title-link" itemprop="url">有了IP为什么还要有MAC</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-11 21:19:22 / Modified: 21:43:01" itemprop="dateCreated datePublished" datetime="2019-09-11T21:19:22+08:00">2019-09-11</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h2 id="为什么有了MAC地址，还需要IP地址？"><a href="#为什么有了MAC地址，还需要IP地址？" class="headerlink" title="为什么有了MAC地址，还需要IP地址？"></a>为什么有了MAC地址，还需要IP地址？</h2><p>Mac地址是物理层的地址，但它是以太网的物理地址。互联网是由很多异构的物理网络通过路由器联接起来的，不同的物理网络，寻址方式很可能是不同的，可能根本不使用MAC地址。如果只用MAC地址，不同的物理网络进行寻址时会非常困难，因为彼此的数据帧格式不一样相互不兼容。所以，我们需要一个公用的标准去遵循，这个标准就是IP地址。这里也体现了计算机网络中分层的好处，让你不再去考虑两个不同的实现方式的物理网之间如何通讯。它屏蔽了下层的东西，让所有的网络都建立在IP地址之上，整个互联网在第三层看起来就像是一个巨大的IP网，而不用去管底层物理网络是什么。</p>
+<h2 id="只有IP地址，不要MAC地址？"><a href="#只有IP地址，不要MAC地址？" class="headerlink" title="只有IP地址，不要MAC地址？"></a>只有IP地址，不要MAC地址？</h2><p>1.IP地址是有限的，根本就不够用，不可能为全球每台计算机都分配一个IP地址。<br>2.MAC地址全球固定而且唯一的，有了MAC地址就能准确的找到你的计算。<br>3.如果IP层抢了第二层的饭碗，你就不得不考虑第二层的很多东西了，这就让IP层的实现变得十分困难。</p>
+<p>IP地址就不用说了也就是一个逻辑地址，至于MAC地址的定义就是一个设备的物理地址。好了，为什么有了IP还要有MAC？在网上看了看了很久每一个能回答好点的，最好的也就是有了IP可以屏蔽掉各个链路的差异。拿实际来讲，若是没有MAC地址，就用IP地址来充当MAC。首先，有个问题要说清楚的是IP地址肯定是在不停的变化的，比如你从A走到了B，A和B有不同的网络，那么你在用手机上网的时候，IP地址在不停的变化，那么就说这个数据，若是下雨天什么情况的话，当你在A点的时候玩亡者农药，数据发出去了，由于天气原因，手机显示420ms导致数据传输不过，这时，你换到了B点，重新获得了IP地址，wo吼，恭喜您成功解锁由于接收不到数据被举报，而导致制裁！为什么？因为IP地址换了，所以之前的数据一脸懵逼不知道转送给谁，若是某某人链接到了之前的IP（你之前链接的IP），那就是传送给了那个某某人了。所以没有MAC只是有IP，不仅有接收不到数据的可能，同时还极大的消耗CPU的资源，这就不太好了。</p>
+<p>那有了MAC为什么还要有IP地址？在很久很久以前，那是没有路由，交换机的时代，若是两台电脑要通信，可以一根线直接连接就ok了，比如电话。若是有多台怎么通信？？这时就出现了集线器，只需要在消息里面附加上对方的MAC地址就可以了，集线器就会广播消息，每个设备接收消息并对照自己的MAC，是不是一样的，若是一样的收下。这样的广播比较麻烦就出现了交换机，交换机会把MAC地址与某一个端口一一对应，比如主机A要与主机B通信，主机A发送附带主机B的MAC地址的消息发送到交换机，交换机根据对应表查找到相应的端口号，并把消息发送到B，这就比如，你坐公交一样，各个站点的路线信息就相当于集线器告诉你公交是怎么走的。那么也就是意味着交换机与各个站牌中的信息一样要记录所有与它连接设备的MAC地址，那么问题来了，比如A是中国某一地区的主机，B是台湾的某一地区的主机，假设A直接连接到中国这一个大子网，B直接连接到台湾这一个大子网，两个大子网的链接是用交换机相连接的，A要与B通信，由于交换机记录与它链接的设备的地址，中国这一个大子网的交换机只会记录台湾的一个交换机的MAC地址，所以A附带B的MAC地址的信息，无法通过中国这一个大子网的换交换机的，除非A和B在同一个子网中。所以就出现 了IP这个逻辑地址来解决以上不能通信的问题。</p>
+<p>可能会想到的是，把MAC地址像IP地址一样来对待，用一个交换机来构成多个子MAC进而构成多个子网，那问题是MAC地址要被有规则的被分配的话，那由谁来管理，再说MAC是厂商制造的，那肯定由厂商自己决定MAC地址是多少，那么多的选择方式。当然MAC是唯一的了。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
       
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1383,116 +1480,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/对jQuery对象的理解.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="Keep Learning">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's blog">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/对jQuery对象的理解.html" class="post-title-link" itemprop="url">对jQuery对象的理解</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-08-27 21:44:23 / Modified: 21:48:27" itemprop="dateCreated datePublished" datetime="2019-08-27T21:44:23+08:00">2019-08-27</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <h2 id="什么是jQuery对象？"><a href="#什么是jQuery对象？" class="headerlink" title="什么是jQuery对象？"></a>什么是jQuery对象？</h2><p>jQuery对象是通过jQuery包装DOM对象后产生的对象。</p>
-<p>这里首先要理解DOM文档对象模型：</p>
-<p>（1）DOM解析XML文档时，DOM为XML文档在逻辑上建立一个树模型；</p>
-<p>（2）DOM把XML文档作为树结构来查看，XML文档的树形结构节点就是XML文档上的元素、文本和属性。</p>
-<p>还要理解HTML页面为什么与DOM对象联系在一起？</p>
-<p>因为HTML页面中的元素都表现为类似XML文档的树形结构：存在元素节点、属性节点和文本节点，所以用</p>
-<p>DOM对象也可以解析HTML页面中的元素（这也是形成jQuery选择器的原因）。</p>
-<p>再者，还要理解DOM对象如何转化为jQuery对象？</p>
-<p>HTML DOM 定义了多种查找HTML页面元素的方法，除了 getElementById() 之外，</p>
-<p>还有 getElementsByName() 和 getElementsByTagName()。找到的这个页面元素就是一个DOM对象。</p>
-<p>用jQuery构造这个DOM对象，就获得一个jQuery对象。示例：</p>
-<p>var domObj = document.getElementById(“element”);</p>
-<p>var $obj=jQuery(domObj);</p>
-<h2 id="jQuery对象的表示："><a href="#jQuery对象的表示：" class="headerlink" title="jQuery对象的表示："></a>jQuery对象的表示：</h2><p>在jQuery库中，$是jQuery的一个简写形式，所以一个节点元素的jQuery对象可以写成：</p>
-<p>$(nodeString)</p>
-<p>其中，nodeString是：Html标签的id、class、或者标签名等。</p>
-<h2 id="jQuery中DOM的操作"><a href="#jQuery中DOM的操作" class="headerlink" title="jQuery中DOM的操作"></a>jQuery中DOM的操作</h2><p>DOM是一种与浏览器、语言无关的接口，利用该接口可以方便地访问HTML页面中的标准组件。jQuery提供了一系列方法对DOM进行各种操作，从而通过DOM实现对HTML页面中各种元素的操作。</p>
-<p>每一个HTML页面都可以使用DOM表示，在使用jQuery进行DOM操作之前，HTML页面首先被看作一棵DOM树。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1531,7 +1518,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

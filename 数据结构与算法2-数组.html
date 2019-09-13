@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="google-site-verification" content="I0jUNsp40jMLLvChVvaEUlXNcTs1cSJSG4ktU1HF5-M">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="数组是应用最广泛的数据存储结构。它被植入到大部分编程语言中。大部分数据结构都有最基本的四个操作：插入、删除、查找、修改。对于这四种操作每一种数据结构都有相应的算法。算法和数据结构因此就是非常紧密的相联系的。 数组例子数组的每一个元素必须是连续，也就是中间没有洞。就是说第一个元素和第三个元素有值，但不允许第二个元素是空的。 12345678910111213141516171819202122232">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法2-数组">
+<meta property="og:url" content="https://zhishui0501.github.io/数据结构与算法2-数组.html">
+<meta property="og:site_name" content="Aaron&#39;s blog">
+<meta property="og:description" content="数组是应用最广泛的数据存储结构。它被植入到大部分编程语言中。大部分数据结构都有最基本的四个操作：插入、删除、查找、修改。对于这四种操作每一种数据结构都有相应的算法。算法和数据结构因此就是非常紧密的相联系的。 数组例子数组的每一个元素必须是连续，也就是中间没有洞。就是说第一个元素和第三个元素有值，但不允许第二个元素是空的。 12345678910111213141516171819202122232">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://zhishui0501.github.io/images/1909131.PNG">
+<meta property="og:image" content="https://zhishui0501.github.io/images/1909132.PNG">
+<meta property="og:updated_time" content="2019-09-13T03:20:28.650Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构与算法2-数组">
+<meta name="twitter:description" content="数组是应用最广泛的数据存储结构。它被植入到大部分编程语言中。大部分数据结构都有最基本的四个操作：插入、删除、查找、修改。对于这四种操作每一种数据结构都有相应的算法。算法和数据结构因此就是非常紧密的相联系的。 数组例子数组的每一个元素必须是连续，也就是中间没有洞。就是说第一个元素和第三个元素有值，但不允许第二个元素是空的。 12345678910111213141516171819202122232">
+<meta name="twitter:image" content="https://zhishui0501.github.io/images/1909131.PNG">
+  <link rel="canonical" href="https://zhishui0501.github.io/数据结构与算法2-数组">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>数据结构与算法2-数组 | Aaron's blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">11</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">29</span></a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/数据结构与算法2-数组.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="Keep Learning">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">数据结构与算法2-数组
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-13 10:55:52 / Modified: 11:20:28" itemprop="dateCreated datePublished" datetime="2019-09-13T10:55:52+08:00">2019-09-13</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>数组是应用最广泛的数据存储结构。它被植入到大部分编程语言中。大部分数据结构都有最基本的四个操作：插入、删除、查找、修改。对于这四种操作每一种数据结构都有相应的算法。算法和数据结构因此就是非常紧密的相联系的。</p>
+<h2 id="数组例子"><a href="#数组例子" class="headerlink" title="数组例子"></a>数组例子</h2><p>数组的每一个元素必须是连续，也就是中间没有洞。就是说第一个元素和第三个元素有值，但不允许第二个元素是空的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">public class Array &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        //创建一个数组</span><br><span class="line">        long[] arr;</span><br><span class="line">        arr = new long[100];</span><br><span class="line">        int nElems = 10;</span><br><span class="line">        int j;</span><br><span class="line">        long searchKey;</span><br><span class="line">        arr[0] = 99;</span><br><span class="line">        arr[1] = 11;</span><br><span class="line">        arr[2] = 22;</span><br><span class="line">        arr[3] = 33;</span><br><span class="line">        arr[4] = 55;</span><br><span class="line">        arr[5] = 66;</span><br><span class="line">        arr[6] = 44;</span><br><span class="line">        arr[7] = 77;</span><br><span class="line">        arr[8] = 23;</span><br><span class="line">        arr[9] = 88;</span><br><span class="line">        nElems = 10;</span><br><span class="line">        //输出前10位数组元素</span><br><span class="line">        for(j = 0; j &lt; nElems; j++)&#123;</span><br><span class="line">            System.out.print(arr[j] + &quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        //查找数组的一个元素值为55的元素</span><br><span class="line">        searchKey = 55;</span><br><span class="line">        for(j = 0; j &lt; arr.length; j++)&#123;</span><br><span class="line">            if(arr[j] == searchKey)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(j == nElems)&#123;</span><br><span class="line">            System.out.println(&quot;Can&apos;t find the element&quot;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            System.out.println(&quot;find the element &quot; + searchKey + &quot; at index &quot; + (j + 1) );</span><br><span class="line">        &#125;</span><br><span class="line">        //删除指定元素</span><br><span class="line">        searchKey = 66;</span><br><span class="line">        for(j = 0; j &lt; arr.length; j++)&#123;</span><br><span class="line">            if(arr[j] == searchKey)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int k = j; k &lt; nElems; k++)&#123;</span><br><span class="line">            arr[k] = arr[k+1];</span><br><span class="line">        &#125;</span><br><span class="line">        nElems--;</span><br><span class="line">        //输出删除后的数组</span><br><span class="line">        for(j = 0; j &lt; nElems; j++)&#123;</span><br><span class="line">            System.out.print(arr[j] + &quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">输出结果：</span><br><span class="line">99 11 22 33 55 66 44 77 23 88 </span><br><span class="line">find the element 55 at index 5</span><br><span class="line">99 11 22 33 55 44 77 23 88</span><br></pre></td></tr></table></figure>
+
+<h2 id="将程序划分成类"><a href="#将程序划分成类" class="headerlink" title="将程序划分成类"></a>将程序划分成类</h2><p>上面的程序包含了一个很大的方法，通过将程序划分成类以后，并且将其中的方法模块化，这样程序看起来更加有条理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">package chapter2;</span><br><span class="line">class ArrayMethod&#123;</span><br><span class="line">    private long[] arr;</span><br><span class="line">    private int nElems;</span><br><span class="line">    public ArrayMethod(int max)&#123;</span><br><span class="line">        arr = new long[max];</span><br><span class="line">        nElems = 0;</span><br><span class="line">    &#125;</span><br><span class="line">    public void insert(long value)&#123;</span><br><span class="line">        arr[nElems] = value;</span><br><span class="line">        nElems++;</span><br><span class="line">    &#125;</span><br><span class="line">    public boolean find(long searchKey)&#123;</span><br><span class="line">        //查找数组的一个元素值为searchKey的元素</span><br><span class="line">        int j;</span><br><span class="line">        for(j = 0; j &lt; arr.length; j++)&#123;</span><br><span class="line">            if(arr[j] == searchKey)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(j == nElems)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;else&#123;    </span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //删除指定元素</span><br><span class="line">    public boolean delete(long searchKey)&#123;</span><br><span class="line">        int j;</span><br><span class="line">        for(j = 0; j &lt; arr.length; j++)&#123;</span><br><span class="line">            if(arr[j] == searchKey)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int k = j; k &lt; nElems; k++)&#123;</span><br><span class="line">            arr[k] = arr[k+1];</span><br><span class="line">        &#125;</span><br><span class="line">        nElems--;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    //输出数组</span><br><span class="line">    public void display()&#123;</span><br><span class="line">        //输出前10位数组元素</span><br><span class="line">        for(int j = 0; j &lt; nElems; j++)&#123;</span><br><span class="line">            System.out.print(arr[j] + &quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class HighArray &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        int maxSize = 100;</span><br><span class="line">        ArrayMethod arr = new ArrayMethod(maxSize);</span><br><span class="line">        arr.insert(99);</span><br><span class="line">        arr.insert(11);</span><br><span class="line">        arr.insert(22);</span><br><span class="line">        arr.insert(33);</span><br><span class="line">        arr.insert(55);</span><br><span class="line">        arr.insert(66);</span><br><span class="line">        arr.insert(44);</span><br><span class="line">        arr.insert(77);</span><br><span class="line">        arr.insert(23);</span><br><span class="line">        arr.insert(88);</span><br><span class="line">        //输出数组</span><br><span class="line">        arr.display();</span><br><span class="line">        //查找值为55的元素</span><br><span class="line">        long searchKey = 55;</span><br><span class="line">        if(arr.find(searchKey))&#123;</span><br><span class="line">            System.out.println(&quot;find the element &quot;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            System.out.println(&quot;Can&apos;t find the element&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        //删除指定元素</span><br><span class="line">        searchKey = 22;</span><br><span class="line">        if(arr.delete(searchKey))&#123;</span><br><span class="line">            System.out.println(&quot;Delete the element successfully &quot;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            System.out.println(&quot;Can&apos;t find the element&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        //输出删除元素后的数组</span><br><span class="line">        arr.display();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="有序数组"><a href="#有序数组" class="headerlink" title="有序数组"></a>有序数组</h2><p>假设一个数组，其中的数据项按关键字升序排列，即最小值在下标为0的单元上，每一个单元都比前一个单元的值大。这种数组被称为有序数组。</p>
+<p>当向这种数组中插入数据项时，需要为插入操作找到正确的位置：刚好在稍小值的后面，稍大值的前面。然后将所有比待茶数据项的值向后移以便腾出空间。<br>将数据按顺序排列的好处之一就是可以通过二分法查找显著地提高查找速度。但缺点是降低了插入操作的速度。</p>
+<h2 id="线性查找"><a href="#线性查找" class="headerlink" title="线性查找"></a>线性查找</h2><p>默认情况下是线性查找，线性查找和未经排序的数组的查找操作相似。</p>
+<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><p>当使用二分查找时就体现有序数组的好处，这种查找比线性查找快很多，尤其是对大数组来说更为显著。<br>二分查找首先从要查找的范围确定一个中位数，然后比较要找的数和中位数的大小关系，确定更小的范围，依次递归，知道找到那个数。<br><img src="images/1909131.PNG" alt></p>
+<h3 id="有序数组的二分搜索代码"><a href="#有序数组的二分搜索代码" class="headerlink" title="有序数组的二分搜索代码"></a>有序数组的二分搜索代码</h3><p>二分查找是将数组数据项范围不断对半分隔来查找特定的数据项。方法如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line">package chapter2;</span><br><span class="line">class ArrayMethod&#123;</span><br><span class="line">    private long[] arr;</span><br><span class="line">    private int nElems;</span><br><span class="line">    public ArrayMethod(int max)&#123;</span><br><span class="line">        arr = new long[max];</span><br><span class="line">        nElems = 0;</span><br><span class="line">    &#125;</span><br><span class="line">    public void insert(long value)&#123;</span><br><span class="line">        arr[nElems] = value;</span><br><span class="line">        nElems++;</span><br><span class="line">    &#125;</span><br><span class="line">    //二分查找法</span><br><span class="line">    public int halfFind (long searchKey)&#123;</span><br><span class="line">        int lowerBound = 0;</span><br><span class="line">        int upperBound = nElems - 1;</span><br><span class="line">        int curIn;</span><br><span class="line">        while(true)&#123;</span><br><span class="line">            curIn = (lowerBound + upperBound)/2;</span><br><span class="line">            if(arr[curIn] == searchKey)&#123;</span><br><span class="line">                return curIn;</span><br><span class="line">            &#125;else if(lowerBound &gt;= upperBound)&#123;</span><br><span class="line">                return nElems;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                if(arr[curIn] &gt; searchKey)&#123;</span><br><span class="line">                    upperBound = curIn - 1;</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    lowerBound = curIn + 1;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;    </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public int size()&#123;</span><br><span class="line">        return nElems;</span><br><span class="line">    &#125;</span><br><span class="line">    public boolean find(long searchKey)&#123;</span><br><span class="line">        //查找数组的一个元素值为searchKey的元素</span><br><span class="line">        int j;</span><br><span class="line">        for(j = 0; j &lt; arr.length; j++)&#123;</span><br><span class="line">            if(arr[j] == searchKey)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(j == nElems)&#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;else&#123;    </span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //删除指定元素</span><br><span class="line">    public boolean delete(long searchKey)&#123;</span><br><span class="line">        int j;</span><br><span class="line">        for(j = 0; j &lt; arr.length; j++)&#123;</span><br><span class="line">            if(arr[j] == searchKey)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int k = j; k &lt; nElems; k++)&#123;</span><br><span class="line">            arr[k] = arr[k+1];</span><br><span class="line">        &#125;</span><br><span class="line">        nElems--;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    //输出数组</span><br><span class="line">    public void display()&#123;</span><br><span class="line">        //输出前10位数组元素</span><br><span class="line">        for(int j = 0; j &lt; nElems; j++)&#123;</span><br><span class="line">            System.out.print(arr[j] + &quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class HighArray &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        int maxSize = 100;</span><br><span class="line">        ArrayMethod arr = new ArrayMethod(maxSize);</span><br><span class="line">        arr.insert(99);</span><br><span class="line">        arr.insert(11);</span><br><span class="line">        arr.insert(22);</span><br><span class="line">        arr.insert(33);</span><br><span class="line">        arr.insert(55);</span><br><span class="line">        arr.insert(66);</span><br><span class="line">        arr.insert(44);</span><br><span class="line">        arr.insert(77);</span><br><span class="line">        arr.insert(23);</span><br><span class="line">        arr.insert(88);</span><br><span class="line">        //输出数组</span><br><span class="line">        arr.display();</span><br><span class="line">        //查找值为55的元素</span><br><span class="line">        long searchKey = 35;</span><br><span class="line">//        if(arr.find(searchKey))&#123;</span><br><span class="line">//            System.out.println(&quot;find the element &quot;);</span><br><span class="line">//        &#125;else&#123;</span><br><span class="line">//            System.out.println(&quot;Can&apos;t find the element&quot;);</span><br><span class="line">//        &#125;</span><br><span class="line">        //二分法查找</span><br><span class="line">        if(arr.halfFind(searchKey) != arr.size())&#123;</span><br><span class="line">            System.out.println(&quot;Find it&quot;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            System.out.println(&quot;Can&apos;t find it&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">//        //删除指定元素</span><br><span class="line">//        searchKey = 22;</span><br><span class="line">//        if(arr.delete(searchKey))&#123;</span><br><span class="line">//            System.out.println(&quot;Delete the element successfully &quot;);</span><br><span class="line">//        &#125;else&#123;</span><br><span class="line">//            System.out.println(&quot;Can&apos;t find the element&quot;);</span><br><span class="line">//        &#125;</span><br><span class="line">        //输出删除元素后的数组</span><br><span class="line">        arr.display();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="有序数组的优点"><a href="#有序数组的优点" class="headerlink" title="有序数组的优点"></a>有序数组的优点</h3><p>使用有序数组最主要的好处是查找的速度比无序数组快多了。不好的方面是在插入操作中由于所有靠后的数据都需要移动以腾开空间，所以速度较慢。有序数组和无序数组中的删除操作都很慢，这是因为数据项必须向前移动来填补已删除数据项的洞。有序数组在查找频繁的情况下十分有用，但若是插入和删除较为频繁时，则无法高效工作。</p>
+<h2 id="大O表示法"><a href="#大O表示法" class="headerlink" title="大O表示法"></a>大O表示法</h2><p>计算机科学中评价算法效率的方法称为大O表示法。比较算法时候通常会说”算法A比算法B快2倍”，这种说法意义不大。因为数据项的变化会对排序造成一定很大影响。有可能数据项增加50%，算法A就比B快了3倍，或者可能只有一半的数据项，A和B的速度是相同的。</p>
+<h3 id="无序数组的插入：常数"><a href="#无序数组的插入：常数" class="headerlink" title="无序数组的插入：常数"></a>无序数组的插入：常数</h3><p>无序数组的插入是我们到现在为止所见过的算法中唯一一个与数组项个数无关的算法。新数据项总被放在下一个有空的地方,a[nElems]，然后nElems增加。无论数组中的数据项个数N有多大，一次插入总是用相同的时间。我们可以说向一个无序数组中插入一个数据项的时间T是一个常数K<br>T=K<br>在现实情况中，插入所需的实际时间与以下这些因素有关：微处理器，编译程序生成程序代码的效率，等等。</p>
+<h3 id="线性查找：与N成正比"><a href="#线性查找：与N成正比" class="headerlink" title="线性查找：与N成正比"></a>线性查找：与N成正比</h3><p>在数组数据项的线性查找中，我们已经发现寻找特定数据项所需的比较平均次数为数据项总数的一半。因此设N为数据项总数，搜索时间T与N的一半成正比：<br>T=K*N/2<br>同插入一样，若要得到方程中K的值，首先需要对某个N值的查找进行计时，然后用T来计算K。当得到K后，便可以对任意N的值来计算T。将2并入K可以得到更方便的公式，新K值等于原先的K除以2即<br>T=KN<br>这个方程说明平均线性查找时间与数组的大小成正比。即如果一个数组增大两倍，则所花费的查找时间也会相应地增长两倍。</p>
+<h3 id="二分查找-与log-N-成正比"><a href="#二分查找-与log-N-成正比" class="headerlink" title="二分查找:与log(N)成正比"></a>二分查找:与log(N)成正比</h3><p>同样，我们可以为二分查找指定出一个与T和N有关的公式:T=Klog2(N)<br>实际上，由于所有的对数和其他对数成比例(比如从底数2转换到底数为10需乘以3.322)，也可以将这个为常数的底数也并入K。由此不必指定底数:<br>T=Klog(N)<br>不要常数<br>大O表示法同上面的公式比较类似，但它省去了常数K。当比较算法时，并不在乎具体的微处理器或编译器；真正需要比较的是对应不同的N值，T是如何变化的，而不是具体的数字，因此不需要常数。<br>大O表示法使用大写字母O，可以认为其含义是order of(大约是)。我们可以使用大O表示法来描述线性查找使用了O(N)级时间，二分查找使用了O(logN)级时间。向一个无序数组中的插入使用了O(1)，或常数级时间。</p>
+<p>下表总结的是讨论过的算法的运行时间<br><img src="images/1909132.PNG" alt><br>大O表示法的实质并不是对运行时间给出实际值，而是表达了运行时间是如何受数据项个数所影响的。除了实际安装后真正去测量一次算法的运行时间之外，这可能是对算法进行比较的最有意义的方法了。</p>
+<h2 id="为什么不用数组表示一切？"><a href="#为什么不用数组表示一切？" class="headerlink" title="为什么不用数组表示一切？"></a>为什么不用数组表示一切？</h2><p>仅使用数组似乎就可以完成所有工作，为什么不用它们来进行所有数据存储呢？我们已经见到了许多关于数组的缺点。在一个无序数组中可以很快进行插入(O(1))，但是查找却要花费较慢的O(N)时间。在一个有序数组中可以查找得很快，用O(logN)的时间，但插入却花费了O(N)时间。对于这两种数组而言，由于平均半数的数据项为了填补”空洞”必须移动，所以删除操作平均需要O(N)时间。<br>如果有一种数据结构进行任何如插入、删除和查找的操作都很快(理想的O(1)或是O(logN)时间)，那就好了。后面我们会介绍类似的数组，但这是以程序的复杂度为代价的。<br>另外数组被创建后，占用内存长度是确定的，无法进行修改，这样的话，如果创建的长度过大，但是实际需要的很少就会造成内存浪费，如果创建的长度过小，就会造成溢出，无法弹性使用。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/数据结构与算法1-综述.html" rel="next" title="数据结构与算法1--综述">
+                  <i class="fa fa-chevron-left"></i> 数据结构与算法1--综述
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="Aaron">
+  <p class="site-author-name" itemprop="name">Aaron</p>
+  <div class="site-description motion-element" itemprop="description">Keep Learning</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zhishui0501" title="GitHub &rarr; https://github.com/zhishui0501" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:876944049@qq.com" title="E-Mail &rarr; mailto:876944049@qq.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组例子"><span class="nav-number">1.</span> <span class="nav-text">数组例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将程序划分成类"><span class="nav-number">2.</span> <span class="nav-text">将程序划分成类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有序数组"><span class="nav-number">3.</span> <span class="nav-text">有序数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性查找"><span class="nav-number">4.</span> <span class="nav-text">线性查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二分查找"><span class="nav-number">5.</span> <span class="nav-text">二分查找</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#有序数组的二分搜索代码"><span class="nav-number">5.1.</span> <span class="nav-text">有序数组的二分搜索代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有序数组的优点"><span class="nav-number">5.2.</span> <span class="nav-text">有序数组的优点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大O表示法"><span class="nav-number">6.</span> <span class="nav-text">大O表示法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#无序数组的插入：常数"><span class="nav-number">6.1.</span> <span class="nav-text">无序数组的插入：常数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性查找：与N成正比"><span class="nav-number">6.2.</span> <span class="nav-text">线性查找：与N成正比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二分查找-与log-N-成正比"><span class="nav-number">6.3.</span> <span class="nav-text">二分查找:与log(N)成正比</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么不用数组表示一切？"><span class="nav-number">7.</span> <span class="nav-text">为什么不用数组表示一切？</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

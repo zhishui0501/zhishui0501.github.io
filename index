@@ -59,18 +59,18 @@
   };
 </script>
 
-  <meta name="description" content="加密（哈希、AES、RSA）哈希（散列）函数 MD5 SHA1 SHA256/512 HMAC  特点：  算法公开 对不同数据加密结果是定长的!32位字符!! 信息摘要(加密之后的数据是不可逆!!)  应用：  一般用来做密码加密! 版权问题，MD5值! 搜索引擎 云盘秒传（服务器上只要有这个文件,那么用户可以实现秒传） 签名验证 (信息+信息MD5发送给服务器) HMAC （可用于设备锁）">
+  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:type" content="article">
-<meta property="og:title" content="加密（哈希、AES、RSA）">
-<meta property="og:url" content="https://zhishui0501.github.io/加密（哈希、AES、RSA）.html">
+<meta property="og:title" content="Hello World">
+<meta property="og:url" content="https://zhishui0501.github.io/index">
 <meta property="og:site_name" content="Aaron&#39;s blog">
-<meta property="og:description" content="加密（哈希、AES、RSA）哈希（散列）函数 MD5 SHA1 SHA256/512 HMAC  特点：  算法公开 对不同数据加密结果是定长的!32位字符!! 信息摘要(加密之后的数据是不可逆!!)  应用：  一般用来做密码加密! 版权问题，MD5值! 搜索引擎 云盘秒传（服务器上只要有这个文件,那么用户可以实现秒传） 签名验证 (信息+信息MD5发送给服务器) HMAC （可用于设备锁）">
+<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-08-12T04:48:35.363Z">
+<meta property="og:updated_time" content="2019-08-11T09:26:11.450Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="加密（哈希、AES、RSA）">
-<meta name="twitter:description" content="加密（哈希、AES、RSA）哈希（散列）函数 MD5 SHA1 SHA256/512 HMAC  特点：  算法公开 对不同数据加密结果是定长的!32位字符!! 信息摘要(加密之后的数据是不可逆!!)  应用：  一般用来做密码加密! 版权问题，MD5值! 搜索引擎 云盘秒传（服务器上只要有这个文件,那么用户可以实现秒传） 签名验证 (信息+信息MD5发送给服务器) HMAC （可用于设备锁）">
-  <link rel="canonical" href="https://zhishui0501.github.io/加密（哈希、AES、RSA）">
+<meta name="twitter:title" content="Hello World">
+<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <link rel="canonical" href="https://zhishui0501.github.io/index">
 
 
 <script id="page-configurations">
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title>加密（哈希、AES、RSA） | Aaron's blog</title>
+  <title>Hello World | Aaron's blog</title>
   
 
 
@@ -216,7 +216,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/加密（哈希、AES、RSA）.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/index">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -230,7 +230,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">加密（哈希、AES、RSA）
+          <h1 class="post-title" itemprop="name headline">Hello World
 
             
           </h1>
@@ -247,24 +247,7 @@
                 
               
 
-              <time title="Created: 2019-08-12 12:36:08 / Modified: 12:48:35" itemprop="dateCreated datePublished" datetime="2019-08-12T12:36:08+08:00">2019-08-12</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/加密算法/" itemprop="url" rel="index"><span itemprop="name">加密算法</span></a></span>
-
-                
-                
-              
+              <time title="Created: 2019-08-11 17:26:11" itemprop="dateCreated datePublished" datetime="2019-08-11T17:26:11+08:00">2019-08-11</time>
             </span>
           
 
@@ -287,41 +270,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="加密（哈希、AES、RSA）"><a href="#加密（哈希、AES、RSA）" class="headerlink" title="加密（哈希、AES、RSA）"></a>加密（哈希、AES、RSA）</h2><h3 id="哈希（散列）函数"><a href="#哈希（散列）函数" class="headerlink" title="哈希（散列）函数"></a>哈希（散列）函数</h3><ul>
-<li>MD5</li>
-<li>SHA1</li>
-<li>SHA256/512</li>
-<li>HMAC</li>
-</ul>
-<p><strong>特点：</strong></p>
-<ul>
-<li>算法公开</li>
-<li>对不同数据加密结果是定长的!32位字符!!</li>
-<li>信息摘要(加密之后的数据是不可逆!!)</li>
-</ul>
-<p><strong>应用：</strong></p>
-<ul>
-<li>一般用来做密码加密!</li>
-<li>版权问题，MD5值!</li>
-<li>搜索引擎</li>
-<li>云盘秒传（服务器上只要有这个文件,那么用户可以实现秒传）</li>
-<li>签名验证 (信息+信息MD5发送给服务器)</li>
-<li>HMAC （可用于设备锁）</li>
-</ul>
-<h3 id="对称加密算法（传统加密算法）"><a href="#对称加密算法（传统加密算法）" class="headerlink" title="对称加密算法（传统加密算法）"></a>对称加密算法（传统加密算法）</h3><p>加密和解密都是同一个密钥</p>
-<ul>
-<li>DES 目前几乎不用，强度不够</li>
-<li>3DES 使用3个密钥,对相同的数据执行三次加密,强度增强</li>
-<li>AES 高级密码标准,苹果钥匙串访问</li>
-</ul>
-<p><strong>每个对称加密算法有两种加密方式</strong></p>
-<ol>
-<li>ECB加密： 电子代码本，就是简单的将数据拆包，每一块独立加密</li>
-<li>CBC（密码块链）加密： 也是独立加密一块数据，但是第二块数据和第一块数据有密切的联系</li>
-</ol>
-<h3 id="非对称加密算法（现在加密算法）"><a href="#非对称加密算法（现在加密算法）" class="headerlink" title="非对称加密算法（现在加密算法）"></a>非对称加密算法（现在加密算法）</h3><p>私钥加密 公钥解密<br>公钥加密 私钥解密</p>
-<hr>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="https://www.jianshu.com/p/047e6a37e73c" rel="external nofollow noopener noreferrer" target="_blank">https://www.jianshu.com/p/047e6a37e73c</a></p>
+        <p>Welcome to <a href="https://hexo.io/" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" rel="external nofollow noopener noreferrer" target="_blank">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" rel="external nofollow noopener noreferrer" target="_blank">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" rel="external nofollow noopener noreferrer" target="_blank">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" rel="external nofollow noopener noreferrer" target="_blank">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" rel="external nofollow noopener noreferrer" target="_blank">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" rel="external nofollow noopener noreferrer" target="_blank">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" rel="external nofollow noopener noreferrer" target="_blank">Deployment</a></p>
 
     </div>
 
@@ -338,18 +299,14 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/HEXO-搭建过程总结及注意事项.html" rel="next" title="HEXO 搭建过程总结及注意事项 1">
-                  <i class="fa fa-chevron-left"></i> HEXO 搭建过程总结及注意事项 1
-                </a>
-              
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/分布式数据库与区块链的区别.html" rel="prev" title="分布式数据库与区块链的区别">
-                  分布式数据库与区块链的区别 <i class="fa fa-chevron-right"></i>
+                <a href="/index" rel="prev" title="My First Essay">
+                  My First Essay <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -487,7 +444,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加密（哈希、AES、RSA）"><span class="nav-number">1.</span> <span class="nav-text">加密（哈希、AES、RSA）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希（散列）函数"><span class="nav-number">1.1.</span> <span class="nav-text">哈希（散列）函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对称加密算法（传统加密算法）"><span class="nav-number">1.2.</span> <span class="nav-text">对称加密算法（传统加密算法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非对称加密算法（现在加密算法）"><span class="nav-number">1.3.</span> <span class="nav-text">非对称加密算法（现在加密算法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">1.4.</span> <span class="nav-text">参考文献</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
             
 
           </div>

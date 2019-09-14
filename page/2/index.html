@@ -214,7 +214,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/泛型的意义和作用.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/index">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -230,7 +230,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/泛型的意义和作用.html" class="post-title-link" itemprop="url">泛型的意义和作用</a>
+              <a href="/index" class="post-title-link" itemprop="url">泛型的意义和作用</a>
             
           </h1>
         
@@ -246,11 +246,19 @@
                 
               
 
-              <time title="Created: 2019-08-31 20:12:48 / Modified: 21:00:28" itemprop="dateCreated datePublished" datetime="2019-08-31T20:12:48+08:00">2019-08-31</time>
+              <time title="Created: 2019-08-31 20:12:48" itemprop="dateCreated datePublished" datetime="2019-08-31T20:12:48+08:00">2019-08-31</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-14 11:43:06" itemprop="dateModified" datetime="2019-09-14T11:43:06+08:00">2019-09-14</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -278,42 +286,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <h2 id="意义和作用："><a href="#意义和作用：" class="headerlink" title="意义和作用："></a>意义和作用：</h2><p>类型的参数化，就是可以把类型像方法的参数那样传递。这一点意义非凡。<br>泛型使编译器可以在编译期间对类型进行检查以提高类型安全，减少运行时由于对象类型不匹配引发的异常。</p>
+          <!--noindex-->
           
-            <h2 id="意义和作用："><a href="#意义和作用：" class="headerlink" title="意义和作用："></a>意义和作用：</h2><p>类型的参数化，就是可以把类型像方法的参数那样传递。这一点意义非凡。<br>泛型使编译器可以在编译期间对类型进行检查以提高类型安全，减少运行时由于对象类型不匹配引发的异常。<br>　　<br>想要理解为什么引入泛型，就要知道没有泛型的麻烦。<br>我们知道现在的程序开发都是面向对象了，所以程序里会有很多各种类型的对象，对象多了肯定需要有某种类型的容器来装。所以就有了一些容器类型，比如数组、ArrayList、HashMap、TreeSet等。<br>对于数组，我们知道需要在使用时指定数组装的对象类型，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Animal animal[];</span><br><span class="line"> </span><br><span class="line">Dog dog[];</span><br></pre></td></tr></table></figure>
-
-<p>而对于集合类型容器如ArrayList、HashMap、TreeSet等，它们不但是容器，还提供了一些方法对容器内对象的操作方法，如get，set，sort。这个时候就需要知道容器内放的是什么类型的对象，才能return或set。</p>
-<p>正因为程序开发人员可能把任何类型的对象放进集合容器，所以这些容器在设计的时候只能默认设计成装Object类型对象。因为Java里Object是根类。<br>所以容器就成了类似这个样子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class ListContainer &#123;</span><br><span class="line">    private Object obj;</span><br><span class="line"> </span><br><span class="line">    public Object getObj() &#123;</span><br><span class="line">        return obj;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setObj(Object obj) &#123;</span><br><span class="line">        this.obj = obj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样的话，根据多态，容器就能装任何类型的对象了。不过，取出对象时则需求进行强制类型转换，转换成实际的类型。但这样会有很多类型不安全问题，为什么呢？因为编译器没法帮忙做类型检查，导致代码在运行时易于出现ClassCastException异常。因此，类型安全问题只能由程序员自己来把关了，记住各种类型，避免类型转换错误。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ListContainer myContainer = new ListContainer();</span><br><span class="line">	 </span><br><span class="line">myContainer.setObj(&quot;123&quot;);</span><br><span class="line">	 </span><br><span class="line">   ArrayList objectList = new ArrayList();</span><br><span class="line">	 </span><br><span class="line">objectList.add(myContainer);</span><br><span class="line">	 </span><br><span class="line">//下面这句编译时无异常，运行时会ClassCastException异常</span><br><span class="line">	 </span><br><span class="line">Integer myStr = (Integer) (objectList.get(0)).getObj();</span><br><span class="line">	 </span><br><span class="line">//下面这句ok</span><br><span class="line">	 </span><br><span class="line">String myStr1 = (String) (objectList.get(0)).getObj();</span><br><span class="line">	</span><br><span class="line">System.out.println(myStr1);</span><br></pre></td></tr></table></figure>
-
-<h2 id="泛型出场：类型的参数化"><a href="#泛型出场：类型的参数化" class="headerlink" title="泛型出场：类型的参数化"></a>泛型出场：类型的参数化</h2><p>利用泛型，重新设计：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class ListContainer&lt;T&gt; &#123;</span><br><span class="line">    private T t;</span><br><span class="line"> </span><br><span class="line">    public T getObj() &#123;</span><br><span class="line">        return t;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setObj(T t) &#123;</span><br><span class="line">        this.t = t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里<t>的T的类型的参数，具体T指代什么类型，是String还是Animal还是Dog类型此处不管，而在程序员开发时使用到ListContainer时再指定，如：<br><code>ListContainer&lt;Dog&gt; myCon=new ListContainer&lt;Dog&gt;();</code><br>这种环境下，编译器就知道ListContainer容器是放Dog类型对象的。并进行类型安全检查。</t></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">myCon.setObj(new Dog())//ok</span><br><span class="line"> </span><br><span class="line">myCon.setObj(“123”);//编译时提醒类型错误</span><br></pre></td></tr></table></figure>
-
-<p>这样设计的容器在使用时编译器就可以帮忙做很大一部分的类型安全检查工作了，这就避免了很多运行时的ClassCastException异常，程序员也无需记住各种对象的类型和担心类型匹配问题了。同时大部分情况下也不用做类型强制转换工作了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ListContainer&lt;String&gt; myContainer = new ListContainer&lt;String&gt;();</span><br><span class="line"> </span><br><span class="line">myContainer.setObj(&quot;123&quot;);</span><br><span class="line"> </span><br><span class="line">myContainer.setObj(new Dog());//编译器就提醒类型异常</span><br><span class="line"> </span><br><span class="line">ArrayList objectList&lt;ListContainer&gt; = new ArrayList&lt;ListContainer&gt;();</span><br><span class="line"> </span><br><span class="line">objectList.add(myContainer);</span><br><span class="line"> </span><br><span class="line">Integer myStr = (objectList.get(0)).getObj(); //编译时提醒类型异常</span><br><span class="line"> </span><br><span class="line">String myStr = (objectList.get(0)).getObj();</span><br></pre></td></tr></table></figure>
-
-<p>当然泛型的&lt;&gt;里也可以放多个参数，如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class MultiContainer&lt;T,S&gt; &#123;</span><br><span class="line"> </span><br><span class="line">private T t;</span><br><span class="line"> </span><br><span class="line">private S s;</span><br><span class="line"> </span><br><span class="line">...</span><br><span class="line"> </span><br><span class="line">MultiContainer&lt;String,Dog&gt; multicon=new MultiContainer&lt;String,Dog&gt;();</span><br></pre></td></tr></table></figure>
-
-<h2 id="有界泛型"><a href="#有界泛型" class="headerlink" title="有界泛型"></a>有界泛型</h2><p>看看这个泛型和多态的问题,Dog,Cat是Animal的子类：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public void killAll(ArrayList&lt;Animal&gt; animals)&#123;...&#125;;//Animal容器</span><br><span class="line"> </span><br><span class="line">...</span><br><span class="line"> </span><br><span class="line">ArrayList&lt;Animal&gt; animals=new ArrayList&lt;Animal&gt;();</span><br><span class="line"> </span><br><span class="line">animals.add(new Dog());</span><br><span class="line"> </span><br><span class="line">animals.add(new Cat());</span><br><span class="line"> </span><br><span class="line">killAll(animals);//这里ok</span><br><span class="line"> </span><br><span class="line">ArrayList&lt;Dog&gt; dogs=new ArrayList&lt;Dog&gt;();//Dog是Animal的子类</span><br><span class="line"> </span><br><span class="line">dogs.add(new Dog());</span><br><span class="line"> </span><br><span class="line">dogs.add(new Dog());</span><br><span class="line"> </span><br><span class="line">killAll(dogs);//这里编译不通过</span><br></pre></td></tr></table></figure>
-
-<p>在这里看上去似乎多态不行了。<br>这里就要用到有界泛型：<br>在使用泛型时，我们会有这种需求：需要指定泛型的类型范围。有界类型就是在类型参数部分指定extends或super关键字，这里的extends也含有implements的功能，分别用上限或下限来限制类型范围，从而限制泛型的类型边界。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;T extends Animal&gt;//限定T是Animal的子类</span><br><span class="line"> </span><br><span class="line">&lt;T super Dog &gt;//限定T是Dog的超类</span><br></pre></td></tr></table></figure>
-
-<p>那么上面那个多态问题就变成：<br><code>public void killAll(ArrayList&lt;T extends Animal&gt; animals){...};</code><br>解决了<br><code>&lt;T extends Object&amp;Comparable&amp;Serializable&gt;</code><br>多个限定时我们可以使用&amp;来进行分割，这时关键词只能使用extends。与多重继承类似，这里只有一个类其他都是接口。</p>
-<h2 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h2><p>有时，我们设计的方法可能其参数类型是不限定的。这种场景如果用重载方法的方式来做的话，算法重复，不是最好的方案。此时泛型方法就可以解决此类问题。<br>如Calculator的add方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static &lt; N extends Number &gt; double add( N a, N b )&#123;</span><br><span class="line">	double sum = 0;</span><br><span class="line"> </span><br><span class="line">	sum = a.doubleValue() + b.doubleValue();</span><br><span class="line"> </span><br><span class="line">	return(sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如果用重载来做的话，要很多重复代码了。</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/index#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -339,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/Navicat连接Mysql报错.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/index">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -355,7 +337,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/Navicat连接Mysql报错.html" class="post-title-link" itemprop="url">Navicat连接Mysql报错</a>
+              <a href="/index" class="post-title-link" itemprop="url">Navicat连接Mysql报错</a>
             
           </h1>
         
@@ -432,7 +414,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/对jQuery对象的理解.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/index">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -448,7 +430,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/对jQuery对象的理解.html" class="post-title-link" itemprop="url">对jQuery对象的理解</a>
+              <a href="/index" class="post-title-link" itemprop="url">对jQuery对象的理解</a>
             
           </h1>
         
@@ -464,11 +446,19 @@
                 
               
 
-              <time title="Created: 2019-08-27 21:44:23 / Modified: 21:48:27" itemprop="dateCreated datePublished" datetime="2019-08-27T21:44:23+08:00">2019-08-27</time>
+              <time title="Created: 2019-08-27 21:44:23" itemprop="dateCreated datePublished" datetime="2019-08-27T21:44:23+08:00">2019-08-27</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-14 11:43:26" itemprop="dateModified" datetime="2019-09-14T11:43:26+08:00">2019-09-14</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -496,27 +486,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="什么是jQuery对象？"><a href="#什么是jQuery对象？" class="headerlink" title="什么是jQuery对象？"></a>什么是jQuery对象？</h2><p>jQuery对象是通过jQuery包装DOM对象后产生的对象。</p>
+          <h2 id="什么是jQuery对象？"><a href="#什么是jQuery对象？" class="headerlink" title="什么是jQuery对象？"></a>什么是jQuery对象？</h2><p>jQuery对象是通过jQuery包装DOM对象后产生的对象。</p>
 <p>这里首先要理解DOM文档对象模型：</p>
 <p>（1）DOM解析XML文档时，DOM为XML文档在逻辑上建立一个树模型；</p>
 <p>（2）DOM把XML文档作为树结构来查看，XML文档的树形结构节点就是XML文档上的元素、文本和属性。</p>
-<p>还要理解HTML页面为什么与DOM对象联系在一起？</p>
-<p>因为HTML页面中的元素都表现为类似XML文档的树形结构：存在元素节点、属性节点和文本节点，所以用</p>
-<p>DOM对象也可以解析HTML页面中的元素（这也是形成jQuery选择器的原因）。</p>
-<p>再者，还要理解DOM对象如何转化为jQuery对象？</p>
-<p>HTML DOM 定义了多种查找HTML页面元素的方法，除了 getElementById() 之外，</p>
-<p>还有 getElementsByName() 和 getElementsByTagName()。找到的这个页面元素就是一个DOM对象。</p>
-<p>用jQuery构造这个DOM对象，就获得一个jQuery对象。示例：</p>
-<p>var domObj = document.getElementById(“element”);</p>
-<p>var $obj=jQuery(domObj);</p>
-<h2 id="jQuery对象的表示："><a href="#jQuery对象的表示：" class="headerlink" title="jQuery对象的表示："></a>jQuery对象的表示：</h2><p>在jQuery库中，$是jQuery的一个简写形式，所以一个节点元素的jQuery对象可以写成：</p>
-<p>$(nodeString)</p>
-<p>其中，nodeString是：Html标签的id、class、或者标签名等。</p>
-<h2 id="jQuery中DOM的操作"><a href="#jQuery中DOM的操作" class="headerlink" title="jQuery中DOM的操作"></a>jQuery中DOM的操作</h2><p>DOM是一种与浏览器、语言无关的接口，利用该接口可以方便地访问HTML页面中的标准组件。jQuery提供了一系列方法对DOM进行各种操作，从而通过DOM实现对HTML页面中各种元素的操作。</p>
-<p>每一个HTML页面都可以使用DOM表示，在使用jQuery进行DOM操作之前，HTML页面首先被看作一棵DOM树。</p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/index#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -542,7 +524,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/数据的逻辑结构和存储结构.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/index">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -558,7 +540,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/数据的逻辑结构和存储结构.html" class="post-title-link" itemprop="url">数据的逻辑结构和存储结构</a>
+              <a href="/index" class="post-title-link" itemprop="url">数据的逻辑结构和存储结构</a>
             
           </h1>
         
@@ -585,7 +567,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-02 20:49:42" itemprop="dateModified" datetime="2019-09-02T20:49:42+08:00">2019-09-02</time>
+                <time title="Modified: 2019-09-14 11:50:46" itemprop="dateModified" datetime="2019-09-14T11:50:46+08:00">2019-09-14</time>
               </span>
             
           
@@ -614,35 +596,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h2><p><img src="images/1908261.png" alt><br>我们从上可以发现：上面这三种逻辑结构之间的节点与节点之间的关系是不一样的，对于线性结构来说，节点之间的关系是一对一的；树形结构的节点是一对多；图形结构的节点是多对多的关系。</p>
+          <h2 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h2><p><img src="/images/1908261.png" alt><br>我们从上可以发现：上面这三种逻辑结构之间的节点与节点之间的关系是不一样的，对于线性结构来说，节点之间的关系是一对一的；树形结构的节点是一对多；图形结构的节点是多对多的关系。</p>
 <ol>
 <li><p>线性结构：开始节点和终端节点都是唯一的，我们可以把第一个节点认为是开始节点，第四个节点认为是终端节点。除了开始节点和终端节点以外，其余节点都有且仅有一个前驱节点，有且仅有一个后继节点。对于第二个节点来说，它的前驱节点就是第一个节点，它的后继节点是第三个节点。</p>
 </li>
 <li><p>树形结构：开始节点唯一，终端节点不唯一，开始节点就是指的根节点，终端节点就是指的最下面的节点。除终端节点以外，每个节点有一个或多个后继节点，在根节点的左节点中有三个后继节点，右节点有两个后继节点，除开始节点外（根节点没有前驱节点），每个节点有且仅有一个前驱节点。</p>
 </li>
-<li><p>图形结构：没有开始节点和终端节点，所有节点都可能有多个前驱节点和多个后继节点，也就是说形成了一个多对多的图形结构，我们在图形结构中也看到了，节点之间是相互连接的。<br>下面这张图是数据逻辑结构的层次组织关系<br><img src="images/1908262.png" alt><br>数据逻辑结构主要分为线性结构和非线性结构，在非线性结构中又包括了之前讲过的树和图两种结构，在树结构中又分为一般树和二叉树，图结构又分为有向图和无向图；在线性结构中包括了一般的线性表，受限线性表，线性表推广等，在受线性表中分为栈和队列。因此我们应该根据数据逻辑结构把所有的数据结构中的内容通过上图的方式组织起来，起码做到对这张图有个印象，这将会指导后面的学习。</p>
-</li>
-</ol>
-<p>另外，我们在学习掌握数据的逻辑结构时，还应该掌握逻辑结构的二元组表示方法。对于线性结构，树形结构，图形结构都可以通过这种二元组来表示.</p>
-<h2 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h2><p>数据的存储方式可分为线性表、树和图三种存储结构，而每种存储结构又可细分为顺序存储结构和链式存储结构。数据存储方式如此之多，针对不同类型的数据选择合适的存储方式是至关重要的。<br>那么，到底如何选择呢？数据存储结构的选择取决于两方面，即数据的逻辑结构和存储结构（又称物理结构）。</p>
-<h3 id="逻辑结构-1"><a href="#逻辑结构-1" class="headerlink" title="逻辑结构"></a>逻辑结构</h3><p>数据的逻辑结构，简单地理解，就是指的数据之间的逻辑关系。<br><img src="images/1908263.gif" alt><br>例如，图 1 显示是一张家庭的成员关系图，从图中可以看到，张平、张华和张群是兄弟，他们的父亲是张亮，其中张平有两个儿子，分别是张晶和张磊。</p>
-<p>以上所说，父子、兄弟等这些关系都指的是数据间的逻辑关系，假设我们要存储这样一张家庭成员关系图，不仅要存储张平、张华等数据，还要存储它们之间的关系，两者缺一不可。</p>
-<p>一组数据成功存储到计算机的衡量标准是要能将其完整的复原。例如图 1 所示的成员关系图，如果所存储的数据能将此成员关系图彻底复原，则说明数据存储成功。</p>
-<ol>
-<li>线性表用于存储具有“一对一”逻辑关系的数据；</li>
-<li>树结构用于存储具有“一对多”关系的数据；</li>
-<li>图结构用于存储具有“多对多”关系的数据；</li>
-</ol>
-<p>由此，我们可以通过分析数据之间的逻辑关系来决定使用哪种存储结构，但具体使用顺序存储还是链式存储，还要通过数据的物理结构来决定。</p>
-<h3 id="存储结构（物理结构）"><a href="#存储结构（物理结构）" class="headerlink" title="存储结构（物理结构）"></a>存储结构（物理结构）</h3><p>数据的存储结构，也就是物理结构，指的是数据在物理存储空间上选择集中存放还是分散存放。假设要存储大小为 10G 的数据，则集中存放就如图 3a) 所示，分散存放就如图 3b）所示。<br><img src="images/1908264.gif" alt><br>如果选择集中存储，就使用顺序存储结构；反之，就使用链式存储。至于如何选择，主要取决于存储设备的状态以及数据的用途。</p>
-<p>我们知道，集中存储（底层实现使用的是数组）需要使用一大块连续的物理空间，假设要存储大小为 1G 的数据，若存储设备上没有整块大小超过 1G 的空间，就无法使用顺序存储，此时就要选择链式存储，因为链式存储是随机存储数据，占用的都是存储设备中比较小的存储空间，因此有一定几率可以存储成功。</p>
-<p>并且，数据的用途不同，选择的存储结构也不同。将数据进行集中存储有利于后期对数据进行遍历操作，而分散存储更有利于后期增加或删除数据。因此，如果后期需要对数据进行大量的检索（遍历），就选择集中存储；反之，若后期需要对数据做进一步更新（增加或删除），则选择分散存储。</p>
-
+<li><p>图形结构：没有开始节点和终端节点，所有节点都可能有多个前驱节点和多个后继节点，也就是说形成了一个多对多的图形结构，我们在图形结构中也看到了，节点之间是相互连接的。</p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/index#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
-    </div>
+    </li></ol></div>
 
     
     
@@ -665,7 +637,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/Java数据类型总结：基本类型、引用类型.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/index">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -681,7 +653,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/Java数据类型总结：基本类型、引用类型.html" class="post-title-link" itemprop="url">Java数据类型总结：基本类型、引用类型</a>
+              <a href="/index" class="post-title-link" itemprop="url">Java数据类型总结：基本类型、引用类型</a>
             
           </h1>
         
@@ -708,7 +680,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-01 10:00:43" itemprop="dateModified" datetime="2019-09-01T10:00:43+08:00">2019-09-01</time>
+                <time title="Modified: 2019-09-14 11:45:54" itemprop="dateModified" datetime="2019-09-14T11:45:54+08:00">2019-09-14</time>
               </span>
             
           
@@ -737,194 +709,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <p>Java语言是静态类型的（statical typed)，也就是说所有变量和表达式的类型再编译时就已经完全确定。由于是statical typed，导致Java语言也是强类型（Strong typed）的。强类型意味着每个变量都具有一种类型，每个表达式具有一种类型，并且每种类型都是严格定义的，类型限制了变量可以hold哪些值，表达式最终产生什么值。同时限制了这些值可以进行的操作类型以及操作的具体方式。所有的赋值操作，无论是显式的还是在方法调用中通过参数传递，都要进行类型兼容性检查。</p>
+          <!--noindex-->
           
-            <p>Java语言是静态类型的（statical typed)，也就是说所有变量和表达式的类型再编译时就已经完全确定。由于是statical typed，导致Java语言也是强类型（Strong typed）的。强类型意味着每个变量都具有一种类型，每个表达式具有一种类型，并且每种类型都是严格定义的，类型限制了变量可以hold哪些值，表达式最终产生什么值。同时限制了这些值可以进行的操作类型以及操作的具体方式。所有的赋值操作，无论是显式的还是在方法调用中通过参数传递，都要进行类型兼容性检查。</p>
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>在java源代码中，每个变量都必须声明一种类型（type）。有两种类型：primitive type和reference type。引用类型引用对象（reference to object），而基本类型直接包含值（directly contain value）。因此，Java数据类型（type）可以分为两大类：基本类型（primitive types）和引用类型（reference types）。primitive types 包括boolean类型以及数值类型（numeric types）。numeric types又分为整型（integer types）和浮点型（floating-point type）。整型有5种：byte short int long char(char本质上是一种特殊的int)。浮点类型有float和double。<br><img src="images/1908251" alt><br>对象是动态创建的类实例或者动态创建的数组。The value of reference types are references to objects，而引用一般是指内存地址。所有的对象（包括数组）支持Object类中定义的方法。String literals are presented by String object.</p>
-<p>java有两种类型（type），与之相对应的是两种数据的值（two kinds of data values that can be stored in variable, pass as arguments and returned by methods)，这两只data values是：primitive values，reference values。也许这么理解起来更方便（虽然不严谨），Java变量有两种：primitive variable和reference variable，在变量中，它们分别存储primitive value和reference value。</p>
-<p>null是一种特殊的type，但是你不能声明一个变量为null类型，null type的唯一取值就是null。null可以负值给任意的引用类型或者转化成任意的引用类型。在实践中，一般把null当做字面值（literal），这个字面值可是是任意的引用类型。</p>
-<h2 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h2><p>Java为基本类型提供语言级别的支持，即已经在Java中预定义，用相应的保留关键字表示。基本类型是单个值，而不是复杂的对象，基本类型不是面向对象的，主要出去效率方面的考虑，但是同时也提供基本类型的对象版本，即基本类型的包装器（wrapper）。可以直接使用这些基本类型，也可以使用基本类型构造数组或者其他自定义类型。基本类型具有明确的取值范围和数学行为。</p>
-<p>基本类型，或者叫做内置类型，是JAVA中不同于类的特殊类型。它们是我们编程中使用最频繁的类型。java是一种强类型语言，第一次申明变量必须说明数据类型，第一次变量赋值称为变量的初始化。</p>
-<h3 id="Java的简单类型及其封装器类"><a href="#Java的简单类型及其封装器类" class="headerlink" title="Java的简单类型及其封装器类"></a>Java的简单类型及其封装器类</h3><p>Java基本类型共有八种，基本类型可以分为三类，字符类型char，布尔类型boolean以及数值类型byte、short、int、long、float、double。数值类型又可以分为整数类型byte、short、int、long和浮点数类型float、double。JAVA中的数值类型不存在无符号的，它们的取值范围是固定的，不会随着机器硬件环境或者操作系统的改变而改变。实际上，JAVA中还存在另外一种基本类型void，它也有对应的包装类 java.lang.Void，不过我们无法直接对它们进行操作。8种类型表示范围如下：</p>
-<p>byte：8位，最大存储数据量是255，存放的数据范围是-128~127之间。</p>
-<p>short：16位，最大数据存储量是65536，数据范围是-32768~32767之间。</p>
-<p>int：32位，最大数据存储容量是2的32次方减1，数据范围是负的2的31次方到正的2的31次方减1。</p>
-<p>long：64位，最大数据存储容量是2的64次方减1，数据范围为负的2的63次方到正的2的63次方减1。</p>
-<p>float：32位，数据范围在3.4e-45~1.4e38，直接赋值时必须在数字后加上f或F。</p>
-<p>double：64位，数据范围在4.9e-324~1.8e308，赋值时可以加d或D也可以不加。</p>
-<p>boolean：只有true和false两个取值。</p>
-<p>char：16位，存储Unicode码，用单引号赋值。<br>Java决定了每种简单类型的大小。这些大小并不随着机器结构的变化而变化。这种大小的不可更改正是Java程序具有很强移植能力的原因之一。下表列出了Java中定义的简单类型、占用二进制位数及对应的封装器类。</p>
-<p><img src="images/1908252.png" alt><br>封装类为各个数据类型提供一些数据的操作方法，可以直接使用；</p>
-<p>例如String跟int的互相转化：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String a = &quot;21&quot;;int b = Integer.parseInt(a);//String 转int。</span><br><span class="line">int a = 21; String b = String.valueOf(a);//int转String。</span><br></pre></td></tr></table></figure>
-
-<p>对于数值类型的基本类型的取值范围，我们无需强制去记忆，因为它们的值都已经以常量的形式定义在对应的包装类中了。如：</p>
-<p>基本类型byte 二进制位数：Byte.SIZE最小值：Byte.MIN_VALUE最大值：Byte.MAX_VALUE</p>
-<p>基本类型short二进制位数：Short.SIZE最小值：Short.MIN_VALUE最大值：Short.MAX_VALUE</p>
-<p>基本类型char二进制位数：Character.SIZE最小值：Character.MIN_VALUE最大值：Character.MAX_VALUE</p>
-<p>基本类型double 二进制位数：Double.SIZE最小值：Double.MIN_VALUE最大值：Double.MAX_VALUE</p>
-<p>注意：float、double两种类型的最小值与Float.MIN_VALUE、 Double.MIN_VALUE的值并不相同，实际上Float.MIN_VALUE和Double.MIN_VALUE分别指的是 float和double类型所能表示的最小正数。也就是说存在这样一种情况，0到±Float.MIN_VALUE之间的值float类型无法表示，0 到±Double.MIN_VALUE之间的值double类型无法表示。这并没有什么好奇怪的，因为这些范围内的数值超出了它们的精度范围。</p>
-<p>Float和Double的最小值和最大值都是以科学记数法的形式输出的，结尾的”E+数字”表示E之前的数字要乘以10的多少倍。比如3.14E3就是3.14×1000=3140，3.14E-3就是3.14/1000=0.00314。</p>
-<p>Java基本类型存储在栈中，因此它们的存取速度要快于存储在堆中的对应包装类的实例对象。从Java5.0（1.5）开始，JAVA虚拟机（Java Virtual Machine）可以完成基本类型和它们对应包装类之间的自动转换。因此我们在赋值、参数传递以及数学运算的时候像使用基本类型一样使用它们的包装类，但这并不意味着你可以通过基本类型调用它们的包装类才具有的方法。另外，所有基本类型（包括void）的包装类都使用了final修饰，因此我们无法继承它们扩展新的类，也无法重写它们的任何方法。</p>
-<p>基本类型的优势：数据存储相对简单，运算效率比较高</p>
-<p>包装类的优势：有的容易，比如集合的元素必须是对象类型，满足了java一切皆是对象的思想</p>
-<h3 id="JAVA中的常量"><a href="#JAVA中的常量" class="headerlink" title="JAVA中的常量"></a>JAVA中的常量</h3><p>十六进制整型常量：以十六进制表示时，需以0x或0X开头，如0xff,0X9A。</p>
-<p>八进制整型常量：八进制必须以0开头，如0123，034。</p>
-<p>长整型：长整型必须以L作结尾，如9L,342L。</p>
-<p>浮点数常量：由于小数常量的默认类型是double型，所以float类型的后面一定要加f(F)。同样带小数的变量默认为double类型。</p>
-<p>如：float f;</p>
-<pre><code>f=1.3f;//必须声明f。</code></pre><p>字符常量：字符型常量需用两个单引号括起来（注意字符串常量是用两个双引号括起来）。Java中的字符占两个字节。一些常用的转义字符：</p>
-<p>①\r表示接受键盘输入，相当于按下了回车键；</p>
-<p>②\n表示换行；</p>
-<p>③\t表示制表符，相当于Table键；</p>
-<p>④\b表示退格键，相当于Back Space键；</p>
-<p>⑤&#39;表示单引号；</p>
-<p>⑥&#39;‘表示双引号；</p>
-<p>⑦\表示一个斜杠\。</p>
-<h2 id="数据类型之间的转换"><a href="#数据类型之间的转换" class="headerlink" title="数据类型之间的转换"></a>数据类型之间的转换</h2><h3 id="简单类型数据间的转换"><a href="#简单类型数据间的转换" class="headerlink" title="简单类型数据间的转换"></a>简单类型数据间的转换</h3><p>两种方式:自动转换和强制转换,通常发生在表达式中或方法的参数传递时。</p>
-<p>自动转换</p>
-<p>具体地讲,当一个较”小”数据与一个较”大”的数据一起运算时,系统将自动将”小”数据转换成”大”数据,再进行运算。而在方法调用时,实际参数较”小”,而被调用的方法的形式参数数据又较”大”时(若有匹配的,当然会直接调用匹配的方法),系统也将自动将”小”数据转换成”大”数据,再进行方法的调用,自然,对于多个同名的重载方法,会转换成最”接近”的”大”数据并进行调用。这些类型由”小”到”大”分别为 (byte，short，char)–int–long–float—double。这里我们所说的”大”与”小”,并不是指占用字节的多少,而是指表示值的范围的大小。</p>
-<ol>
-<li><p>下面的语句可以在Java中直接通过：</p>
-<p> byte b;int i=b; long l=b; float f=b; double d=b;</p>
-</li>
-<li><p>如果低级类型为char型，向高级类型（整型）转换时，会转换为对应ASCII码值，例如</p>
-<p> char c=’c’; int i=c;</p>
-<p> System.out.println(“output:”+i);输出：output:99;</p>
-</li>
-<li><p>对于byte,short,char三种类型而言，他们是平级的，因此不能相互自动转换，可以使用下述的强制类型转换。</p>
-<p> short i=99 ; char c=(char)i; System.out.println(“output:”+c);输出：output:c;</p>
-</li>
-</ol>
-<p>强制转换</p>
-<p>将”大”数据转换为”小”数据时，你可以使用强制类型转换。即你必须采用下面这种语句格式： int n=(int)3.14159/2;可以想象，这种转换肯定可能会导致溢出或精度的下降。</p>
-<h3 id="表达式的数据类型自动提升"><a href="#表达式的数据类型自动提升" class="headerlink" title="表达式的数据类型自动提升"></a>表达式的数据类型自动提升</h3><ol>
-<li><p>所有的byte,short,char型的值将被提升为int型；</p>
-</li>
-<li><p>如果有一个操作数是long型，计算结果是long型；</p>
-</li>
-<li><p>如果有一个操作数是float型，计算结果是float型；</p>
-</li>
-<li><p>如果有一个操作数是double型，计算结果是double型；</p>
-<p> 例， byte b; b=3; b=(byte)(b*3);//必须声明byte。</p>
-</li>
-</ol>
-<h3 id="包装类过渡类型转换"><a href="#包装类过渡类型转换" class="headerlink" title="包装类过渡类型转换"></a>包装类过渡类型转换</h3><p>一般情况下，我们首先声明一个变量，然后生成一个对应的包装类，就可以利用包装类的各种方法进行类型转换了。例如：</p>
-<ol>
-<li><p>当希望把float型转换为double型时：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">float f1=100.00f;</span><br><span class="line"></span><br><span class="line">Float F1=new Float(f1);</span><br><span class="line"></span><br><span class="line">double d1=F1.doubleValue();//F1.doubleValue()为Float类的返回double值型的方法</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当希望把double型转换为int型时：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">double d1=100.00;</span><br><span class="line"></span><br><span class="line">Double D1=new Double(d1);</span><br><span class="line"></span><br><span class="line">int i1=D1.intValue();</span><br></pre></td></tr></table></figure>
-
-<p> 简单类型的变量转换为相应的包装类，可以利用包装类的构造函数。即：Boolean(boolean value)、Character(char value)、Integer(int value)、Long(long value)、Float(float value)、Double(double value)</p>
-<p> 而在各个包装类中，总有形为××Value()的方法，来得到其对应的简单类型数据。利用这种方法，也可以实现不同数值型变量间的转换，例如，对于一个双精度实型类，intValue()可以得到其对应的整型变量，而doubleValue()可以得到其对应的双精度实型变量。</p>
-</li>
-</ol>
-<h3 id="字符串与其它类型间的转换"><a href="#字符串与其它类型间的转换" class="headerlink" title="字符串与其它类型间的转换"></a>字符串与其它类型间的转换</h3><p>其它类型向字符串的转换</p>
-<ol>
-<li><p>调用类的串转换方法:X.toString();</p>
-</li>
-<li><p>自动转换:X+””;</p>
-</li>
-<li><p>使用String的方法:String.volueOf(X);</p>
-<p> 字符串作为值,向其它类型的转换</p>
-</li>
-<li><p>先转换成相应的封装器实例,再调用对应的方法转换成其它类型</p>
-<p> 例如，字符中”32.1”转换double型的值的格式为:new Float(“32.1”).doubleValue()。也可以用:Double.valueOf(“32.1”).doubleValue()</p>
-</li>
-<li><p>静态parseXXX方法</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">String s = &quot;1&quot;;</span><br><span class="line"></span><br><span class="line">byte b = Byte.parseByte( s );</span><br><span class="line"></span><br><span class="line">short t = Short.parseShort( s );</span><br><span class="line"></span><br><span class="line">int i = Integer.parseInt( s );</span><br><span class="line"></span><br><span class="line">long l = Long.parseLong( s );</span><br><span class="line"></span><br><span class="line">Float f = Float.parseFloat( s );</span><br><span class="line"></span><br><span class="line">Double d = Double.parseDouble( s );</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Character的getNumericValue(char ch)方法</p>
-</li>
-</ol>
-<h3 id="Date类与其它数据类型的相互转换"><a href="#Date类与其它数据类型的相互转换" class="headerlink" title="Date类与其它数据类型的相互转换"></a>Date类与其它数据类型的相互转换</h3><p>整型和Date类之间并不存在直接的对应关系，只是你可以使用int型为分别表示年、月、日、时、分、秒，这样就在两者之间建立了一个对应关系，在作这种转换时，你可以使用Date类构造函数的三种形式：</p>
-<ol>
-<li><p>Date(int year, int month, int date)：以int型表示年、月、日</p>
-</li>
-<li><p>Date(int year, int month, int date, int hrs, int min)：以int型表示年、月、日、时、分</p>
-</li>
-<li><p>Date(int year, int month, int date, int hrs, int min, int sec)：以int型表示年、月、日、时、分、秒</p>
-</li>
-</ol>
-<p>在长整型和Date类之间有一个很有趣的对应关系，就是将一个时间表示为距离格林尼治标准时间1970年1月1日0时0分0秒的毫秒数。对于这种对应关系，Date类也有其相应的构造函数：Date(long date)。</p>
-<p>获取Date类中的年、月、日、时、分、秒以及星期你可以使用Date类的getYear()、getMonth()、getDate()、getHours()、getMinutes()、getSeconds()、getDay()方法，你也可以将其理解为将Date类转换成int。</p>
-<p>而Date类的getTime()方法可以得到我们前面所说的一个时间对应的长整型数，与包装类一样，Date类也有一个toString()方法可以将其转换为String类。</p>
-<p>有时我们希望得到Date的特定格式，例如20020324，我们可以使用以下方法，首先在文件开始引入，<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">import java.text.SimpleDateFormat;</span><br><span class="line"></span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">java.util.Date date = new java.util.Date();</span><br><span class="line"></span><br><span class="line">//如果希望得到YYYYMMDD的格式</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sy1=new SimpleDateFormat(&quot;yyyyMMDD&quot;);</span><br><span class="line"></span><br><span class="line">String dateFormat=sy1.format(date);</span><br><span class="line"></span><br><span class="line">//如果希望分开得到年，月，日</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sy=new SimpleDateFormat(&quot;yyyy&quot;);</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sm=new SimpleDateFormat(&quot;MM&quot;);</span><br><span class="line"></span><br><span class="line">SimpleDateFormat sd=new SimpleDateFormat(&quot;dd&quot;);</span><br><span class="line"></span><br><span class="line">String syear=sy.format(date);</span><br><span class="line"></span><br><span class="line">String smon=sm.format(date);</span><br><span class="line"></span><br><span class="line">String sday=sd.format(date);</span><br></pre></td></tr></table></figure></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
-<li><p>只有boolean不参与数据类型的转换</p>
-</li>
-<li><p>自动类型的转换：</p>
-<ul>
-<li><p>常数在表数范围内是能够自动类型转换的</p>
-</li>
-<li><p>数据范围小的能够自动数据类型大的转换（注意特例）int到float，long到float，long到double 是不会自动转换的，不然将会丢失精度</p>
-</li>
-<li><p>引用类型能够自动转换为父类的</p>
-</li>
-<li><p>基本类型和它们包装类型是能够互相转换的</p>
-</li>
-</ul>
-</li>
-<li><p>强制类型转换：用圆括号括起来目标类型，置于变量前</p>
-</li>
-</ol>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
-<li><p>java开发过程中整型用int、小数用double、布尔用boolean；</p>
-</li>
-<li><p>类型转换都是小范围向大范围转换，大范围往小范围转化需要用到强制转换；<br> 例如：(1)int a=12; double b=a;(2) double a=3.0;int b=(int)a;</p>
-</li>
-<li><p>long, byte, char等很少用到，一般在数据处理的时候会用到；</p>
-</li>
-<li><p>int跟char之间的转换是通过ASCII转化的；<br> 例如：char a = ‘A’;int b = a; System.out.prientln(b);最后输出的结果为65；</p>
-</li>
-<li><p>String类型，String是项目中必不可少且使用最多的数据类型，它属于引用数据类型中“类”的范畴。</p>
-</li>
-</ol>
-<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><p>Java有 5种引用类型（对象类型）：类 接口 数组 枚举 标注</p>
-<p>引用类型：底层结构和基本类型差别较大</p>
-<p>JVM的内存空间：</p>
-<ol>
-<li><p>Heap 堆空间：分配对象 new Student（）</p>
-</li>
-<li><p>Stack 栈空间：临时变量 Student stu</p>
-</li>
-<li><p>Code 代码区 ：类的定义，静态资源 Student.class</p>
-<p> eg：Student stu = new Student（）； //new 在内存的堆空间创建对象</p>
-<p> stu.study(); //把对象的地址赋给stu引用变量</p>
-</li>
-</ol>
-<p>上例实现步骤：</p>
-<ol>
-<li><p>JVM加载Student.class 到Code区</p>
-</li>
-<li><p>new Student()在堆空间分配空间并创建一个Student实例</p>
-</li>
-<li><p>将此实例的地址赋值给引用stu， 栈空间</p>
-</li>
-</ol>
-<p>Java把内存分成两种，一种叫做栈内存，一种叫做堆内存在函数中定义的一些基本类型的变量和对象的引用变量都是在函数的栈内存中分配。当在一段代码块中定义一个变量时，java就在栈中为这个变量分配内存空间，当超过变量的作用域后，java会自动释放掉为该变量分配的内存空间，该内存空间可以立刻被另作他用。堆内存用于存放由new创建的对象和数组。在堆中分配的内存，由java虚拟机自动垃圾回收器来管理。在堆中产生了一个数组或者对象后，还可以在栈中定义一个特殊的变量，这个变量的取值等于数组或者对象在堆内存中的首地址，在栈中的这个特殊的变量就变成了数组或者对象的引用变量，以后就可以在程序中使用栈内存中的引用变量来访问堆中的数组或者对象，引用变量相当于为数组或者对象起的一个别名。</p>
-<p>引用变量是普通变量，定义时在栈中分配内存，引用变量在程序运行到作用域外释放。而数组＆对象本身在堆中分配，即使程序运行到使用new产生数组和对象的语句所在地代码块之外，数组和对象本身占用的堆内存也不会被释放，数组和对象在没有引用变量指向它的时候，才变成垃圾，不能再被使用，但是仍然占着内存，在随后的一个不确定的时间被垃圾回收器释放掉。这个也是java比较占内存的主要原因，实际上，栈中的变量指向堆内存中的变量，这就是 Java 中的指针! </p>
-<h3 id="类Class"><a href="#类Class" class="headerlink" title="类Class"></a>类Class</h3><p>可以是我们创建的，主要是讲解几个java库中的类<br>Object ：Object是一个很重要的类，Object是类层次结构的根类，每个类都使用Object作为超类，所有对象（包括数组）都实现这个类的方法。用Object可以定义所有的类<br>如： Object object= new Integer(1); 来定义一个Interger类<br>     Integer i=(Integer) object;     在来把这个Object强制转换成Interger类 </p>
-<p>String ：String类代表字符串，Java 程序中的所有字符串字面值（如”abc”）都作为此类的实例来实现。检查序列的单个字符、比较字符串、搜索字符串、提取子字符串、创建字符串副本、在该副本中、所有的字符都被转换为大写或小写形式。 </p>
-<p>Date ：Date表示特定的瞬间，精确到毫秒。Date的类一般现在都被Calendar 和GregorianCalendar所有代替 </p>
-<p>Void ：Void 类是一个不可实例化的占位符类，它保持一个对代表 Java 关键字 void 的 Class 对象的引用。</p>
-<h3 id="接口interface"><a href="#接口interface" class="headerlink" title="接口interface"></a>接口interface</h3><p>可以是我们创建的，主要是讲解几个java库中的接口interface<br>List<e>：列表 ，此接口的用户可以对列表中每个元素的插入位置进行精确地控制。用户可以根据元素的整数索引 （在列表中的位置）访问元素，并搜索列表中的元素。List 接口提供了两种搜索指定对象的方法。从性能的观点来看，应该小心使用这些方法。在很多实现中，它们将执行高开销的线性搜索。 List 接口提供了两种在列表的任意位置高效插入和移除多个元素的方法。<br>add() : 在列表的插入指定元素。<br>remove()：移除列表中指定位置的元素。<br>get(int index)：返回列表中指定位置的元素。</e></p>
-<p>Map&lt;K,V&gt;：<br>K - 此映射所维护的键的类型<br>V - 映射值的类型 将键映射到值的对象。一个映射不能包含重复的键；每个键最多只能映射到一个值。<br>put(K key,V value)：将指定的值与此映射中的指定键关联（可选操作）。如果此映射以前包含一个该键的映射关系，则用指定值替换旧值（当且仅当，返回 true 时，才能说映射 m 包含键 k 的映射关系）。<br>remove(Object key)如果存在一个键的映射关系，则将其从此映射中移除（可选操作）。更确切地讲，如果此 映射包含从满足(key==null ? k==null :key.equals(k))的键 k 到值 v 的映射关系，则移除该映射关系。（该映射最多只能包含一个这样的映射关系.） get(Object key)：返回指定键所映射的值；如果此映射不包含该键的映射关系，则返回 null。</p>
-<h3 id="数组Array"><a href="#数组Array" class="headerlink" title="数组Array"></a>数组Array</h3><p>数组：存储在一个连续的内存块中的相同数据类型（引用数据类型）的元素集合。<br>数组中的每一个数据称之为数组元素，数组中的元素以索引来表示其存放的位置，索引（下标）从0开始。</p>
-<p>数组的定义<br>第一种方式：类型[] 数组名; 如 int[] nums;<br>第二种方式：类型数组名[]; 如 int nums[];<br>大多数Java程序员喜欢使用第一种风格,因为它把数据类型int[],和变量名num分开了.</p>
-<p>数组的初始化<br>Java中数组必先初始化后才能使用.<br>初始化就是给数组元素分配内存，并为每个元素赋初始值。</p>
-<p>初始化数组的两种方式：</p>
-<ol>
-<li>静态初始化:<br> 语法格式:类型[] 数组名 = new 数组类型[]{元素1,元素2,元素3,…元素n};<br> 简化语法：类型[] 数组名 = {元素1,元素2,元素3…元素n};</li>
-<li>动态初始化:<br> 如果我们事先不知道数组里存储哪些数据，只知道需要存储数据的个数，此时可以使用动态初始化方式。<br> 动态初始化：初始化时由我们指定数组的长度，系统自动为数组元素分配初始值。<br> 格式：类型[] 数组名 = new 数组类型[数组长度];</li>
-</ol>
-<p>注意:无论，以哪种方式初始化数组，一旦初始化完成，数组的长度就固定了，不能改变，除非重新初始化。也就是说数组是定长的。</p>
-<h2 id="为什么Java里有基本数据类型和引用数据类型？"><a href="#为什么Java里有基本数据类型和引用数据类型？" class="headerlink" title="为什么Java里有基本数据类型和引用数据类型？"></a>为什么Java里有基本数据类型和引用数据类型？</h2><p>引用类型在堆里，基本类型在栈里。</p>
-<p>栈空间小且连续，往往会被放在缓存。引用类型cache miss率高且要多一次解引用。</p>
-<p>对象还要再多储存一个对象头，对基本数据类型来说空间浪费率太高</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/index#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -950,7 +744,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/ssm配置问题总结.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/index">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -966,7 +760,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/ssm配置问题总结.html" class="post-title-link" itemprop="url">ssm配置问题总结</a>
+              <a href="/index" class="post-title-link" itemprop="url">ssm配置问题总结</a>
             
           </h1>
         
@@ -993,7 +787,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-05 23:07:03" itemprop="dateModified" datetime="2019-09-05T23:07:03+08:00">2019-09-05</time>
+                <time title="Modified: 2019-09-14 11:51:15" itemprop="dateModified" datetime="2019-09-14T11:51:15+08:00">2019-09-14</time>
               </span>
             
           
@@ -1022,17 +816,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <h2 id="MySQL安装配置及操作"><a href="#MySQL安装配置及操作" class="headerlink" title="MySQL安装配置及操作"></a>MySQL安装配置及操作</h2><h3 id="MySQL5-5"><a href="#MySQL5-5" class="headerlink" title="MySQL5.5"></a>MySQL5.5</h3><p>出现一个页面，点击这个“MySQL Community Server”标签。<br><img src="/images/1909051.PNG" alt><br>然后点击标签：Looking for previous GA versions?<br>选择mysql5.5.62<br>下载文件：mysql-5.5.62-win32.msi<br>一路next</p>
+          <!--noindex-->
           
-            <h2 id="MySQL安装配置及操作"><a href="#MySQL安装配置及操作" class="headerlink" title="MySQL安装配置及操作"></a>MySQL安装配置及操作</h2><h3 id="MySQL5-5"><a href="#MySQL5-5" class="headerlink" title="MySQL5.5"></a>MySQL5.5</h3><p>出现一个页面，点击这个“MySQL Community Server”标签。<br><img src="images/1909051.PNG" alt><br>然后点击标签：Looking for previous GA versions?<br>选择mysql5.5.62<br>下载文件：mysql-5.5.62-win32.msi<br>一路next</p>
-<h3 id="MySQL8"><a href="#MySQL8" class="headerlink" title="MySQL8"></a>MySQL8</h3><p>安装完成后进入MySQL的安装目录，进入MySQL Sever：bin目录下保存了MySQL常用的命令工具以及管理工具、data目录是MySQL默认用来保存数据文件以及日志文件的地方、docs目录下是MySQL的帮助文档、include目录和lib目录是MySQL所依赖的头文件以及库文件、share目录下保存目录文件以及日志文件。</p>
-<p>进入bin目录，按住shift键然后点击鼠标右键可以选择在该目录下打开命令窗口，或者在地址栏中输入cmd进入命令窗口。输入mysql -u root -p后回车，然后会提示输入密码，输入密码后就会进入MySQL的操作管理界面。<br>输入show databases；（注意末尾有分号）可以查看当前MySQL中的数据库列表，输入use test；可以进入test数据库（前提是要有此数据库），输入show tables可以查看test数据库中的所有表，输入quit可以退出MySQL的操作管理界面。<br> ————————————————<br><a href="https://blog.csdn.net/theLostLamb/article/details/78797643" rel="external nofollow noopener noreferrer" target="_blank">https://blog.csdn.net/theLostLamb/article/details/78797643</a></p>
-<h2 id="Mysql安装提示one-more-product-requirements-have-not-been-satisified"><a href="#Mysql安装提示one-more-product-requirements-have-not-been-satisified" class="headerlink" title="Mysql安装提示one more product requirements have not been satisified"></a>Mysql安装提示one more product requirements have not been satisified</h2><p>点击否，先关掉对话框，一定要先点击Execute，会先安装所需要的插件<br>若不执行excute,并且本地没有安装环境，第一次点击next安装会失败<br>执行excute之后，点击next此时仍会提示，选择OK继续安装即可，此时会安装成功<br> ————————————————<br><a href="https://blog.csdn.net/weixin_41996632/article/details/84934635" rel="external nofollow noopener noreferrer" target="_blank">https://blog.csdn.net/weixin_41996632/article/details/84934635</a><br><a href="https://blog.csdn.net/m0_37860933/article/details/81981663" rel="external nofollow noopener noreferrer" target="_blank">https://blog.csdn.net/m0_37860933/article/details/81981663</a></p>
-<h2 id="Tomcat服务器下载、安装、配置环境变量"><a href="#Tomcat服务器下载、安装、配置环境变量" class="headerlink" title="Tomcat服务器下载、安装、配置环境变量"></a>Tomcat服务器下载、安装、配置环境变量</h2><p>Windows键+R，输入cmd，回车<br>输入 startup.bat 后回车（你也可以到你解压的tomcat文件夹下的bin目录中点击startup.bat）<br>之后出现了Tomcat的启动窗口，若没有报错或者一闪而过，那么说明启动成功了，让黑窗口保持运行，不能关，否则你的服务器也就关闭了<br>可以直接点击进入<a href="http://localhost:8080/" rel="external nofollow noopener noreferrer" target="_blank">http://localhost:8080/</a><br> ————————————————<br><a href="https://blog.csdn.net/qq_40881680/article/details/83582484" rel="external nofollow noopener noreferrer" target="_blank">https://blog.csdn.net/qq_40881680/article/details/83582484</a></p>
-<h2 id="Eclipse项目配置maven"><a href="#Eclipse项目配置maven" class="headerlink" title="Eclipse项目配置maven"></a>Eclipse项目配置maven</h2><p>没什么问题<br> ————————————————<br> <a href="https://blog.csdn.net/feidi7783/article/details/80523030" rel="external nofollow noopener noreferrer" target="_blank">https://blog.csdn.net/feidi7783/article/details/80523030</a></p>
-<h2 id="Eclipse配置Tomcat找不到server或者eclipse不支持tomcat8、tomcat8-5、tomcat9-0"><a href="#Eclipse配置Tomcat找不到server或者eclipse不支持tomcat8、tomcat8-5、tomcat9-0" class="headerlink" title="Eclipse配置Tomcat找不到server或者eclipse不支持tomcat8、tomcat8.5、tomcat9.0"></a>Eclipse配置Tomcat找不到server或者eclipse不支持tomcat8、tomcat8.5、tomcat9.0</h2><p>不用安装JST Server AdaptersExtensions 没有用<br>直接重新安装下载eclipse时，版本选择要选javaEE而不是第一个，之后再打开什么都有了<br>官方网址：<a href="http://www.eclipse.org/downloads/" rel="external nofollow noopener noreferrer" target="_blank">http://www.eclipse.org/downloads/</a> </p>
-<h2 id="Eclipse添加Tomcat"><a href="#Eclipse添加Tomcat" class="headerlink" title="Eclipse添加Tomcat"></a>Eclipse添加Tomcat</h2><p><img src="images/1908221.png" alt="结构"><br><a href="https://jingyan.baidu.com/article/e5c39bf5c8afd039d660335b.html" rel="external nofollow noopener noreferrer" target="_blank">https://jingyan.baidu.com/article/e5c39bf5c8afd039d660335b.html</a></p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/index#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -1058,7 +851,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/单步跳入-单步跳过-单步返回.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/index">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -1074,7 +867,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/单步跳入-单步跳过-单步返回.html" class="post-title-link" itemprop="url">单步跳入 单步跳过 单步返回</a>
+              <a href="/index" class="post-title-link" itemprop="url">单步跳入 单步跳过 单步返回</a>
             
           </h1>
         
@@ -1090,11 +883,19 @@
                 
               
 
-              <time title="Created: 2019-08-19 18:22:07 / Modified: 18:24:25" itemprop="dateCreated datePublished" datetime="2019-08-19T18:22:07+08:00">2019-08-19</time>
+              <time title="Created: 2019-08-19 18:22:07" itemprop="dateCreated datePublished" datetime="2019-08-19T18:22:07+08:00">2019-08-19</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-14 11:47:12" itemprop="dateModified" datetime="2019-09-14T11:47:12+08:00">2019-09-14</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -1122,14 +923,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <p>单步跳入:step into调试，进入语句中的子函数进行步进调试<br>单步跳过:step over调试，跳过该行语句，进入下一行进行调试<br>单步返回:step out调试，跳出当前函数，进入调用源进行调试</p>
+          <!--noindex-->
           
-            <p>单步跳入:step into调试，进入语句中的子函数进行步进调试<br>单步跳过:step over调试，跳过该行语句，进入下一行进行调试<br>单步返回:step out调试，跳出当前函数，进入调用源进行调试</p>
-<p>例如：<br>1.<br>if(aa=fun(xx,xx)) ←当前断点位置<br>{<br>aa=b;<br>}<br>当执行单步跳入后，进入fun()函数的第一句语句，继续调试</p>
-<p>2.<br>aa=fun();←当前断点位置<br>bb=aa;<br>当执行单步跳过后，转到bb=aa;语句，继续调试</p>
-<p>3.<br>fun()<br>{<br>aa=bb; ←当前断点位置<br>bb=cc;<br>cc=dd;<br>}</p>
-<p>void main()<br>{<br>…<br>fun();<br>dd=ee;<br>}<br>当执行单步返回后，转到main函数的dd=ee;语句，继续调试</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/index#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -1155,7 +958,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/前后端分离.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/index">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -1171,7 +974,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/前后端分离.html" class="post-title-link" itemprop="url">前后端分离</a>
+              <a href="/index" class="post-title-link" itemprop="url">前后端分离</a>
             
           </h1>
         
@@ -1187,11 +990,19 @@
                 
               
 
-              <time title="Created: 2019-08-18 22:27:09 / Modified: 22:57:47" itemprop="dateCreated datePublished" datetime="2019-08-18T22:27:09+08:00">2019-08-18</time>
+              <time title="Created: 2019-08-18 22:27:09" itemprop="dateCreated datePublished" datetime="2019-08-18T22:27:09+08:00">2019-08-18</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-14 11:47:27" itemprop="dateModified" datetime="2019-09-14T11:47:27+08:00">2019-09-14</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -1219,153 +1030,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前后端分离已成为互联网项目开发的业界标准使用方式，通过nginx+tomcat的方式（也可以中间加一个nodejs）有效的进行解耦，并且前后端分离会为以后的大型分布式架构、弹性计算架构、微服务架构、多端化服务（多种客户端，例如：浏览器，车载终端，安卓，IOS等等）打下坚实的基础。这个步骤是系统架构从猿进化成人的必经之路。</p>
+          <!--noindex-->
           
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前后端分离已成为互联网项目开发的业界标准使用方式，通过nginx+tomcat的方式（也可以中间加一个nodejs）有效的进行解耦，并且前后端分离会为以后的大型分布式架构、弹性计算架构、微服务架构、多端化服务（多种客户端，例如：浏览器，车载终端，安卓，IOS等等）打下坚实的基础。这个步骤是系统架构从猿进化成人的必经之路。</p>
-<p>核心思想是前端html页面通过ajax调用后端的restuful api接口并使用json数据进行交互。</p>
-<blockquote>
-<p>  名词解释：<br>    在互联网架构中，<br>    web服务器：一般指像nginx，apache这类的服务器，他们一般只能解析静态资源。<br>    应用服务器：一般指像tomcat，jetty，resin这类的服务器可以解析动态资源也可以解析静态资源，但解析静态资源的能力没有web服务器好。<br>    一般都是只有web服务器才能被外网访问，应用服务器只能内网访问。</p>
-</blockquote>
-<h2 id="术业有专攻"><a href="#术业有专攻" class="headerlink" title="术业有专攻"></a>术业有专攻</h2><p>以前的JavaWeb项目大多数都是java程序员又当爹又当妈，又搞前端（ajax/jquery/js/html/css等等），又搞后端（java/mysql/oracle等等）。</p>
-<p>随着时代的发展，渐渐的许多大中小公司开始把前后端的界限分的越来越明确，前端工程师只管前端的事情，后端工程师只管后端的事情。正所谓术业有专攻，一个人如果什么都会，那么他毕竟什么都不精。</p>
-<p>大中型公司需要专业人才，小公司需要全才，但是对于个人职业发展来说，建议是分开。</p>
-<h3 id="对于后端java工程师："><a href="#对于后端java工程师：" class="headerlink" title="对于后端java工程师："></a>对于后端java工程师：</h3><p>把精力放在java基础，设计模式，jvm原理，spring+springmvc原理及源码，linux，mysql事务隔离与锁机制，mongodb，http/tcp，多线程，分布式架构（dubbo，dubbox，spring cloud），弹性计算架构，微服务架构（springboot+zookeeper+docker+jenkins），java性能优化，以及相关的项目管理等等。</p>
-<p>后端追求的是：三高（高并发，高可用，高性能），安全，存储，业务等等。</p>
-<h3 id="对于前端工程师："><a href="#对于前端工程师：" class="headerlink" title="对于前端工程师："></a>对于前端工程师：</h3><p>把精力放在html5，css3，jquery，angularjs，bootstrap，reactjs，vuejs，webpack，less/sass，gulp，nodejs，Google V8引擎，javascript多线程，模块化，面向切面编程，设计模式，浏览器兼容性，性能优化等等。</p>
-<p>前端追求的是：页面表现，速度流畅，兼容性，用户体验等等。</p>
-<p>术业有专攻，这样你的核心竞争力才会越来越高，正所谓你往生活中投入什么，生活就会反馈给你什么。并且两端的发展都越来越高深，你想什么都会，那你毕竟什么都不精。</p>
-<p>通过将team分成前后端team，让两边的工程师更加专注各自的领域，独立治理，然后构建出一个全栈式的精益求精的team。</p>
-<h2 id="原始人时代（各种耦合）"><a href="#原始人时代（各种耦合）" class="headerlink" title="原始人时代（各种耦合）"></a>原始人时代（各种耦合）</h2><p>几曾何时，我们的JavaWeb项目都是使用了若干后台框架，springmvc/struts + spring + spring jdbc/hibernate/mybatis 等等。</p>
-<p>大多数项目在java后端都是分了三层，控制层（controller/action），业务层（service/manage），持久层（dao）。控制层负责接收参数，调用相关业务层，封装数据，以及路由&amp;渲染到jsp页面。然后jsp页面上使用各种标签（jstl/el/struts标签等）或者手写java表达式（&lt;%=%&gt;）将后台的数据展现出来，玩的是MVC那套思路。</p>
-<p>我们先看这种情况：需求定完了，代码写完了，测试测完了，然后呢？要发布了吧？你需要用maven或者eclipse等工具把你的代码打成一个war包，然后把这个war包发布到你的生产环境下的web容器（tomcat/jboss/weblogic/websphere/jetty/resin）里，对吧？</p>
-<p>发布完了之后，你要启动你的web容器，开始提供服务，这时候你通过配置域名，dns等等相关，你的网站就可以访问了（假设你是个网站）。那我们来看，你的前后端代码是不是全都在那个war包里？包括你的js，css，图片，各种第三方的库，对吧？</p>
-<p>好，下面在浏览器中输入你的网站域名<a href="http://www.xxx.com，之后发生了什么？（这个问题也是很多公司的面试题）我捡干的说了啊，基础不好的童鞋请自己去搜。" rel="external nofollow noopener noreferrer" target="_blank">www.xxx.com，之后发生了什么？（这个问题也是很多公司的面试题）我捡干的说了啊，基础不好的童鞋请自己去搜。</a></p>
-<p>浏览器在通过域名通过dns服务器找到你的服务器外网ip,将http请求发送到你的服务器，在tcp3次握手之后（http下面是tcp/ip），通过tcp协议开始传输数据，你的服务器得到请求后，开始提供服务，接收参数，之后返回你的应答给浏览器，浏览器再通过content-type来解析你返回的内容，呈现给用户。</p>
-<p>那么我们来看，我们先假设你的首页中有100张图片，此时，用户的看似一次http请求，其实并不是一次，用户在第一次访问的时候，浏览器中不会有缓存，你的100张图片，浏览器要连着请求100次http请求（有人会跟我说http长连短连的问题，不在这里讨论），你的服务器接收这些请求，都需要耗费内存去创建socket来玩tcp传输（消耗你服务器上的计算资源）。</p>
-<p>重点来了，这样的话，你的服务器的压力会非常大，因为页面中的所有请求都是只请求到你这台服务器上，如果1个人还好，如果10000个人并发访问呢（先不聊服务器集群，这里就说是单实例服务器），那你的服务器能扛住多少个tcp连接？你的带宽有多大？你的服务器的内存有多大？你的硬盘是高性能的吗？你能抗住多少IO？你给web服务器分的内存有多大？会不会宕机？</p>
-<p>这就是为什么，越是大中型的web应用，他们越是要解耦。理论上你可以把你的数据库+应用服务+消息队列+缓存+用户上传的文件+日志+等等都扔在一台服务器上，你也不用玩什么服务治理，也不用做什么性能监控，什么报警机制等等，就乱成一锅粥好了。但是这样就好像是你把鸡蛋都放在一个篮子里，隐患非常大。如果因为一个子应用的内存不稳定导致整个服务器内存溢出而hung住，那你的整个网站就挂掉了。</p>
-<p>如果出意外挂掉，而恰好这时你们的业务又处于井喷式发展高峰期，那么恭喜你，业务成功被技术卡住，很可能会流失大量用户，后果不堪设想。（注意：技术一定是要走在业务前面的，否则你将错过最佳的发展期）</p>
-<p>此外，你的应用全部都耦合在一起，相当于一个巨石，当服务端负载能力不足时，一般会使用负载均衡的方式，将服务器做成集群，这样其实你是在水平扩展一块块巨石，性能加速度会越来越低，要知道，本身负载就低的功能or模块是没有必要水平扩展的，在本文中的例子就是你的性能瓶颈不在前端，那干嘛要水平扩展前端呢？？？还有发版部署上线的时候，我明明只改了后端的代码，为什么要前端也跟着发布呢？？？</p>
-<p>正常的互联网架构，是都要拆开的，你的web服务器集群，你的应用服务器集群+文件服务器集群+数据库服务器集群+消息队列集群+缓存集群等等。</p>
-<h2 id="JSP的痛点"><a href="#JSP的痛点" class="headerlink" title="JSP的痛点"></a>JSP的痛点</h2><p>以前的javaWeb项目大多数使用jsp作为页面层展示数据给用户，因为流量不高，因此也没有那么苛刻的性能要求，但现在是大数据时代，对于互联网项目的性能要求是越来越高，因此原始的前后端耦合在一起的架构模式已经逐渐不能满足我们，因此我们需要需找一种解耦的方式，来大幅度提升我们的负载能力。</p>
-<ol>
-<li><p>动态资源和静态资源全部耦合在一起，服务器压力大，因为服务器会收到各种http请求，例如css的http请求，js的，图片的等等。一旦服务器出现状况，前后台一起玩完，用户体验极差。</p>
-</li>
-<li><p>UI出好设计图后，前端工程师只负责将设计图切成html，需要由java工程师来将html套成jsp页面，出错率较高（因为页面中经常会出现大量的js代码），修改问题时需要双方协同开发，效率低下。</p>
-</li>
-<li><p>jsp必须要在支持java的web服务器里运行（例如tomcat，jetty，resin等），无法使用nginx等（nginx据说单实例http并发高达5w，这个优势要用上），性能提不上来。</p>
-</li>
-<li><p>第一次请求jsp，必须要在web服务器中编译成servlet，第一次运行会较慢。</p>
-</li>
-<li><p>每次请求jsp都是访问servlet再用输出流输出的html页面，效率没有直接使用html高</p>
-</li>
-<li><p>jsp内有较多标签和表达式，前端工程师在修改页面时会捉襟见肘，遇到很多痛点。</p>
-</li>
-<li><p>如果jsp中的内容很多，页面响应会很慢，因为是同步加载。</p>
-</li>
-<li><p>需要前端工程师使用java的ide（例如eclipse），以及需要配置各种后端的开发环境，你们有考虑过前端工程师的感受吗。</p>
-</li>
-</ol>
-<h2 id="开发模式"><a href="#开发模式" class="headerlink" title="开发模式"></a>开发模式</h2><p>以前老的方式是： </p>
-<ol>
-<li>产品经历/领导/客户提出需求 </li>
-<li>UI做出设计图 </li>
-<li>前端工程师做html页面 </li>
-<li>后端工程师将html页面套成jsp页面（前后端强依赖，后端必须要等前端的html做好才能套jsp。如果html发生变更，就更痛了，开发效率低） </li>
-<li>集成出现问题 </li>
-<li>前端返工 </li>
-<li>后端返工 </li>
-<li>二次集成 </li>
-<li>集成成功 </li>
-<li>交付</li>
-</ol>
-<p>新的方式是： </p>
-<ol>
-<li>产品经历/领导/客户提出需求 </li>
-<li>UI做出设计图 </li>
-<li>前后端约定接口&amp;数据&amp;参数 </li>
-<li>前后端并行开发（无强依赖，可前后端并行开发，如果需求变更，只要接口&amp;参数不变，就不用两边都修改代码，开发效率高） </li>
-<li>前后端集成 </li>
-<li>前端页面调整 </li>
-<li>集成成功 </li>
-<li>交付</li>
-</ol>
-<h2 id="请求方式"><a href="#请求方式" class="headerlink" title="请求方式"></a>请求方式</h2><p>以前老的方式是： </p>
-<ol>
-<li>客户端请求 </li>
-<li>服务端的servlet或controller接收请求（后端控制路由与渲染页面，整个项目开发的权重大部分在后端） </li>
-<li>调用service,dao代码完成业务逻辑 </li>
-<li>返回jsp </li>
-<li>jsp展现一些动态的代码</li>
-</ol>
-<p>新的方式是： </p>
-<ol>
-<li>浏览器发送请求 </li>
-<li>直接到达html页面（前端控制路由与渲染页面，整个项目开发的权重前移） </li>
-<li>html页面负责调用服务端接口产生数据（通过ajax等等，后台返回json格式数据，json数据格式因为简洁高效而取代xml） </li>
-<li>填充html，展现动态效果，在页面上进行解析并操作DOM。<br>（有兴趣的童鞋可以访问一下阿里巴巴等大型网站，然后按一下F12，监控一下你刷新一次页面，他的http是怎么玩的，大多数都是单独请求后台数据，使用json传输数据，而不是一个大而全的http请求把整个页面包括动+静全部返回过来）</li>
-</ol>
-<p>总结一下新的方式的请求步骤：<br>大量并发浏览器请求—&gt;web服务器集群(nginx)—&gt;应用服务器集群(tomcat)—&gt;文件/数据库/缓存/消息队列服务器集群<br>同时又可以玩分模块，还可以按业务拆成一个个的小集群，为后面的架构升级做准备。</p>
-<h2 id="前后分离的优势"><a href="#前后分离的优势" class="headerlink" title="前后分离的优势"></a>前后分离的优势</h2><ol>
-<li><p>可以实现真正的前后端解耦，前端服务器使用nginx。前端/WEB服务器放的是css，js，图片等等一系列静态资源（甚至你还可以css，js，图片等资源放到特定的文件服务器，例如阿里云的oss，并使用cdn加速），前端服务器负责控制页面引用&amp;跳转&amp;路由，前端页面异步调用后端的接口，后端/应用服务器使用tomcat（把tomcat想象成一个数据提供者），加快整体响应速度。（这里需要使用一些前端工程化的框架比如nodejs，react，router，react，redux，webpack）</p>
-</li>
-<li><p>发现bug，可以快速定位是谁的问题，不会出现互相踢皮球的现象。页面逻辑，跳转错误，浏览器兼容性问题，脚本错误，页面样式等问题，全部由前端工程师来负责。接口数据出错，数据没有提交成功，应答超时等问题，全部由后端工程师来解决。双方互不干扰，前端与后端是相亲相爱的一家人。</p>
-</li>
-<li><p>在大并发情况下，我可以同时水平扩展前后端服务器，比如淘宝的一个首页就需要2000+台前端服务器做集群来抗住日均多少亿+的日均pv。（去参加阿里的技术峰会，听他们说他们的web容器都是自己写的，就算他单实例抗10万http并发，2000台是2亿http并发，并且他们还可以根据预知洪峰来无限拓展，很恐怖，就一个首页。。。）</p>
-</li>
-<li><p>减少后端服务器的并发/负载压力。除了接口以外的其他所有http请求全部转移到前端nginx上，接口的请求调用tomcat，参考nginx反向代理tomcat。且除了第一次页面请求外，浏览器会大量调用本地缓存。</p>
-</li>
-<li><p>即使后端服务暂时超时或者宕机了，前端页面也会正常访问，只不过数据刷不出来而已。</p>
-</li>
-<li><p>也许你也需要有微信相关的轻应用，那样你的接口完全可以共用，如果也有app相关的服务，那么只要通过一些代码重构，也可以大量复用接口，提升效率。（多端应用）</p>
-</li>
-<li><p>页面显示的东西再多也不怕，因为是异步加载。</p>
-</li>
-<li><p>nginx支持页面热部署，不用重启服务器，前端升级更无缝。</p>
-</li>
-<li><p>增加代码的维护性&amp;易读性（前后端耦在一起的代码读起来相当费劲）。</p>
-</li>
-<li><p>提升开发效率，因为可以前后端并行开发，而不是像以前的强依赖。</p>
-</li>
-<li><p>在nginx中部署证书，外网使用https访问，并且只开放443和80端口，其他端口一律关闭（防止黑客端口扫描），内网使用http，性能和安全都有保障。</p>
-</li>
-<li><p>前端大量的组件代码得以复用，组件化，提升开发效率，抽出来！</p>
-</li>
-</ol>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
-<li><p>在开需求会议的时候，前后端工程师必须全部参加，并且需要制定好接口文档，后端工程师要写好测试用例（2个维度），不要让前端工程师充当你的专职测试，推荐使用chrome的插件postman或soapui或jmeter，service层的测试用例拿junit写。ps：前端也可以玩单元测试吗？</p>
-</li>
-<li><p>上述的接口并不是java里的interface，说白了调用接口就是调用你controler里的方法。</p>
-</li>
-<li><p>加重了前端团队的工作量，减轻了后端团队的工作量，提高了性能和可扩展性。</p>
-</li>
-<li><p>我们需要一些前端的框架来解决类似于页面嵌套，分页，页面跳转控制等功能。（上面提到的那些前端框架）。</p>
-</li>
-<li><p>以前还有人在使用类似于velocity/freemarker等模板框架来生成静态页面，仁者见仁智者见智。</p>
-</li>
-<li><p>这篇文章主要的目的是说jsp在大型外网java web项目中被淘汰掉，可没说jsp可以完全不学，jsp/servlet等相关的java web基础还是要掌握牢的，不然你以为springmvc这种框架是基于什么来写的？</p>
-</li>
-<li><p>如果页面上有一些权限等等相关的校验，那么这些相关的数据也可以通过ajax从接口里拿。</p>
-</li>
-<li><p>对于既可以前端做也可以后端做的逻辑，我建议是放到前端，为什么？因为你的逻辑需要计算资源进行计算，如果放到后端去run逻辑，则会消耗带宽&amp;内存&amp;cpu等等计算资源，你要记住一点就是服务端的计算资源是有限的，而如果放到前端，使用的是客户端的计算资源，这样你的服务端负载就会下降（高并发场景）。类似于数据校验这种，前后端都需要做！</p>
-</li>
-<li><p>前端需要有机制应对后端请求超时以及后端服务宕机的情况，友好的展示给用户。</p>
-</li>
-</ol>
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><ol>
-<li><p>其实对于js，css，图片这类的静态资源可以考虑放到类似于阿里云的oss这类文件服务器上（如果是普通的服务器&amp;操作系统，存储在到达pb级的文件后，或者单个文件夹内的文件数量达到3-5万，io会有很严重的性能问题），再在oss上配cdn（全国子节点加速），这样你页面打开的速度像飞一样， 无论你在全国的哪个地方，并且你的nginx的负载会进一步降低。</p>
-</li>
-<li><p>如果你要玩轻量级微服务架构，要使用nodejs做网关，用nodejs的好处还有利于seo优化，因为nginx只是向浏览器返回页面静态资源，而国内的搜索引擎爬虫只会抓取静态数据，不会解析页面中的js，这使得应用得不到良好的搜索引擎支持。同时因为nginx不会进行页面的组装渲染，需要把静态页面返回到浏览器，然后完成渲染工作，这加重了浏览器的渲染负担。浏览器发起的请求经过nginx进行分发，URL请求统一分发到nodejs，在nodejs中进行页面组装渲染；API请求则直接发送到后端服务器，完成响应。</p>
-</li>
-<li><p>如果遇到跨域问题，spring4的CORS可以完美解决，但一般使用nginx反向代理都不会有跨域问题，除非你把前端服务和后端服务分成两个域名。JSONP的方式也被淘汰掉了。</p>
-</li>
-<li><p>如果想玩多端应用，注意要去掉tomcat原生的session机制，要使用token机制，使用缓存（因为是分布式系统），做单点，对于token机制的安全性问题，可以搜一下jwt。</p>
-</li>
-<li><p>前端项目中可以加入mock测试（构造虚拟测试对象来模拟后端，可以独立开发和测试），后端需要有详细的测试用例，保证服务的可用性与稳定性。</p>
-</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>前后端分离并非仅仅只是一种开发模式，而是一种架构模式（前后端分离架构）。不要以为只有在撸代码的时候把前端和后端分开就是前后端分离了，需要区分前后端项目。前端项目与后端项目是两个项目，放在两个不同的服务器，需要独立部署，两个不同的工程，两个不同的代码库，不同的开发人员。前后端工程师需要约定交互接口，实现并行开发，开发结束后需要进行独立部署，前端通过ajax来调用http请求调用后端的restful api。前端只需要关注页面的样式与动态数据的解析&amp;渲染，而后端专注于具体业务逻辑。</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/index#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -1391,7 +1065,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/Cookie-and-session.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/index">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -1407,7 +1081,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/Cookie-and-session.html" class="post-title-link" itemprop="url">Cookie and session</a>
+              <a href="/index" class="post-title-link" itemprop="url">Cookie and session</a>
             
           </h1>
         
@@ -1434,7 +1108,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-13 10:45:14" itemprop="dateModified" datetime="2019-09-13T10:45:14+08:00">2019-09-13</time>
+                <time title="Modified: 2019-09-14 11:38:48" itemprop="dateModified" datetime="2019-09-14T11:38:48+08:00">2019-09-14</time>
               </span>
             
           
@@ -1463,38 +1137,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <h2 id="Cookie的作用"><a href="#Cookie的作用" class="headerlink" title="Cookie的作用"></a>Cookie的作用</h2><p>Cookie是用来记录服务器和客户端的状态，或者说记录用户的登录信息。<br>我们的HTTP是无连接的，所以我们需要Cookie来进行用户和连接信息的记录。<br>利用cookie我们就可以跟踪用户了</p>
+          <!--noindex-->
           
-            <h2 id="Cookie的作用"><a href="#Cookie的作用" class="headerlink" title="Cookie的作用"></a>Cookie的作用</h2><p>Cookie是用来记录服务器和客户端的状态，或者说记录用户的登录信息。<br>我们的HTTP是无连接的，所以我们需要Cookie来进行用户和连接信息的记录。<br>利用cookie我们就可以跟踪用户了</p>
-<ol>
-<li>在HTTP响应报文中有一个cookie的首部行Set-Cookie</li>
-<li>HTTP请求报文中有一个cookie的首部行，每次请求都会加上这个cookie</li>
-<li>客户端保存一个cookie，用户浏览器管理</li>
-<li>web站点服务器有一个数据库，当服务器解析接收到的请求报文中的cookie时就可以根据这个cookie中的值来判断是哪个用户或者说是哪个id，然后如果需要返回特定的信息就去数据库中获取然后返回给客户端。</li>
-</ol>
-<h3 id="Cookie的问题"><a href="#Cookie的问题" class="headerlink" title="Cookie的问题"></a>Cookie的问题</h3><p>我们单纯使用cookie来做用户认证，其实是非常大风险的。 因为服务器没有什么手段来判断这个cookie是不是我们的真实用户说发送的，很多第三方可以获取到这个cookie，里面的信息就可以被它用来伪造HTTP请求获取我们服务器的数据了。</p>
-<h2 id="引入Session"><a href="#引入Session" class="headerlink" title="引入Session"></a>引入Session</h2><p>session会话机制。<br>Session一般是指浏览器这个页面打开到关闭的这段时间。所谓的使用session机制其实就是不把用户信息存到浏览器(客户端)而是全部存到服务器上，我们只存一个被称为sessionid的值作为cookie存在浏览器端。</p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>Session原理是服务端端每一个session维护一份会话信息数据，客户端和服务端依靠一个全局唯一标识sesssion_id来访问会话信息数据。用户访问web应用时，服务端程序决定何时创建session。</p>
-<p><strong>对于Java后台来说</strong><br>其实我们可以认为，Session是调用HttpServletRequest.getSession(true)这样的语句时才被创建。这里的Session就是一个Java对象了，提供给请求者使用。 服务器再次接受到请求的时候就会收到这个Sesssion_id，然后根据ID在内存中找到之前创建的session对象，提供给请求者使用。</p>
-<p>Session一般放在内存中，一旦服务器重启或者进程停止就会被清空。设置了session持久化才能使得重启服务器都能拿到session。</p>
-<h3 id="Session删除时间"><a href="#Session删除时间" class="headerlink" title="Session删除时间"></a>Session删除时间</h3><ol>
-<li>Session超时：超时指的是连续一定时间服务器没有收到该Session所对应客户端的请求，并且这个时间超过了服务器设置的Session超时的最大时间。 </li>
-<li>程序调用HttpSession.invalidate() </li>
-<li>服务器关闭或服务停止</li>
-</ol>
-<p>session的id是从哪里来的，sessionID是如何使用的：当客户端第一次请求session对象时候，服务器会为客户端创建一个session，并将通过特殊算法算出一个session的ID，用来标识该session对象，当浏览器下次（session继续有效时）请求别的资源的时候，浏览器会将sessionID(实质是cookie)放置到请求头中，服务器接收到请求后就得到该请求的sessionID，服务器找到该id的session返还给请求者（Servlet）使用。一个会话只能有一个session对象，对session来说是只认id不认人。</p>
-<p>对于Java后台来说，session是一个容器，可以存放会话过程中的任何对象</p>
-<h3 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h3><p>Session机制中，数据是存储在服务器上面，所以你不能伪造，你要获得这些数据就必须使用服务提供的sesssion_id，Cookie是保存在客户端的，安全性很难得到保证。</p>
-<p>其实我们使用session的话session是不会因为浏览器的关闭而删除的。</p>
-<h3 id="关于session-id的时效性"><a href="#关于session-id的时效性" class="headerlink" title="关于session_id的时效性"></a>关于session_id的时效性</h3><p>一般来说我们用session保持持久连接，也就是用户登录认证通过后，保持对这个用户的识别。 但是我们这个登录必须设置一个时效，也就是说登录了一段时间后我们要求用户重新登录。<br>其实也就是设置cookie(session_ID)的有效时间，当超过时了这个session_Id就无效了，我们就要再次登录，再次输入认证信息，然后服务器接收这些信息再次生成一个新的session，并把用户认证的信息存入这个session。<br>一般session也是有有效期的，可能是用户主要销毁，比如登出操作，这个session就销毁了。</p>
-<h2 id="Session和Cookie过期的对比"><a href="#Session和Cookie过期的对比" class="headerlink" title="Session和Cookie过期的对比"></a>Session和Cookie过期的对比</h2><h3 id="首先Cookie过期"><a href="#首先Cookie过期" class="headerlink" title="首先Cookie过期"></a>首先Cookie过期</h3><p>Cookie一般有两种，一种是不设置过期时间，浏览器关闭就过期，一种是设置过期时间，存在硬盘中，下次打开浏览器仍然存在。<br>注意一般来说，cookie过期的话，再次打开浏览器就会被删除了.</p>
-<h3 id="再者Session-id和session"><a href="#再者Session-id和session" class="headerlink" title="再者Session_id和session"></a>再者Session_id和session</h3><p>Session的话其实主要看session_id，大部分的会话机制是利用session_id(也是cookie)，如果cookie过期了也就是session_id过期了，那么显然服务器中的session也会结束生命周期(被销毁)。(如果浏览器没有删除cookie，你发送了一个过期的cookie，服务器需要判断然后就会拒绝你的请求)</p>
-<h3 id="Session过期"><a href="#Session过期" class="headerlink" title="Session过期"></a>Session过期</h3><p>session自动失效：一般服务器也会设置Session的过期时间，一旦session过期了，就算客户端的cookie(session_id)没有过期，session照样会结束自己的生命周期。</p>
-<h2 id="SessionID如何产生，由谁产生，保存在哪？"><a href="#SessionID如何产生，由谁产生，保存在哪？" class="headerlink" title="SessionID如何产生，由谁产生，保存在哪？"></a>SessionID如何产生，由谁产生，保存在哪？</h2><p><strong>创建：</strong><br>服务器端程序运行的过程中创建的，不同语言实现的应用程序有不同创建Session的方法，而在Java中是通过调用HttpServletRequest的getSession方法（使用true作为参数）创建的。</p>
-<p><strong>sessionid生成算法</strong><br>tomcat的ManagerBase类提供创建sessionid的方法：随机数+时间+jvmid；</p>
-<p><strong>存储在内存中。</strong></p>
-<p><strong>如何持久化？</strong> cookie memcache redis 存到数据库中</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/index#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -1520,7 +1172,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/No-java-virtual-machine-was-found.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/index">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -1536,7 +1188,7 @@
         
           <h1 class="post-title" itemprop="name headline">
               
-              <a href="/No-java-virtual-machine-was-found.html" class="post-title-link" itemprop="url">No java virtual machine was found</a>
+              <a href="/index" class="post-title-link" itemprop="url">No java virtual machine was found</a>
             
           </h1>
         
@@ -1563,7 +1215,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-06 10:18:50" itemprop="dateModified" datetime="2019-09-06T10:18:50+08:00">2019-09-06</time>
+                <time title="Modified: 2019-09-14 11:51:40" itemprop="dateModified" datetime="2019-09-14T11:51:40+08:00">2019-09-14</time>
               </span>
             
           
@@ -1592,15 +1244,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <p>第一次运行Eclipse,经常会提示下面的问题:<br>… No java virtual machine  was found after searching the follwing locations”…./javaw.exe” in your current path。<br><img src="/images/1909061.jpg" alt></p>
+          <!--noindex-->
           
-            <p>第一次运行Eclipse,经常会提示下面的问题:<br>… No java virtual machine  was found after searching the follwing locations”…./javaw.exe” in your current path。<br><img src="images/1909061.jpg" alt><br>意思：在指定路径“…./javaw.exe”没有找到javaw.exe。因为Eclipse启动时需要javaw.exe来启动。先查找path中各个目录以后,没有找到；就会查看就会固定地在eclipse的安装目录(如d:javaeclipse)下查找。即：先找外面装了没有；若没有则找自己带了没有。如果都没有找到,就报上面的错误。</p>
-<p>根据提示：Eclipse要javaw.exe才能运行。所以要设置path,让Eclipse通过path变量中的路径找到javaw.exe就可以了。<br>解决：</p>
-<ol>
-<li>在Path中设置javaw.exe的路径,如：</li>
-<li>或修改eclipse.ini 文件，在最前面加上下面两行内容：<br> -vm<br> D:/java/jdk1.6.0_10/bin/javaw.exe</li>
-</ol>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/index#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>

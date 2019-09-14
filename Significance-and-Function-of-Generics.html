@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="google-site-verification" content="I0jUNsp40jMLLvChVvaEUlXNcTs1cSJSG4ktU1HF5-M">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="意义和作用：类型的参数化，就是可以把类型像方法的参数那样传递。这一点意义非凡。泛型使编译器可以在编译期间对类型进行检查以提高类型安全，减少运行时由于对象类型不匹配引发的异常。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="泛型的意义和作用">
+<meta property="og:url" content="https://zhishui0501.github.io/Significance-and-Function-of-Generics.html">
+<meta property="og:site_name" content="Aaron&#39;s blog">
+<meta property="og:description" content="意义和作用：类型的参数化，就是可以把类型像方法的参数那样传递。这一点意义非凡。泛型使编译器可以在编译期间对类型进行检查以提高类型安全，减少运行时由于对象类型不匹配引发的异常。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-14T04:59:53.796Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="泛型的意义和作用">
+<meta name="twitter:description" content="意义和作用：类型的参数化，就是可以把类型像方法的参数那样传递。这一点意义非凡。泛型使编译器可以在编译期间对类型进行检查以提高类型安全，减少运行时由于对象类型不匹配引发的异常。">
+  <link rel="canonical" href="https://zhishui0501.github.io/Significance-and-Function-of-Generics">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>泛型的意义和作用 | Aaron's blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">11</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">29</span></a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/Significance-and-Function-of-Generics.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="Keep Learning">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">泛型的意义和作用
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-08-31 20:12:48" itemprop="dateCreated datePublished" datetime="2019-08-31T20:12:48+08:00">2019-08-31</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-14 12:59:53" itemprop="dateModified" datetime="2019-09-14T12:59:53+08:00">2019-09-14</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="意义和作用："><a href="#意义和作用：" class="headerlink" title="意义和作用："></a>意义和作用：</h2><p>类型的参数化，就是可以把类型像方法的参数那样传递。这一点意义非凡。<br>泛型使编译器可以在编译期间对类型进行检查以提高类型安全，减少运行时由于对象类型不匹配引发的异常。</p>
+<a id="more"></a>　
+<p>想要理解为什么引入泛型，就要知道没有泛型的麻烦。<br>我们知道现在的程序开发都是面向对象了，所以程序里会有很多各种类型的对象，对象多了肯定需要有某种类型的容器来装。所以就有了一些容器类型，比如数组、ArrayList、HashMap、TreeSet等。<br>对于数组，我们知道需要在使用时指定数组装的对象类型，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Animal animal[];</span><br><span class="line"> </span><br><span class="line">Dog dog[];</span><br></pre></td></tr></table></figure>
+
+<p>而对于集合类型容器如ArrayList、HashMap、TreeSet等，它们不但是容器，还提供了一些方法对容器内对象的操作方法，如get，set，sort。这个时候就需要知道容器内放的是什么类型的对象，才能return或set。</p>
+<p>正因为程序开发人员可能把任何类型的对象放进集合容器，所以这些容器在设计的时候只能默认设计成装Object类型对象。因为Java里Object是根类。<br>所以容器就成了类似这个样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class ListContainer &#123;</span><br><span class="line">    private Object obj;</span><br><span class="line"> </span><br><span class="line">    public Object getObj() &#123;</span><br><span class="line">        return obj;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setObj(Object obj) &#123;</span><br><span class="line">        this.obj = obj;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样的话，根据多态，容器就能装任何类型的对象了。不过，取出对象时则需求进行强制类型转换，转换成实际的类型。但这样会有很多类型不安全问题，为什么呢？因为编译器没法帮忙做类型检查，导致代码在运行时易于出现ClassCastException异常。因此，类型安全问题只能由程序员自己来把关了，记住各种类型，避免类型转换错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ListContainer myContainer = new ListContainer();</span><br><span class="line">	 </span><br><span class="line">myContainer.setObj(&quot;123&quot;);</span><br><span class="line">	 </span><br><span class="line">   ArrayList objectList = new ArrayList();</span><br><span class="line">	 </span><br><span class="line">objectList.add(myContainer);</span><br><span class="line">	 </span><br><span class="line">//下面这句编译时无异常，运行时会ClassCastException异常</span><br><span class="line">	 </span><br><span class="line">Integer myStr = (Integer) (objectList.get(0)).getObj();</span><br><span class="line">	 </span><br><span class="line">//下面这句ok</span><br><span class="line">	 </span><br><span class="line">String myStr1 = (String) (objectList.get(0)).getObj();</span><br><span class="line">	</span><br><span class="line">System.out.println(myStr1);</span><br></pre></td></tr></table></figure>
+
+<h2 id="泛型出场：类型的参数化"><a href="#泛型出场：类型的参数化" class="headerlink" title="泛型出场：类型的参数化"></a>泛型出场：类型的参数化</h2><p>利用泛型，重新设计：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class ListContainer&lt;T&gt; &#123;</span><br><span class="line">    private T t;</span><br><span class="line"> </span><br><span class="line">    public T getObj() &#123;</span><br><span class="line">        return t;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    public void setObj(T t) &#123;</span><br><span class="line">        this.t = t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里<t>的T的类型的参数，具体T指代什么类型，是String还是Animal还是Dog类型此处不管，而在程序员开发时使用到ListContainer时再指定，如：<br><code>ListContainer&lt;Dog&gt; myCon=new ListContainer&lt;Dog&gt;();</code><br>这种环境下，编译器就知道ListContainer容器是放Dog类型对象的。并进行类型安全检查。</t></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">myCon.setObj(new Dog())//ok</span><br><span class="line"> </span><br><span class="line">myCon.setObj(“123”);//编译时提醒类型错误</span><br></pre></td></tr></table></figure>
+
+<p>这样设计的容器在使用时编译器就可以帮忙做很大一部分的类型安全检查工作了，这就避免了很多运行时的ClassCastException异常，程序员也无需记住各种对象的类型和担心类型匹配问题了。同时大部分情况下也不用做类型强制转换工作了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ListContainer&lt;String&gt; myContainer = new ListContainer&lt;String&gt;();</span><br><span class="line"> </span><br><span class="line">myContainer.setObj(&quot;123&quot;);</span><br><span class="line"> </span><br><span class="line">myContainer.setObj(new Dog());//编译器就提醒类型异常</span><br><span class="line"> </span><br><span class="line">ArrayList objectList&lt;ListContainer&gt; = new ArrayList&lt;ListContainer&gt;();</span><br><span class="line"> </span><br><span class="line">objectList.add(myContainer);</span><br><span class="line"> </span><br><span class="line">Integer myStr = (objectList.get(0)).getObj(); //编译时提醒类型异常</span><br><span class="line"> </span><br><span class="line">String myStr = (objectList.get(0)).getObj();</span><br></pre></td></tr></table></figure>
+
+<p>当然泛型的&lt;&gt;里也可以放多个参数，如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class MultiContainer&lt;T,S&gt; &#123;</span><br><span class="line"> </span><br><span class="line">private T t;</span><br><span class="line"> </span><br><span class="line">private S s;</span><br><span class="line"> </span><br><span class="line">...</span><br><span class="line"> </span><br><span class="line">MultiContainer&lt;String,Dog&gt; multicon=new MultiContainer&lt;String,Dog&gt;();</span><br></pre></td></tr></table></figure>
+
+<h2 id="有界泛型"><a href="#有界泛型" class="headerlink" title="有界泛型"></a>有界泛型</h2><p>看看这个泛型和多态的问题,Dog,Cat是Animal的子类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public void killAll(ArrayList&lt;Animal&gt; animals)&#123;...&#125;;//Animal容器</span><br><span class="line"> </span><br><span class="line">...</span><br><span class="line"> </span><br><span class="line">ArrayList&lt;Animal&gt; animals=new ArrayList&lt;Animal&gt;();</span><br><span class="line"> </span><br><span class="line">animals.add(new Dog());</span><br><span class="line"> </span><br><span class="line">animals.add(new Cat());</span><br><span class="line"> </span><br><span class="line">killAll(animals);//这里ok</span><br><span class="line"> </span><br><span class="line">ArrayList&lt;Dog&gt; dogs=new ArrayList&lt;Dog&gt;();//Dog是Animal的子类</span><br><span class="line"> </span><br><span class="line">dogs.add(new Dog());</span><br><span class="line"> </span><br><span class="line">dogs.add(new Dog());</span><br><span class="line"> </span><br><span class="line">killAll(dogs);//这里编译不通过</span><br></pre></td></tr></table></figure>
+
+<p>在这里看上去似乎多态不行了。<br>这里就要用到有界泛型：<br>在使用泛型时，我们会有这种需求：需要指定泛型的类型范围。有界类型就是在类型参数部分指定extends或super关键字，这里的extends也含有implements的功能，分别用上限或下限来限制类型范围，从而限制泛型的类型边界。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;T extends Animal&gt;//限定T是Animal的子类</span><br><span class="line"> </span><br><span class="line">&lt;T super Dog &gt;//限定T是Dog的超类</span><br></pre></td></tr></table></figure>
+
+<p>那么上面那个多态问题就变成：<br><code>public void killAll(ArrayList&lt;T extends Animal&gt; animals){...};</code><br>解决了<br><code>&lt;T extends Object&amp;Comparable&amp;Serializable&gt;</code><br>多个限定时我们可以使用&amp;来进行分割，这时关键词只能使用extends。与多重继承类似，这里只有一个类其他都是接口。</p>
+<h2 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h2><p>有时，我们设计的方法可能其参数类型是不限定的。这种场景如果用重载方法的方式来做的话，算法重复，不是最好的方案。此时泛型方法就可以解决此类问题。<br>如Calculator的add方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static &lt; N extends Number &gt; double add( N a, N b )&#123;</span><br><span class="line">	double sum = 0;</span><br><span class="line"> </span><br><span class="line">	sum = a.doubleValue() + b.doubleValue();</span><br><span class="line"> </span><br><span class="line">	return(sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果用重载来做的话，要很多重复代码了。</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/Navicat-Connection-Mysql-Error.html" rel="next" title="Navicat连接Mysql报错">
+                  <i class="fa fa-chevron-left"></i> Navicat连接Mysql报错
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/F**k.html" rel="prev" title="活活气死的一个晚上">
+                  活活气死的一个晚上 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="Aaron">
+  <p class="site-author-name" itemprop="name">Aaron</p>
+  <div class="site-description motion-element" itemprop="description">Keep Learning</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zhishui0501" title="GitHub &rarr; https://github.com/zhishui0501" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:876944049@qq.com" title="E-Mail &rarr; mailto:876944049@qq.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#意义和作用："><span class="nav-number">1.</span> <span class="nav-text">意义和作用：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型出场：类型的参数化"><span class="nav-number">2.</span> <span class="nav-text">泛型出场：类型的参数化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有界泛型"><span class="nav-number">3.</span> <span class="nav-text">有界泛型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泛型方法"><span class="nav-number">4.</span> <span class="nav-text">泛型方法</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+</body>
+</html>

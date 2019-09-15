@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhishui0501.github.io/Data-Structure-and-Algorithms-2-Array.html</loc>
+    
+    <lastmod>2019-09-15T16:01:57.264Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://zhishui0501.github.io/Data-Structure-and-Algorithms-3-Sorting-algorithm.html</loc>
+    
+    <lastmod>2019-09-15T15:56:22.506Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zhishui0501.github.io/about/index.html</loc>
     
     <lastmod>2019-09-14T08:59:09.379Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>https://zhishui0501.github.io/categories/index.html</loc>
     
     <lastmod>2019-09-14T08:54:37.781Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://zhishui0501.github.io/Data-Structure-and-Algorithms-1-Array.html</loc>
-    
-    <lastmod>2019-09-14T05:11:06.785Z</lastmod>
     
   </url>
   

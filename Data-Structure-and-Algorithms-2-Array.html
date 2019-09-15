@@ -62,18 +62,18 @@
   <meta name="description" content="数组是应用最广泛的数据存储结构。它被植入到大部分编程语言中。大部分数据结构都有最基本的四个操作：插入、删除、查找、修改。对于这四种操作每一种数据结构都有相应的算法。算法和数据结构因此就是非常紧密的相联系的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构与算法2-数组">
-<meta property="og:url" content="https://zhishui0501.github.io/Data-Structure-and-Algorithms-1-Array.html">
+<meta property="og:url" content="https://zhishui0501.github.io/Data-Structure-and-Algorithms-2-Array.html">
 <meta property="og:site_name" content="Aaron&#39;s blog">
 <meta property="og:description" content="数组是应用最广泛的数据存储结构。它被植入到大部分编程语言中。大部分数据结构都有最基本的四个操作：插入、删除、查找、修改。对于这四种操作每一种数据结构都有相应的算法。算法和数据结构因此就是非常紧密的相联系的。">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://zhishui0501.github.io/images/1909131.PNG">
 <meta property="og:image" content="https://zhishui0501.github.io/images/1909132.PNG">
-<meta property="og:updated_time" content="2019-09-14T05:11:06.785Z">
+<meta property="og:updated_time" content="2019-09-15T16:01:57.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法2-数组">
 <meta name="twitter:description" content="数组是应用最广泛的数据存储结构。它被植入到大部分编程语言中。大部分数据结构都有最基本的四个操作：插入、删除、查找、修改。对于这四种操作每一种数据结构都有相应的算法。算法和数据结构因此就是非常紧密的相联系的。">
 <meta name="twitter:image" content="https://zhishui0501.github.io/images/1909131.PNG">
-  <link rel="canonical" href="https://zhishui0501.github.io/Data-Structure-and-Algorithms-1-Array">
+  <link rel="canonical" href="https://zhishui0501.github.io/Data-Structure-and-Algorithms-2-Array">
 
 
 <script id="page-configurations">
@@ -207,7 +207,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">29</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">30</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/Data-Structure-and-Algorithms-1-Array.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/Data-Structure-and-Algorithms-2-Array.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -302,7 +302,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-14 13:11:06" itemprop="dateModified" datetime="2019-09-14T13:11:06+08:00">2019-09-14</time>
+                <time title="Modified: 2019-09-16 00:01:57" itemprop="dateModified" datetime="2019-09-16T00:01:57+08:00">2019-09-16</time>
               </span>
             
           
@@ -357,10 +357,17 @@
 <h3 id="有序数组的优点"><a href="#有序数组的优点" class="headerlink" title="有序数组的优点"></a>有序数组的优点</h3><p>使用有序数组最主要的好处是查找的速度比无序数组快多了。不好的方面是在插入操作中由于所有靠后的数据都需要移动以腾开空间，所以速度较慢。有序数组和无序数组中的删除操作都很慢，这是因为数据项必须向前移动来填补已删除数据项的洞。有序数组在查找频繁的情况下十分有用，但若是插入和删除较为频繁时，则无法高效工作。</p>
 <h2 id="大O表示法"><a href="#大O表示法" class="headerlink" title="大O表示法"></a>大O表示法</h2><p>计算机科学中评价算法效率的方法称为大O表示法。比较算法时候通常会说”算法A比算法B快2倍”，这种说法意义不大。因为数据项的变化会对排序造成一定很大影响。有可能数据项增加50%，算法A就比B快了3倍，或者可能只有一半的数据项，A和B的速度是相同的。</p>
 <h3 id="无序数组的插入：常数"><a href="#无序数组的插入：常数" class="headerlink" title="无序数组的插入：常数"></a>无序数组的插入：常数</h3><p>无序数组的插入是我们到现在为止所见过的算法中唯一一个与数组项个数无关的算法。新数据项总被放在下一个有空的地方,a[nElems]，然后nElems增加。无论数组中的数据项个数N有多大，一次插入总是用相同的时间。我们可以说向一个无序数组中插入一个数据项的时间T是一个常数K<br>T=K<br>在现实情况中，插入所需的实际时间与以下这些因素有关：微处理器，编译程序生成程序代码的效率，等等。</p>
-<h3 id="线性查找：与N成正比"><a href="#线性查找：与N成正比" class="headerlink" title="线性查找：与N成正比"></a>线性查找：与N成正比</h3><p>在数组数据项的线性查找中，我们已经发现寻找特定数据项所需的比较平均次数为数据项总数的一半。因此设N为数据项总数，搜索时间T与N的一半成正比：<br>T=K*N/2<br>同插入一样，若要得到方程中K的值，首先需要对某个N值的查找进行计时，然后用T来计算K。当得到K后，便可以对任意N的值来计算T。将2并入K可以得到更方便的公式，新K值等于原先的K除以2即<br>T=KN<br>这个方程说明平均线性查找时间与数组的大小成正比。即如果一个数组增大两倍，则所花费的查找时间也会相应地增长两倍。</p>
-<h3 id="二分查找-与log-N-成正比"><a href="#二分查找-与log-N-成正比" class="headerlink" title="二分查找:与log(N)成正比"></a>二分查找:与log(N)成正比</h3><p>同样，我们可以为二分查找指定出一个与T和N有关的公式:T=Klog2(N)<br>实际上，由于所有的对数和其他对数成比例(比如从底数2转换到底数为10需乘以3.322)，也可以将这个为常数的底数也并入K。由此不必指定底数:<br>T=Klog(N)<br>不要常数<br>大O表示法同上面的公式比较类似，但它省去了常数K。当比较算法时，并不在乎具体的微处理器或编译器；真正需要比较的是对应不同的N值，T是如何变化的，而不是具体的数字，因此不需要常数。<br>大O表示法使用大写字母O，可以认为其含义是order of(大约是)。我们可以使用大O表示法来描述线性查找使用了O(N)级时间，二分查找使用了O(logN)级时间。向一个无序数组中的插入使用了O(1)，或常数级时间。</p>
+<h3 id="线性查找：与N成正比"><a href="#线性查找：与N成正比" class="headerlink" title="线性查找：与N成正比"></a>线性查找：与N成正比</h3><p>在数组数据项的线性查找中，我们已经发现寻找特定数据项所需的比较平均次数为数据项总数的一半。因此设N为数据项总数，搜索时间T与N的一半成正比：T=K*N/2</p>
+<p>同插入一样，若要得到方程中K的值，首先需要对某个N值的查找进行计时，然后用T来计算K。当得到K后，便可以对任意N的值来计算T。将2并入K可以得到更方便的公式，新K值等于原先的K除以2即: T=KN</p>
+<p>这个方程说明平均线性查找时间与数组的大小成正比。即如果一个数组增大两倍，则所花费的查找时间也会相应地增长两倍。</p>
+<h3 id="二分查找-与log-N-成正比"><a href="#二分查找-与log-N-成正比" class="headerlink" title="二分查找:与log(N)成正比"></a>二分查找:与log(N)成正比</h3><p>同样，我们可以为二分查找指定出一个与T和N有关的公式:T=Klog2(N)</p>
+<p>实际上，由于所有的对数和其他对数成比例(比如从底数2转换到底数为10需乘以3.322)，也可以将这个为常数的底数也并入K。由此不必指定底数: T=Klog(N), 不要常数</p>
+<p>大O表示法同上面的公式比较类似，但它省去了常数K。当比较算法时，并不在乎具体的微处理器或编译器；真正需要比较的是对应不同的N值，T是如何变化的，而不是具体的数字，因此不需要常数。</p>
+<p>大O表示法使用大写字母O，可以认为其含义是order of(大约是)。我们可以使用大O表示法来描述线性查找使用了O(N)级时间，二分查找使用了O(logN)级时间。向一个无序数组中的插入使用了O(1)，或常数级时间。</p>
 <p>下表总结的是讨论过的算法的运行时间<br><img src="images/1909132.PNG" alt><br>大O表示法的实质并不是对运行时间给出实际值，而是表达了运行时间是如何受数据项个数所影响的。除了实际安装后真正去测量一次算法的运行时间之外，这可能是对算法进行比较的最有意义的方法了。</p>
-<h2 id="为什么不用数组表示一切？"><a href="#为什么不用数组表示一切？" class="headerlink" title="为什么不用数组表示一切？"></a>为什么不用数组表示一切？</h2><p>仅使用数组似乎就可以完成所有工作，为什么不用它们来进行所有数据存储呢？我们已经见到了许多关于数组的缺点。在一个无序数组中可以很快进行插入(O(1))，但是查找却要花费较慢的O(N)时间。在一个有序数组中可以查找得很快，用O(logN)的时间，但插入却花费了O(N)时间。对于这两种数组而言，由于平均半数的数据项为了填补”空洞”必须移动，所以删除操作平均需要O(N)时间。<br>如果有一种数据结构进行任何如插入、删除和查找的操作都很快(理想的O(1)或是O(logN)时间)，那就好了。后面我们会介绍类似的数组，但这是以程序的复杂度为代价的。<br>另外数组被创建后，占用内存长度是确定的，无法进行修改，这样的话，如果创建的长度过大，但是实际需要的很少就会造成内存浪费，如果创建的长度过小，就会造成溢出，无法弹性使用。</p>
+<h2 id="为什么不用数组表示一切？"><a href="#为什么不用数组表示一切？" class="headerlink" title="为什么不用数组表示一切？"></a>为什么不用数组表示一切？</h2><p>仅使用数组似乎就可以完成所有工作，为什么不用它们来进行所有数据存储呢？我们已经见到了许多关于数组的缺点。在一个无序数组中可以很快进行插入(O(1))，但是查找却要花费较慢的O(N)时间。在一个有序数组中可以查找得很快，用O(logN)的时间，但插入却花费了O(N)时间。对于这两种数组而言，由于平均半数的数据项为了填补”空洞”必须移动，所以删除操作平均需要O(N)时间。</p>
+<p>如果有一种数据结构进行任何如插入、删除和查找的操作都很快(理想的O(1)或是O(logN)时间)，那就好了。后面会介绍类似的数组，但这是以程序的复杂度为代价的。</p>
+<p>另外数组被创建后，占用内存长度是确定的，无法进行修改，这样的话，如果创建的长度过大，但是实际需要的很少就会造成内存浪费，如果创建的长度过小，就会造成溢出，无法弹性使用。</p>
 
     </div>
 
@@ -386,6 +393,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/Data-Structure-and-Algorithms-3-Sorting-algorithm.html" rel="prev" title="数据结构与算法3-简单排序（冒泡、选择、插入排序）">
+                  数据结构与算法3-简单排序（冒泡、选择、插入排序） <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -440,7 +451,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

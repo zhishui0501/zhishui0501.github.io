@@ -66,7 +66,7 @@
 <meta property="og:site_name" content="Aaron&#39;s blog">
 <meta property="og:description" content="区别 ArrayList的实现是基于数组，LinkedList的实现是基于双向链表。   对于随机访问，ArrayList优于LinkedList  对于插入和删除操作，LinkedList优于ArrayList  LinkedList比ArrayList更占内存，因为LinkedList的节点除了存储数据，还存储了两个引用，一个指向前一个元素，一个指向后一个元素。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-14T05:04:20.137Z">
+<meta property="og:updated_time" content="2019-09-16T09:15:15.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中ArrayList与LinkedList的区别">
 <meta name="twitter:description" content="区别 ArrayList的实现是基于数组，LinkedList的实现是基于双向链表。   对于随机访问，ArrayList优于LinkedList  对于插入和删除操作，LinkedList优于ArrayList  LinkedList比ArrayList更占内存，因为LinkedList的节点除了存储数据，还存储了两个引用，一个指向前一个元素，一个指向后一个元素。">
@@ -191,7 +191,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">11</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">10</span></a>
 
   </li>
       
@@ -204,7 +204,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">30</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">29</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -299,7 +299,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-14 13:04:20" itemprop="dateModified" datetime="2019-09-14T13:04:20+08:00">2019-09-14</time>
+                <time title="Modified: 2019-09-16 17:15:15" itemprop="dateModified" datetime="2019-09-16T17:15:15+08:00">2019-09-16</time>
               </span>
             
           
@@ -345,11 +345,12 @@
 </li>
 <li><p>LinkedList比ArrayList更占内存，因为LinkedList的节点除了存储数据，还存储了两个引用，一个指向前一个元素，一个指向后一个元素。</p>
 <a id="more"></a>
-<h2 id="在时间复杂度上的区别"><a href="#在时间复杂度上的区别" class="headerlink" title="在时间复杂度上的区别"></a>在时间复杂度上的区别</h2><p>假设我们有两个很大的列表，它们里面的元素已经排好序了，这两个列表分别是ArrayList类型和LinkedList类型的，现在我们对这两个列表来进行二分查找(binary search)，比较它们的查找速度。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> 1 package com.demo;</span><br><span class="line"> 2 </span><br><span class="line"> 3 import java.util.ArrayList;</span><br><span class="line"> 4 import java.util.Collections;</span><br><span class="line"> 5 import java.util.LinkedList;</span><br><span class="line"> 6 import java.util.List;</span><br><span class="line"> 7 </span><br><span class="line"> 8 public class Demo1 &#123;</span><br><span class="line"> 9     static List&lt;Integer&gt; array = new ArrayList&lt;Integer&gt;();</span><br><span class="line">10     static List&lt;Integer&gt; linked = new LinkedList&lt;Integer&gt;();</span><br><span class="line">11 </span><br><span class="line">12     public static void main(String[] args) &#123;</span><br><span class="line">13 </span><br><span class="line">14         for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">15             array.add(i);</span><br><span class="line">16             linked.add(i);</span><br><span class="line">17         &#125;</span><br><span class="line">18         System.out.println(&quot;ArrayList访问消耗的时间：&quot; + getTime(array));</span><br><span class="line">19         System.out.println(&quot;LinkedList访问消耗的时间：&quot; + getTime(linked));</span><br><span class="line">20     &#125;</span><br><span class="line">21 </span><br><span class="line">22     public static long getTime(List list) &#123;</span><br><span class="line">23         long time = System.currentTimeMillis();</span><br><span class="line">24         for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">25             int index = Collections.binarySearch(list, list.get(i));</span><br><span class="line">26             if (index != i) &#123;</span><br><span class="line">27                 System.out.println(&quot;ERROR!&quot;);</span><br><span class="line">28             &#125;</span><br><span class="line">29         &#125;</span><br><span class="line">30         return System.currentTimeMillis() - time;</span><br><span class="line">31     &#125;</span><br><span class="line">32 </span><br><span class="line">33 &#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
+<h2 id="在时间复杂度上的区别"><a href="#在时间复杂度上的区别" class="headerlink" title="在时间复杂度上的区别"></a>在时间复杂度上的区别</h2><p>假设我们有两个很大的列表，它们里面的元素已经排好序了，这两个列表分别是ArrayList类型和LinkedList类型的，现在我们对这两个列表来进行二分查找(binary search)，比较它们的查找速度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> 1 package com.demo;</span><br><span class="line"> 2 </span><br><span class="line"> 3 import java.util.ArrayList;</span><br><span class="line"> 4 import java.util.Collections;</span><br><span class="line"> 5 import java.util.LinkedList;</span><br><span class="line"> 6 import java.util.List;</span><br><span class="line"> 7 </span><br><span class="line"> 8 public class Demo1 &#123;</span><br><span class="line"> 9     static List&lt;Integer&gt; array = new ArrayList&lt;Integer&gt;();</span><br><span class="line">10     static List&lt;Integer&gt; linked = new LinkedList&lt;Integer&gt;();</span><br><span class="line">11 </span><br><span class="line">12     public static void main(String[] args) &#123;</span><br><span class="line">13 </span><br><span class="line">14         for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">15             array.add(i);</span><br><span class="line">16             linked.add(i);</span><br><span class="line">17         &#125;</span><br><span class="line">18         System.out.println(&quot;ArrayList访问消耗的时间：&quot; + getTime(array));</span><br><span class="line">19         System.out.println(&quot;LinkedList访问消耗的时间：&quot; + getTime(linked));</span><br><span class="line">20     &#125;</span><br><span class="line">21 </span><br><span class="line">22     public static long getTime(List list) &#123;</span><br><span class="line">23         long time = System.currentTimeMillis();</span><br><span class="line">24         for (int i = 0; i &lt; 10000; i++) &#123;</span><br><span class="line">25             int index = Collections.binarySearch(list, list.get(i));</span><br><span class="line">26             if (index != i) &#123;</span><br><span class="line">27                 System.out.println(&quot;ERROR!&quot;);</span><br><span class="line">28             &#125;</span><br><span class="line">29         &#125;</span><br><span class="line">30         return System.currentTimeMillis() - time;</span><br><span class="line">31     &#125;</span><br><span class="line">32 </span><br><span class="line">33 &#125;</span><br></pre></td></tr></table></figure>
+
 <p>运行结果</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ArrayList访问消耗的时间：10</span><br><span class="line">LinkedList访问消耗的时间：383</span><br></pre></td></tr></table></figure>
 
@@ -459,7 +460,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -494,9 +495,7 @@
         
           
         
-          
-        
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>

@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>什么是微服务，SpringBoot和SpringCloud的关系</title>
+      <link href="/microservice.html"/>
+      <url>/microservice.html</url>
+      
+        <content type="html"><![CDATA[<p>今天上课老师提到了一个最近很火的概念，microservices(微服务), 下面是网上查询后一个简单的总结</p><a id="more"></a><h2 id="什么是微服务"><a href="#什么是微服务" class="headerlink" title="什么是微服务"></a>什么是微服务</h2><p>就目前而言对于微服务业界没有一个统一的,标准的定义.但通常而言,微服务是一种架构模式或者说是一种架构风格,它提倡单一应用程序划分为一组小的服务,每个服务在其独立的自己的进程中,服务之间相互协调,互相配合,为用户提供最终价值.服务之间采用轻量级的通信机制互相沟通(基于Http的Restful API)每个服务都围绕着具体的业务进行构建,并且能够被独立的部署到生产环境,类生产环境进行构建,可以有一个非常轻量级的集中式管理来协调这些服务,可以使用不同的语言来编写服务,也可以使用不同的数据存储.</p><h2 id="微服务与微服务架构"><a href="#微服务与微服务架构" class="headerlink" title="微服务与微服务架构?"></a>微服务与微服务架构?</h2><ul><li>微服务强调的是服务的大小,关注的是点,是具体解决某一个问题/提供落地对象服务的一个服务应用,</li><li>狭义的看,可以看做Eclipse中的一个个微服务工程.</li><li>微服务架构为一种架构模式.他提倡将单一应用程序分成一组小的服务,服务之间互相协调,互相配合,为用户提供最终价值.</li><li>每个服务运行在其独立的进程中,服务于服务间采用轻量级的通信机制互相协作(通常是Http 的Restful API) 每一个服务</li><li>都围绕着具体业务进行构建,并且能够被独立的部署到生产环境,类生产环境中.另外,应当尽量避免统一的,集中式的服务管理机制,</li><li>对具体的一个服务而言,应根据业务上下文,选择合适的语言,工具对其进行构建.</li></ul><h2 id="SpringCloud-是什么"><a href="#SpringCloud-是什么" class="headerlink" title="SpringCloud 是什么?"></a>SpringCloud 是什么?</h2><ul><li>基于SpringBoot提供了一套为微服务(microservices)解决方案,包括服务注册与发现,</li><li>配置中心,全链路监控,服务网关,负载均衡,熔断器等组件,除了基于NetFlix的开营组件做 高度抽象之外,还有一些选型中立了的开源组件.</li><li>分布式微服务架构下的一站式解决方案,是各个微服务架构落地技术的结合体,俗称为微服务全家桶.</li></ul><h2 id="SpringBoot和SpringCloud的关系和区别"><a href="#SpringBoot和SpringCloud的关系和区别" class="headerlink" title="SpringBoot和SpringCloud的关系和区别"></a>SpringBoot和SpringCloud的关系和区别</h2><ol><li>SpringBoot专注于方便的开发单个个体微服务</li><li>SpringCloud是关注于全局的微服务协调治理框架,它将SpringBoot开发的一个个单体微服务整合并管理起来.为各个微服务之间提供配置管理,服务发现,断路器,路由,微代理,事件总线,决策竞选,分布式会话等集成服务.</li><li>SpringBoot可以离开SpringCloud单独使用,而SpringCloud离不开SpringBoot</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发架构 </category>
+          
+          <category> 微服务 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数据结构与算法3-简单排序（冒泡、选择、插入排序）</title>
       <link href="/Data-Structure-and-Algorithms-3-Sorting-algorithm.html"/>
       <url>/Data-Structure-and-Algorithms-3-Sorting-algorithm.html</url>
@@ -317,7 +338,9 @@
       
       <categories>
           
-          <category> JAVA </category>
+          <category> 开发架构 </category>
+          
+          <category> SSM </category>
           
       </categories>
       

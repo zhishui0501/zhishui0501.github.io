@@ -66,7 +66,7 @@
 <meta property="og:site_name" content="Aaron&#39;s blog">
 <meta property="og:description" content="持久层：DAO层（mapper层）（属于mybatis模块） DAO层：主要负责与数据库进行交互设计，用来处理数据的持久化工作。 DAO层的设计首先是设计DAO的接口，也就是项目中看到的Dao包。 然后在Spring的xml配置文件中定义此接口的实现类，就可在其他模块中调用此接口来进行数据业务的处理，而不用关心接口的具体实现类是哪个类，这里往往用到的就是反射机制，DAO层的jdbc.propert">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-19T13:46:37.259Z">
+<meta property="og:updated_time" content="2019-09-19T13:50:28.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSM中各层作用及关系">
 <meta name="twitter:description" content="持久层：DAO层（mapper层）（属于mybatis模块） DAO层：主要负责与数据库进行交互设计，用来处理数据的持久化工作。 DAO层的设计首先是设计DAO的接口，也就是项目中看到的Dao包。 然后在Spring的xml配置文件中定义此接口的实现类，就可在其他模块中调用此接口来进行数据业务的处理，而不用关心接口的具体实现类是哪个类，这里往往用到的就是反射机制，DAO层的jdbc.propert">
@@ -204,7 +204,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">31</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">32</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -288,7 +288,7 @@
                 
               
 
-              <time title="Created: 2019-09-19 21:07:23 / Modified: 21:46:37" itemprop="dateCreated datePublished" datetime="2019-09-19T21:07:23+08:00">2019-09-19</time>
+              <time title="Created: 2019-09-19 21:07:23 / Modified: 21:50:28" itemprop="dateCreated datePublished" datetime="2019-09-19T21:07:23+08:00">2019-09-19</time>
             </span>
           
             
@@ -340,28 +340,44 @@
 <li>DAO层的设计首先是设计DAO的接口，也就是项目中看到的Dao包。</li>
 <li>然后在Spring的xml配置文件中定义此接口的实现类，就可在其他模块中调用此接口来进行数据业务的处理，而不用关心接口的具体实现类是哪个类，这里往往用到的就是反射机制，DAO层的jdbc.properties数据源配置，以及有关数据库连接的参数都在Spring的配置文件中进行配置。</li>
 <li>有的项目Dao层，写成mapper，当成一个意思理解。<a id="more"></a>
-<h2 id="业务层：Service层（属于spring模块）"><a href="#业务层：Service层（属于spring模块）" class="headerlink" title="业务层：Service层（属于spring模块）"></a>业务层：Service层（属于spring模块）</h2></li>
+
+</li>
+</ul>
+<h2 id="业务层：Service层（属于spring模块）"><a href="#业务层：Service层（属于spring模块）" class="headerlink" title="业务层：Service层（属于spring模块）"></a>业务层：Service层（属于spring模块）</h2><ul>
 <li>Service层：主要负责业务模块的逻辑应用设计。也就是项目中看到的Service包。</li>
 <li>Service层的设计首先是设计接口，再设计其实现的类。也就是项目中看到的service+impl包。</li>
 <li>接着再在Spring的xml配置文件中配置其实现的关联。这样我们就可以在应用中调用Service接口来进行业务处理。</li>
 <li>最后通过调用DAO层已定义的接口，去实现Service具体的实现类。</li>
-<li>Service层的业务实现，具体要调用到已定义的DAO层的接口。<h2 id="控制层-表现层：Controller层（Handler层）-（属于springMVC模块）"><a href="#控制层-表现层：Controller层（Handler层）-（属于springMVC模块）" class="headerlink" title="控制层/表现层：Controller层（Handler层） （属于springMVC模块）"></a>控制层/表现层：Controller层（Handler层） （属于springMVC模块）</h2></li>
+<li>Service层的业务实现，具体要调用到已定义的DAO层的接口。</li>
+</ul>
+<h2 id="控制层-表现层：Controller层（Handler层）-（属于springMVC模块）"><a href="#控制层-表现层：Controller层（Handler层）-（属于springMVC模块）" class="headerlink" title="控制层/表现层：Controller层（Handler层） （属于springMVC模块）"></a>控制层/表现层：Controller层（Handler层） （属于springMVC模块）</h2><ul>
 <li>Controller层：主要负责具体的业务模块流程控制，也就是看到的controller包。</li>
-<li>Controller层通过要调用Service层的接口来控制业务流程，控制的配置也同样是在Spring的xml配置文件里面，针对具体的业务流程，会有不同的控制器。<h2 id="View层-（属于springMVC模块）"><a href="#View层-（属于springMVC模块）" class="headerlink" title="View层 （属于springMVC模块）"></a>View层 （属于springMVC模块）</h2></li>
+<li>Controller层通过要调用Service层的接口来控制业务流程，控制的配置也同样是在Spring的xml配置文件里面，针对具体的业务流程，会有不同的控制器。</li>
+</ul>
+<h2 id="View层-（属于springMVC模块）"><a href="#View层-（属于springMVC模块）" class="headerlink" title="View层 （属于springMVC模块）"></a>View层 （属于springMVC模块）</h2><ul>
 <li>负责前台jsp页面的展示，此层需要与Controller层结合起来开发。</li>
-<li>Jsp发送请求，controller接收请求，处理，返回，jsp回显数据。<h2 id="各层之间的联系"><a href="#各层之间的联系" class="headerlink" title="各层之间的联系"></a>各层之间的联系</h2></li>
+<li>Jsp发送请求，controller接收请求，处理，返回，jsp回显数据。</li>
+</ul>
+<h2 id="各层之间的联系"><a href="#各层之间的联系" class="headerlink" title="各层之间的联系"></a>各层之间的联系</h2><ul>
 <li>DAO层，Service层这两个层次可以单独开发，互相的耦合度很低。</li>
 <li>Controller，View层耦合度比较高，因而要结合在一起开发。也可以听当做两层来开发，这样，在层与层之前我们只需要知道接口的定义，调用接口即可完成所需要的逻辑单元应用，项目会显得清晰简单。</li>
-<li>值得注意的是，Service逻辑层设计：Service层是建立在DAO层之上的，在Controller层之下。因而Service层应该既调用DAO层的接口，又提供接口给Controller层的类来进行调用，它处于一个中间层的位置。每个模型都有一个Service接口，每个接口分别封装各自的业务处理方法。 <h2 id="SSM框架实现一个web程序主要使用到如下三个技术："><a href="#SSM框架实现一个web程序主要使用到如下三个技术：" class="headerlink" title="SSM框架实现一个web程序主要使用到如下三个技术："></a>SSM框架实现一个web程序主要使用到如下三个技术：</h2></li>
+<li>值得注意的是，Service逻辑层设计：Service层是建立在DAO层之上的，在Controller层之下。因而Service层应该既调用DAO层的接口，又提供接口给Controller层的类来进行调用，它处于一个中间层的位置。每个模型都有一个Service接口，每个接口分别封装各自的业务处理方法。 </li>
+</ul>
+<h2 id="SSM框架实现一个web程序主要使用到如下三个技术："><a href="#SSM框架实现一个web程序主要使用到如下三个技术：" class="headerlink" title="SSM框架实现一个web程序主要使用到如下三个技术："></a>SSM框架实现一个web程序主要使用到如下三个技术：</h2><ul>
 <li>Spring：用到注解和自动装配，就是Spring的两个精髓IOC(反向控制)和 AOP(面向切面编程)。</li>
 <li>SpringMVC：用到了MVC模型，将流程控制代码放到Controller层处理，将业务逻辑代码放到Service层处理。</li>
-<li>Mybatis：用到了与数据库打交道的层面，dao（mapper）层，放在所有的逻辑之后，处理与数据库的CRUD相关的操作。<h2 id="开发项目的时候，需要完成一个功能模块"><a href="#开发项目的时候，需要完成一个功能模块" class="headerlink" title="开发项目的时候，需要完成一个功能模块"></a>开发项目的时候，需要完成一个功能模块</h2></li>
+<li>Mybatis：用到了与数据库打交道的层面，dao（mapper）层，放在所有的逻辑之后，处理与数据库的CRUD相关的操作。</li>
+</ul>
+<h2 id="开发项目的时候，需要完成一个功能模块"><a href="#开发项目的时候，需要完成一个功能模块" class="headerlink" title="开发项目的时候，需要完成一个功能模块"></a>开发项目的时候，需要完成一个功能模块</h2><ul>
 <li>先写实体类entity，定义对象的属性，（可以参照数据库中表的字段来设置，数据库的设计应该在所有编码开始之前）。</li>
 <li>写Mapper.xml（Mybatis），其中定义功能，对应要对数据库进行的那些操作，比如 insert、selectAll、selectByKey、delete、update等。</li>
 <li>写Mapper.java/Dao.java，将Mapper.xml中的操作按照id映射成Java函数。实际上就是Dao接口，二者选一即可。</li>
 <li>写Service.java，为控制层提供服务，接受控制层的参数，完成相应的功能，并返回给控制层。</li>
 <li>写Controller.java，连接页面请求和服务层，获取页面请求的参数，通过自动装配，映射不同的URL到相应的处理函数，并获取参数，对参数进行处理，之后传给服务层。</li>
-<li>写JSP页面调用，请求哪些参数，需要获取什么数据。<h2 id="面向对象——三层架构（表现层、业务层、持久层）"><a href="#面向对象——三层架构（表现层、业务层、持久层）" class="headerlink" title="面向对象——三层架构（表现层、业务层、持久层）"></a>面向对象——三层架构（表现层、业务层、持久层）</h2>三层架构：即表现层、业务层、持久层。</li>
+<li>写JSP页面调用，请求哪些参数，需要获取什么数据。</li>
+</ul>
+<h2 id="面向对象——三层架构（表现层、业务层、持久层）"><a href="#面向对象——三层架构（表现层、业务层、持久层）" class="headerlink" title="面向对象——三层架构（表现层、业务层、持久层）"></a>面向对象——三层架构（表现层、业务层、持久层）</h2><p>三层架构：即表现层、业务层、持久层。</p>
+<ul>
 <li>持久层：采用DAO模式，建立实体类和数据库表映射（ORM映射）。也就是哪个类对应哪个表，哪个属性对应哪个列。持久层的目的就是，完成对象数据和关系数据的转换。</li>
 <li>业务层：采用事务脚本模式。将一个业务中所有的操作封装成一个方法，同时保证方法中所有的数据库更新操作，即保证同时成功或同时失败。避免部分成功部分失败引起的数据混乱操作。</li>
 <li>表现层：采用MVC模式。<br>M称为模型，也就是实体类。用于数据的封装和数据的传输。<br>V为视图，也就是GUI组件，用于数据的展示。<br>C为控制，也就是事件，用于流程的控制</li>
@@ -393,6 +409,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/Polymorphism.html" rel="prev" title="JAVA中的多态">
+                  JAVA中的多态 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -447,7 +467,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

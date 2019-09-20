@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="google-site-verification" content="I0jUNsp40jMLLvChVvaEUlXNcTs1cSJSG4ktU1HF5-M">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="多态的定义多态、封装和继承是面向对象的三大特性。现实事物经常会体现出多种形态，如学生，学生是人的一种，则一个具体的同学张三既是学生也是人，即出现两种形态。 Java作为面向对象的语言，同样可以描述一个事物的多种形态。如Student类继承了Person类，一个Student的对象便既是Student，又是Person。一个Student对象既可以赋值给一个Student类型的引用，也可以赋值给一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA中的多态">
+<meta property="og:url" content="https://zhishui0501.github.io/Polymorphism.html">
+<meta property="og:site_name" content="Aaron&#39;s blog">
+<meta property="og:description" content="多态的定义多态、封装和继承是面向对象的三大特性。现实事物经常会体现出多种形态，如学生，学生是人的一种，则一个具体的同学张三既是学生也是人，即出现两种形态。 Java作为面向对象的语言，同样可以描述一个事物的多种形态。如Student类继承了Person类，一个Student的对象便既是Student，又是Person。一个Student对象既可以赋值给一个Student类型的引用，也可以赋值给一个">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-20T15:32:39.405Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA中的多态">
+<meta name="twitter:description" content="多态的定义多态、封装和继承是面向对象的三大特性。现实事物经常会体现出多种形态，如学生，学生是人的一种，则一个具体的同学张三既是学生也是人，即出现两种形态。 Java作为面向对象的语言，同样可以描述一个事物的多种形态。如Student类继承了Person类，一个Student的对象便既是Student，又是Person。一个Student对象既可以赋值给一个Student类型的引用，也可以赋值给一个">
+  <link rel="canonical" href="https://zhishui0501.github.io/Polymorphism">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>JAVA中的多态 | Aaron's blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">13</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">32</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/Polymorphism.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="Keep Learning">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">JAVA中的多态
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-20 22:47:54 / Modified: 23:32:39" itemprop="dateCreated datePublished" datetime="2019-09-20T22:47:54+08:00">2019-09-20</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="多态的定义"><a href="#多态的定义" class="headerlink" title="多态的定义"></a>多态的定义</h2><p>多态、封装和继承是面向对象的三大特性。现实事物经常会体现出多种形态，如学生，学生是人的一种，则一个具体的同学张三既是学生也是人，即出现两种形态。</p>
+<p>Java作为面向对象的语言，同样可以描述一个事物的多种形态。如Student类继承了Person类，一个Student的对象便既是Student，又是Person。一个Student对象既可以赋值给一个Student类型的引用，也可以赋值给一个Person类型的引用。 </p>
+<p><strong>最终多态体现为父类引用变量可以指向子类对象：父类类型 变量名 = new 子类类型();</strong> </p>
+<ol>
+<li>多态的前提是必须有子父类关系或者类实现接口关系，否则无法完成多态。 </li>
+<li>在使用多态后的父类引用变量调用方法时，会调用子类重写后的方法。 <a id="more"></a>
+
+</li>
+</ol>
+<h2 id="多态的表现形式"><a href="#多态的表现形式" class="headerlink" title="多态的表现形式"></a>多态的表现形式</h2><ol>
+<li>方法重载：通常是指在同一个类中，相同的方法名对应着不同的方法实现，这些方法名相同的方法其区别在于他们需要的参数不同；</li>
+<li>方法重写：方法重写主要用于父类和子类间，子类重写父类的方法，只是对应的方法实现不同，其方法名和参数都相同；</li>
+<li>抽象类：在java语言中，一个类中的方法只给出了标准，而没有给出具体的实现方法，这样的类就是抽象类。例如父类就是抽象类，它不会被实例化的类；</li>
+<li>接口：在多态机制中，接口比抽象类使用起来更加方便。而抽象类组成的集合就是接口。</li>
+</ol>
+<h2 id="多态的三种形式"><a href="#多态的三种形式" class="headerlink" title="多态的三种形式"></a>多态的三种形式</h2><ul>
+<li><p>普通类多态定义的格式：父类类型 变量名 = new 子类类型()。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Father &#123;</span><br><span class="line">    int num = 4;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">class Son extends Father &#123;</span><br><span class="line">    int num = 5;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">//普通类多态形式</span><br><span class="line">Father father = new Son();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>抽象类多态定义的格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">abstract class Father &#123;</span><br><span class="line">    abstract void method();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">class Son extends Father &#123;</span><br><span class="line">    public void method() &#123;</span><br><span class="line">        System.out.println(&quot;abstract&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">//抽象类多态表现形式</span><br><span class="line">Father father = new Son();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>接口多态定义的格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">interface Father &#123;</span><br><span class="line">    public void method();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">class Son implements Father&#123;</span><br><span class="line">    public void method() &#123;</span><br><span class="line">        System.out.println(&quot;implements&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//接口多态的表现形式</span><br><span class="line">Father father = new Son();</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>注意：同一个父类的方法会被不同的子类重写。在调用方法时，调用的为各个子类重写后的方法。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Person p1 = new Student();</span><br><span class="line">Person p2 = new Teacher();</span><br><span class="line">p1.work(); //p1会调用Student类中重写的work方法</span><br><span class="line">p2.work(); //p2会调用Teacher类中重写的work方法</span><br></pre></td></tr></table></figure>
+
+<h2 id="多态的编译和运行"><a href="#多态的编译和运行" class="headerlink" title="多态的编译和运行"></a>多态的编译和运行</h2><h3 id="成员变量：编译和运行都看左边。"><a href="#成员变量：编译和运行都看左边。" class="headerlink" title="成员变量：编译和运行都看左边。"></a>成员变量：编译和运行都看左边。</h3><p>多态出现后类的成员有啥变化呢？学习继承时，我们知道子父类之间成员变量有了自己的特定变化，那么当多态出现后，成员变量在使用上有没有变化呢？<br>多态出现后会导致子父类中的成员变量有微弱的变化。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Father &#123;</span><br><span class="line">    int num = 4;//没有这句会编译失败</span><br><span class="line">&#125;</span><br><span class="line">class Son extends Father &#123;</span><br><span class="line">    int num = 5;</span><br><span class="line">&#125;</span><br><span class="line">class Demo &#123;</span><br><span class="line">    public static void main(String[] args)  &#123;</span><br><span class="line">        Father f = new Son();</span><br><span class="line">        System.out.println(f.num);</span><br><span class="line">        Son z = new Son();</span><br><span class="line">        System.out.println(z.num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：4<br>5<br>总结：当子父类中出现同名的成员变量时，多态调用该变量时： </p>
+<ol>
+<li>编译时期：参考的是引用型变量所属的类中是否有被调用的成员变量。没有，编译失败 </li>
+<li>运行时期：也是调用引用型变量所属的类中的成员变量。 </li>
+</ol>
+<p>简单记：编译和运行都参考等号的左边。编译运行看左边。</p>
+<h3 id="成员方法：编译看左边，运行看右边。"><a href="#成员方法：编译看左边，运行看右边。" class="headerlink" title="成员方法：编译看左边，运行看右边。"></a>成员方法：编译看左边，运行看右边。</h3><p>多态出现后会导致子父类中的成员方法有微弱的变化，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">class Father &#123;</span><br><span class="line">    int num = 4;</span><br><span class="line">    //没有这个方法，编译失败</span><br><span class="line">    void show() &#123;</span><br><span class="line">        System.out.println(&quot;Father show num&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Son extends Father &#123;</span><br><span class="line">    int num = 5;</span><br><span class="line">    //重写父类方法</span><br><span class="line">    void show() &#123;</span><br><span class="line">           System.out.println(&quot;Son show num&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    void show_1&#123;</span><br><span class="line">           System.out.println(&quot;Son show show_1&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Demo &#123;</span><br><span class="line">    public static void main(String[] args)  &#123;</span><br><span class="line">        Father f = new Son();</span><br><span class="line">        f.show();</span><br><span class="line">        //f.show_1();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>打印结果：Son show num<br>总结：多态成员方法 </p>
+<ol>
+<li>编译时期：参考引用变量所属的类，如果没有类中没有调用的方法，编译失败(如果把f.show_1()前面的注释打开，则编译失败)。 </li>
+<li>运行时期：参考引用变量所指的对象所属的类，并运行对象所属类中的成员方法（如果把子类重写的show()方法注释掉，那么打印的结果是Father show num）。</li>
+</ol>
+<p>简而言之：编译看左边，运行看右边。</p>
+<h2 id="多态的转型"><a href="#多态的转型" class="headerlink" title="多态的转型"></a>多态的转型</h2><ul>
+<li>向上转型：当有子类对象赋值给一个父类引用时，便是向上转型，多态本身就是向上转型的过程。<br>使用格式：父类类型 变量名 = new 子类类型()<br><code>Person p = new Student();</code></li>
+<li>向下转型：一个已经向上转型的子类对象可以使用强制类型转换的格式，将父类引用转为子类引用，这个过程是向下转型。如果是直接创建父类对象，是无法向下转型的！<br>使用格式：子类类型 变量名 = （子类类型）父类类型<br><code>Person p = new Student();</code><br><code>Student stu = (Student) p</code></li>
+</ul>
+<h2 id="多态的好处与弊病"><a href="#多态的好处与弊病" class="headerlink" title="多态的好处与弊病"></a>多态的好处与弊病</h2><p>当父类的引用指向子类对象时，就发生了向上转型，即把子类类型对象转成了父类类型。向上转型的好处是隐藏了子类类型，提高了代码的扩展性。但向上转型也有弊端，只能使用父类共性的内容，而无法使用子类特有功能，功能有限制。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">//描述动物类，并抽取共性eat方法</span><br><span class="line">abstract class Animal &#123;</span><br><span class="line">    abstract void eat();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 描述狗类，继承动物类，重写eat方法，增加lookHome方法</span><br><span class="line">class Dog extends Animal &#123;</span><br><span class="line">    void eat() &#123;</span><br><span class="line">        System.out.println(&quot;啃骨头&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void lookHome() &#123;</span><br><span class="line">        System.out.println(&quot;看家&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 描述猫类，继承动物类，重写eat方法，增加catchMouse方法</span><br><span class="line">class Cat extends Animal &#123;</span><br><span class="line">    void eat() &#123;</span><br><span class="line">        System.out.println(&quot;吃鱼&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    void catchMouse() &#123;</span><br><span class="line">        System.out.println(&quot;抓老鼠&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Animal a = new Dog(); //多态形式，创建一个狗对象</span><br><span class="line">        a.eat(); // 调用对象中的方法，会执行狗类中的eat方法</span><br><span class="line">        // a.lookHome();//使用Dog类特有的方法，需要向下转型，不能直接使用</span><br><span class="line">        // 为了使用狗类的lookHome方法，需要向下转型</span><br><span class="line">        // 向下转型过程中，可能会发生类型转换的错误，即ClassCastException异常</span><br><span class="line">        // 那么，在转之前需要做健壮性判断 </span><br><span class="line">        if( !a instanceof Dog)&#123; // 判断当前对象是否是Dog类型</span><br><span class="line">                System.out.println(&quot;类型不匹配，不能转换&quot;); </span><br><span class="line">                return; </span><br><span class="line">        &#125; </span><br><span class="line">        Dog d = (Dog) a; //向下转型</span><br><span class="line">        d.lookHome();//调用狗类的lookHome方法</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>什么时候使用向上转型?</strong><br>当不需要面对子类类型时，通过提高扩展性，或者使用父类的功能就能完成相应的操作，这时就可以使用向上转型：<br><code>Animal a = new Dog();</code><br><code>a.eat();</code></p>
+<p><strong>什么时候使用向下转型?</strong><br>当要使用子类特有功能时，就需要使用向下转型：<br><code>Dog d = (Dog) a; //向下转型</code><br><code>d.lookHome();//调用狗类的lookHome方法</code><br>向下转型的好处：可以使用子类特有功能。<br>向下转型的弊端：需要面对具体的子类对象；在向下转型时容易发生ClassCastException类型转换异常。在转换之前必须做类型判断。<br>如：if( !a instanceof Dog){…}</p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/The-Role-of-Layers-in-SSM.html" rel="next" title="SSM中各层作用及关系">
+                  <i class="fa fa-chevron-left"></i> SSM中各层作用及关系
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="Aaron">
+  <p class="site-author-name" itemprop="name">Aaron</p>
+  <div class="site-description motion-element" itemprop="description">Keep Learning</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zhishui0501" title="GitHub &rarr; https://github.com/zhishui0501" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:876944049@qq.com" title="E-Mail &rarr; mailto:876944049@qq.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#多态的定义"><span class="nav-number">1.</span> <span class="nav-text">多态的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态的表现形式"><span class="nav-number">2.</span> <span class="nav-text">多态的表现形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态的三种形式"><span class="nav-number">3.</span> <span class="nav-text">多态的三种形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态的编译和运行"><span class="nav-number">4.</span> <span class="nav-text">多态的编译和运行</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#成员变量：编译和运行都看左边。"><span class="nav-number">4.1.</span> <span class="nav-text">成员变量：编译和运行都看左边。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员方法：编译看左边，运行看右边。"><span class="nav-number">4.2.</span> <span class="nav-text">成员方法：编译看左边，运行看右边。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态的转型"><span class="nav-number">5.</span> <span class="nav-text">多态的转型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态的好处与弊病"><span class="nav-number">6.</span> <span class="nav-text">多态的好处与弊病</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

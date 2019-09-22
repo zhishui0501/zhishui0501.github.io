@@ -66,12 +66,12 @@
 <meta property="og:site_name" content="Aaron&#39;s blog">
 <meta property="og:description" content="一旦建立了一个重要的数据库后，就可能根据某些需求对数据进行不同方式的排序。比如对姓名按字母顺序排序，对学生按年级排序，对顾客按照邮政编码排序，对国内销售品按价格排序等等。 由于排序非常重要而且可能非常耗时，所以它已经成为计算机可选中广泛研究的课题，而且人们的确已经研究出一些非常成熟的方法。本章里可以看到一些比较简单的算法:冒泡排序、选择排序和插入排序。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://zhishui0501.github.io/images/190922.jpg">
-<meta property="og:updated_time" content="2019-09-22T12:49:31.503Z">
+<meta property="og:image" content="https://zhishui0501.github.io/images/1909221.jpg">
+<meta property="og:updated_time" content="2019-09-22T15:03:47.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构与算法3-简单排序（冒泡、选择、插入排序）">
 <meta name="twitter:description" content="一旦建立了一个重要的数据库后，就可能根据某些需求对数据进行不同方式的排序。比如对姓名按字母顺序排序，对学生按年级排序，对顾客按照邮政编码排序，对国内销售品按价格排序等等。 由于排序非常重要而且可能非常耗时，所以它已经成为计算机可选中广泛研究的课题，而且人们的确已经研究出一些非常成熟的方法。本章里可以看到一些比较简单的算法:冒泡排序、选择排序和插入排序。">
-<meta name="twitter:image" content="https://zhishui0501.github.io/images/190922.jpg">
+<meta name="twitter:image" content="https://zhishui0501.github.io/images/1909221.jpg">
   <link rel="canonical" href="https://zhishui0501.github.io/Data-Structure-and-Algorithms-3-Sorting-algorithm">
 
 
@@ -301,7 +301,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-22 20:49:31" itemprop="dateModified" datetime="2019-09-22T20:49:31+08:00">2019-09-22</time>
+                <time title="Modified: 2019-09-22 23:03:47" itemprop="dateModified" datetime="2019-09-22T23:03:47+08:00">2019-09-22</time>
               </span>
             
           
@@ -369,7 +369,7 @@
 <p>i = 3, temp = a[3] = 2, i = j = 3<br>首先j &gt;= 1,a[j-1]=a[2]=4&gt;temp=2,所以将a[2]的赋给a[3]，这样变成1 3 4 4<br>接着将j自减1，变成2，首先j = 2&gt;=1,a[2-1]=a[1]=3，注意temp是不变的，所以a[1]依然大于temp=2，于是将a[1]赋给a[2]，变成1 3 3 4<br>然后j自减1，变成1，首先j = 1 &gt;= 1,a[1-1]=a[0]=1 &lt; 3，循环停止，于是<br>a[1]=temp=2<br>1 2 3 4<br>j再自减一次，已经不符合条件，整个循环中止，排序完成</p>
 <h2 id="几种简单排序之间的比较"><a href="#几种简单排序之间的比较" class="headerlink" title="几种简单排序之间的比较"></a>几种简单排序之间的比较</h2><p>除非手边没有算法书可以参考，一般情况下，几乎不太使用冒泡排序算法，它过于简单了。当数据量很小的时候可以有应用价值。</p>
 <p>选择排序虽然可以把交换次数降到最低，但比较次数仍然很大，当数据量比较小时候，并且交换数据相对于比较数据更加耗时情况下，可以应用选择排序。</p>
-<p>在大多数情况下，数据量比较小或基本有序时，插入排序算法是三种简单排序算法中最好的选择，对于更大数据量，快速排序是最快的。<br>本章介绍的所有算法时间复杂度都是O(n^2)<br><img src="images/190922.jpg" alt></p>
+<p>在大多数情况下，数据量比较小或基本有序时，插入排序算法是三种简单排序算法中最好的选择，对于更大数据量，快速排序是最快的。<br>本章介绍的所有算法时间复杂度都是O(n^2)<br><img src="images/1909221.jpg" alt></p>
 
     </div>
 

@@ -75,7 +75,7 @@
 <meta property="og:image" content="https://zhishui0501.github.io/images/1909236.jpg">
 <meta property="og:image" content="https://zhishui0501.github.io/images/1909237">
 <meta property="og:image" content="https://zhishui0501.github.io/images/1909239.png">
-<meta property="og:updated_time" content="2019-09-23T06:44:58.117Z">
+<meta property="og:updated_time" content="2019-09-24T12:07:54.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前后端分离(续)">
 <meta name="twitter:description" content="背景前后端分离已成为互联网项目开发的业界标准使用方式，通过nginx+tomcat的方式（也可以中间加一个nodejs）有效的进行解耦，并且前后端分离会为以后的大型分布式架构、弹性计算架构、微服务架构、多端化服务（多种客户端，例如：浏览器，车载终端，安卓，IOS等等）打下坚实的基础。这个步骤是系统架构从猿进化成人的必经之路。 核心思想是前端HTML页面通过AJAX调用后端的RESTFUL API接">
@@ -201,7 +201,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">13</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">14</span></a>
 
   </li>
       
@@ -298,11 +298,19 @@
                 
               
 
-              <time title="Created: 2019-09-23 14:09:19 / Modified: 14:44:58" itemprop="dateCreated datePublished" datetime="2019-09-23T14:09:19+08:00">2019-09-23</time>
+              <time title="Created: 2019-09-23 14:09:19" itemprop="dateCreated datePublished" datetime="2019-09-23T14:09:19+08:00">2019-09-23</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-09-24 20:07:54" itemprop="dateModified" datetime="2019-09-24T20:07:54+08:00">2019-09-24</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -311,7 +319,14 @@
               </span>
               <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Guide/" itemprop="url" rel="index"><span itemprop="name">Guide</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开发架构/" itemprop="url" rel="index"><span itemprop="name">开发架构</span></a></span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/开发架构/前后端分离/" itemprop="url" rel="index"><span itemprop="name">前后端分离</span></a></span>
 
                 
                 
@@ -404,8 +419,8 @@
 <p>用NodeJs来作为桥梁架接服务器端API输出的JSON。后端出于性能和别的原因，提供的接口所返回的数据格式也许不太适合前端直接使用，前端所需的排序功能、筛选功能，以及到了视图层的页面展现，也许都需要对接口所提供的数据进行二次处理。这些处理虽可以放在前端来进行，但也许数据量一大便会浪费浏览器性能。因而现今，增加Node中间层便是一种良好的解决方案。<br><img src="/images/1909238.png" alt><br>浏览器(webview)不再直接请求JSP的API，而是：</p>
 <ol>
 <li>浏览器请求服务器端的NodeJS；</li>
-<li>NodeJS再发起HTTP去请求JSP；</li>
-<li>JSP依然原样API输出JSON给NodeJS；</li>
+<li>NodeJS再发起HTTP去请求；</li>
+<li>依然原样API输出JSON给NodeJS；</li>
 <li>NodeJS收到JSON后再渲染出HTML页面；</li>
 <li>NodeJS直接将HTML页面flush到浏览器；<br>这样，浏览器得到的就是普通的HTML页面，而不用再发Ajax去请求服务器了。</li>
 </ol>
@@ -539,7 +554,9 @@
         
           
         
-        <span class="site-state-item-count">13</span>
+          
+        
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>

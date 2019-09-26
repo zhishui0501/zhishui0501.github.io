@@ -59,18 +59,18 @@
   };
 </script>
 
-  <meta name="description" content="什么是jQuery对象？jQuery对象是通过jQuery包装DOM对象后产生的对象。 这里首先要理解DOM文档对象模型： （1）DOM解析XML文档时，DOM为XML文档在逻辑上建立一个树模型； （2）DOM把XML文档作为树结构来查看，XML文档的树形结构节点就是XML文档上的元素、文本和属性。">
+  <meta name="description" content="RESTFUL是一种网络应用程序的设计风格和开发方式，基于HTTP，可以使用XML格式定义或JSON格式定义。RESTFUL适用于移动互联网厂商作为业务使能接口的场景，实现第三方OTT调用移动网络资源的功能，动作类型为新增、变更、删除所调用资源。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对jQuery对象的理解">
-<meta property="og:url" content="https://zhishui0501.github.io/Understanding-of-jQuery-Objects.html">
+<meta property="og:title" content="RESTful">
+<meta property="og:url" content="https://zhishui0501.github.io/RESTful.html">
 <meta property="og:site_name" content="Aaron&#39;s blog">
-<meta property="og:description" content="什么是jQuery对象？jQuery对象是通过jQuery包装DOM对象后产生的对象。 这里首先要理解DOM文档对象模型： （1）DOM解析XML文档时，DOM为XML文档在逻辑上建立一个树模型； （2）DOM把XML文档作为树结构来查看，XML文档的树形结构节点就是XML文档上的元素、文本和属性。">
+<meta property="og:description" content="RESTFUL是一种网络应用程序的设计风格和开发方式，基于HTTP，可以使用XML格式定义或JSON格式定义。RESTFUL适用于移动互联网厂商作为业务使能接口的场景，实现第三方OTT调用移动网络资源的功能，动作类型为新增、变更、删除所调用资源。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-14T04:58:26.170Z">
+<meta property="og:updated_time" content="2019-09-26T14:26:00.331Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="对jQuery对象的理解">
-<meta name="twitter:description" content="什么是jQuery对象？jQuery对象是通过jQuery包装DOM对象后产生的对象。 这里首先要理解DOM文档对象模型： （1）DOM解析XML文档时，DOM为XML文档在逻辑上建立一个树模型； （2）DOM把XML文档作为树结构来查看，XML文档的树形结构节点就是XML文档上的元素、文本和属性。">
-  <link rel="canonical" href="https://zhishui0501.github.io/Understanding-of-jQuery-Objects">
+<meta name="twitter:title" content="RESTful">
+<meta name="twitter:description" content="RESTFUL是一种网络应用程序的设计风格和开发方式，基于HTTP，可以使用XML格式定义或JSON格式定义。RESTFUL适用于移动互联网厂商作为业务使能接口的场景，实现第三方OTT调用移动网络资源的功能，动作类型为新增、变更、删除所调用资源。">
+  <link rel="canonical" href="https://zhishui0501.github.io/RESTful">
 
 
 <script id="page-configurations">
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title>对jQuery对象的理解 | Aaron's blog</title>
+  <title>RESTful | Aaron's blog</title>
   
 
 
@@ -257,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/Understanding-of-jQuery-Objects.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/RESTful.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -271,7 +271,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">对jQuery对象的理解
+          <h1 class="post-title" itemprop="name headline">RESTful
 
             
           </h1>
@@ -288,19 +288,11 @@
                 
               
 
-              <time title="Created: 2019-08-27 21:44:23" itemprop="dateCreated datePublished" datetime="2019-08-27T21:44:23+08:00">2019-08-27</time>
+              <time title="Created: 2019-09-26 21:48:02 / Modified: 22:26:00" itemprop="dateCreated datePublished" datetime="2019-09-26T21:48:02+08:00">2019-09-26</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-14 12:58:26" itemprop="dateModified" datetime="2019-09-14T12:58:26+08:00">2019-09-14</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -309,7 +301,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前后端分离/" itemprop="url" rel="index"><span itemprop="name">前后端分离</span></a></span>
 
                 
                 
@@ -336,25 +328,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="什么是jQuery对象？"><a href="#什么是jQuery对象？" class="headerlink" title="什么是jQuery对象？"></a>什么是jQuery对象？</h2><p>jQuery对象是通过jQuery包装DOM对象后产生的对象。</p>
-<p>这里首先要理解DOM文档对象模型：</p>
-<p>（1）DOM解析XML文档时，DOM为XML文档在逻辑上建立一个树模型；</p>
-<p>（2）DOM把XML文档作为树结构来查看，XML文档的树形结构节点就是XML文档上的元素、文本和属性。</p>
+        <p>RESTFUL是一种网络应用程序的设计风格和开发方式，基于HTTP，可以使用XML格式定义或JSON格式定义。RESTFUL适用于移动互联网厂商作为业务使能接口的场景，实现第三方OTT调用移动网络资源的功能，动作类型为新增、变更、删除所调用资源。</p>
 <a id="more"></a>
-<p>还要理解HTML页面为什么与DOM对象联系在一起？</p>
-<p>因为HTML页面中的元素都表现为类似XML文档的树形结构：存在元素节点、属性节点和文本节点，所以用</p>
-<p>DOM对象也可以解析HTML页面中的元素（这也是形成jQuery选择器的原因）。</p>
-<p>再者，还要理解DOM对象如何转化为jQuery对象？</p>
-<p>HTML DOM 定义了多种查找HTML页面元素的方法，除了 getElementById() 之外，</p>
-<p>还有 getElementsByName() 和 getElementsByTagName()。找到的这个页面元素就是一个DOM对象。</p>
-<p>用jQuery构造这个DOM对象，就获得一个jQuery对象。示例：</p>
-<p>var domObj = document.getElementById(“element”);</p>
-<p>var $obj=jQuery(domObj);</p>
-<h2 id="jQuery对象的表示："><a href="#jQuery对象的表示：" class="headerlink" title="jQuery对象的表示："></a>jQuery对象的表示：</h2><p>在jQuery库中，$是jQuery的一个简写形式，所以一个节点元素的jQuery对象可以写成：</p>
-<p>$(nodeString)</p>
-<p>其中，nodeString是：Html标签的id、class、或者标签名等。</p>
-<h2 id="jQuery中DOM的操作"><a href="#jQuery中DOM的操作" class="headerlink" title="jQuery中DOM的操作"></a>jQuery中DOM的操作</h2><p>DOM是一种与浏览器、语言无关的接口，利用该接口可以方便地访问HTML页面中的标准组件。jQuery提供了一系列方法对DOM进行各种操作，从而通过DOM实现对HTML页面中各种元素的操作。</p>
-<p>每一个HTML页面都可以使用DOM表示，在使用jQuery进行DOM操作之前，HTML页面首先被看作一棵DOM树。</p>
+<h2 id="相关定义"><a href="#相关定义" class="headerlink" title="相关定义"></a>相关定义</h2><p>REST（英文：Representational State Transfer，简称REST）描述了一个架构样式的网络系统，比如 web 应用程序。它首次出现在 2000 年 Roy Fielding 的博士论文中，Roy Fielding是 HTTP 规范的主要编写者之一。在目前主流的三种Web服务交互方案中，REST相比于SOAP（Simple Object Access protocol，简单对象访问协议）以及XML-RPC更加简单明了，无论是对URL的处理还是对Payload的编码，REST都倾向于用更加简单轻量的方法设计和实现。值得注意的是REST并没有一个明确的标准，而更像是一种设计的风格。</p>
+<h2 id="原则条件"><a href="#原则条件" class="headerlink" title="原则条件"></a>原则条件</h2><p>REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。</p>
+<p>Web 应用程序最重要的 REST 原则是，客户端和服务器之间的交互在请求之间是无状态的。从客户端到服务器的每个请求都必须包含理解请求所必需的信息。如果服务器在请求之间的任何时间点重启，客户端不会得到通知。此外，无状态请求可以由任何可用服务器回答，这十分适合云计算之类的环境。客户端可以缓存数据以改进性能。</p>
+<p>在服务器端，应用程序状态和功能可以分为各种资源。资源是一个有趣的概念实体，它向客户端公开。资源的例子有：应用程序对象、数据库记录、算法等等。每个资源都使用 URI (Universal Resource Identifier) 得到一个唯一的地址。所有资源都共享统一的接口，以便在客户端和服务器之间传输状态。使用的是标准的 HTTP 方法，比如 GET、PUT、POST 和 DELETE。Hypermedia 是应用程序状态的引擎，资源表示通过超链接互联。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li>每一个URI代表1种资源；</li>
+<li>客户端使用GET、POST、PUT、DELETE4个表示操作方式的动词对服务端资源进行操作：GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源；</li>
+<li>通过操作资源的表现形式来操作资源；</li>
+<li>资源的表现形式是XML或者HTML；</li>
+<li>客户端与服务端之间的交互在请求之间是无状态的，从客户端到服务端的每个请求都必须包含理解请求所必需的信息。</li>
+</ol>
+<h2 id="RESTful与-RPC"><a href="#RESTful与-RPC" class="headerlink" title="RESTful与 RPC"></a>RESTful与 RPC</h2><p>使用 RPC 样式架构构建的基于 SOAP 的 Web 服务成为实现 SOA 最常用的方法。RPC 样式的 Web 服务客户端将一个装满数据的信封（包括方法和参数信息）通过 HTTP 发送到服务器。服务器打开信封并使用传入参数执行指定的方法。方法的结果打包到一个信封并作为响应发回客户端。客户端收到响应并打开信封。每个对象都有自己独特的方法以及仅公开一个 URI 的 RPC 样式 Web 服务，URI 表示单个端点。它忽略 HTTP 的大部分特性且仅支持 POST 方法。</p>
+<p>由于轻量级以及通过 HTTP 直接传输数据的特性，Web 服务的 RESTful 方法已经成为最常见的替代方法。可以使用各种语言（比如 Java 程序、Perl、Ruby、Python、PHP 和 Javascript[包括 Ajax]）实现客户端。RESTful Web 服务通常可以通过自动客户端或代表用户的应用程序访问。但是，这种服务的简便性让用户能够与之直接交互，使用它们的 Web 浏览器构建一个 GET URL 并读取返回的内容。</p>
+<p>在 REST 样式的 Web 服务中，每个资源都有一个地址。资源本身都是方法调用的目标，方法列表对所有资源都是一样的。这些方法都是标准方法，包括 HTTP GET、POST、PUT、DELETE，还可能包括 HEAD 和 OPTIONS。</p>
+<p>在 RPC 样式的架构中，关注点在于方法，而在 REST 样式的架构中，关注点在于资源 —— 将使用标准方法检索并操作信息片段（使用表示的形式）。资源表示形式在表示形式中使用超链接互联。</p>
+<p>Leonard Richardson 和 Sam Ruby 在他们的著作 RESTful Web Services 中引入了术语 REST-RPC 混合架构。REST-RPC 混合 Web 服务不使用信封包装方法、参数和数据，而是直接通过 HTTP 传输数据，这与 REST 样式的 Web 服务是类似的。但是它不使用标准的 HTTP 方法操作资源。它在 HTTP 请求的 URI 部分存储方法信息。好几个知名的 Web 服务，比如 Yahoo 的 Flickr API 和 Delicious API 都使用这种混合架构。</p>
+<h2 id="RESTful架构"><a href="#RESTful架构" class="headerlink" title="RESTful架构"></a>RESTful架构</h2><p>RESTful架构是对MVC架构改进后所形成的一种架构，通过使用事先定义好的接口与不同的服务联系起来。在RESTful架构中，浏览器使用POST，DELETE，PUT和GET四种请求方式分别对指定的URL资源进行增删改查操作。因此，RESTful是通过URI实现对资源的管理及访问，具有扩展性强、结构清晰的特点。</p>
+<p>RESTful架构将服务器分成前端服务器和后端服务器两部分，前端服务器为用户提供无模型的视图；后端服务器为前端服务器提供接口。浏览器向前端服务器请求视图，通过视图中包含的AJAX函数发起接口请求获取模型。</p>
+<p>项目开发引入RESTful架构，利于团队并行开发。在RESTful架构中，将多数HTTP请求转移到前端服务器上，降低服务器的负荷，使视图获取后端模型失败也能呈现。但RESTful架构却不适用于所有的项目，当项目比较小时无需使用RESTful架构，项目变得更加复杂。</p>
 
     </div>
 
@@ -371,8 +365,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/Logical-Structure-and-Storage-Structure-of-Data.html" rel="next" title="数据的逻辑结构和存储结构">
-                  <i class="fa fa-chevron-left"></i> 数据的逻辑结构和存储结构
+                <a href="/Front-and-back-end-separation-xu.html" rel="next" title="前后端分离(续)">
+                  <i class="fa fa-chevron-left"></i> 前后端分离(续)
                 </a>
               
             </div>
@@ -380,10 +374,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/Navicat-Connection-Mysql-Error.html" rel="prev" title="Navicat连接Mysql报错">
-                  Navicat连接Mysql报错 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -524,7 +514,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是jQuery对象？"><span class="nav-number">1.</span> <span class="nav-text">什么是jQuery对象？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery对象的表示："><span class="nav-number">2.</span> <span class="nav-text">jQuery对象的表示：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery中DOM的操作"><span class="nav-number">3.</span> <span class="nav-text">jQuery中DOM的操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关定义"><span class="nav-number">1.</span> <span class="nav-text">相关定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原则条件"><span class="nav-number">2.</span> <span class="nav-text">原则条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful与-RPC"><span class="nav-number">4.</span> <span class="nav-text">RESTful与 RPC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful架构"><span class="nav-number">5.</span> <span class="nav-text">RESTful架构</span></a></li></ol></div>
             
 
           </div>

@@ -59,18 +59,18 @@
   };
 </script>
 
-  <meta name="description" content="含有 abstract 修饰符 class 即为抽象类，抽象类不能创建实际对象，含有抽象方法的抽象类必须定义为 abstract class。 接口可以说成是一种特殊的抽象类，接口中的所有方法都必须是抽象的，接口中的方法定义默认为 public abstract 类型，接口中的成员产量类型默认为 public static final。两者的区别:">
+  <meta name="description" content="事务就是对一系列的数据库操作（比如插入多条数据）进行统一的提交或回滚操作，如果插入成功，那么一起成功，如果中间有一条出现异常，那么回滚之前的所有操作。这样可以防止出现脏数据，防止数据库数据出现问题。 开发中为了避免这种情况一般都会进行事务管理。 在JDBC中是通过Connection对象进行事务管理的，默认是自动提交事务，可以手工将自动提交关闭，通过commit方法进行提交，rollback方法进">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Abstract class和Interface的区别">
-<meta property="og:url" content="https://zhishui0501.github.io/Differences-between-abstract-class-and-interface.html">
+<meta property="og:title" content="什么是spring的事务管理&#39;">
+<meta property="og:url" content="https://zhishui0501.github.io/transaction-management.html">
 <meta property="og:site_name" content="Aaron&#39;s blog">
-<meta property="og:description" content="含有 abstract 修饰符 class 即为抽象类，抽象类不能创建实际对象，含有抽象方法的抽象类必须定义为 abstract class。 接口可以说成是一种特殊的抽象类，接口中的所有方法都必须是抽象的，接口中的方法定义默认为 public abstract 类型，接口中的成员产量类型默认为 public static final。两者的区别:">
+<meta property="og:description" content="事务就是对一系列的数据库操作（比如插入多条数据）进行统一的提交或回滚操作，如果插入成功，那么一起成功，如果中间有一条出现异常，那么回滚之前的所有操作。这样可以防止出现脏数据，防止数据库数据出现问题。 开发中为了避免这种情况一般都会进行事务管理。 在JDBC中是通过Connection对象进行事务管理的，默认是自动提交事务，可以手工将自动提交关闭，通过commit方法进行提交，rollback方法进">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-14T05:06:17.474Z">
+<meta property="og:updated_time" content="2019-09-29T15:25:16.706Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Abstract class和Interface的区别">
-<meta name="twitter:description" content="含有 abstract 修饰符 class 即为抽象类，抽象类不能创建实际对象，含有抽象方法的抽象类必须定义为 abstract class。 接口可以说成是一种特殊的抽象类，接口中的所有方法都必须是抽象的，接口中的方法定义默认为 public abstract 类型，接口中的成员产量类型默认为 public static final。两者的区别:">
-  <link rel="canonical" href="https://zhishui0501.github.io/Differences-between-abstract-class-and-interface">
+<meta name="twitter:title" content="什么是spring的事务管理&#39;">
+<meta name="twitter:description" content="事务就是对一系列的数据库操作（比如插入多条数据）进行统一的提交或回滚操作，如果插入成功，那么一起成功，如果中间有一条出现异常，那么回滚之前的所有操作。这样可以防止出现脏数据，防止数据库数据出现问题。 开发中为了避免这种情况一般都会进行事务管理。 在JDBC中是通过Connection对象进行事务管理的，默认是自动提交事务，可以手工将自动提交关闭，通过commit方法进行提交，rollback方法进">
+  <link rel="canonical" href="https://zhishui0501.github.io/transaction-management">
 
 
 <script id="page-configurations">
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title>Abstract class和Interface的区别 | Aaron's blog</title>
+  <title>什么是spring的事务管理' | Aaron's blog</title>
   
 
 
@@ -257,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/Differences-between-abstract-class-and-interface.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/transaction-management.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -271,7 +271,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">Abstract class和Interface的区别
+          <h1 class="post-title" itemprop="name headline">什么是spring的事务管理'
 
             
           </h1>
@@ -288,19 +288,11 @@
                 
               
 
-              <time title="Created: 2019-09-04 15:58:53" itemprop="dateCreated datePublished" datetime="2019-09-04T15:58:53+08:00">2019-09-04</time>
+              <time title="Created: 2019-09-29 23:10:47 / Modified: 23:25:16" itemprop="dateCreated datePublished" datetime="2019-09-29T23:10:47+08:00">2019-09-29</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-14 13:06:17" itemprop="dateModified" datetime="2019-09-14T13:06:17+08:00">2019-09-14</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -309,7 +301,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SSM/" itemprop="url" rel="index"><span itemprop="name">SSM</span></a></span>
 
                 
                 
@@ -336,26 +328,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>含有 abstract 修饰符 class 即为抽象类，抽象类不能创建实际对象，含有抽象方法的抽象类必须定义为 abstract class。</p>
-<p>接口可以说成是一种特殊的抽象类，接口中的所有方法都必须是抽象的，接口中的方法定义默认为 public abstract 类型，接口中的成员产量类型默认为 public static final。<br>两者的区别:</p>
-<a id="more"></a>
-
-<ol>
-<li><p>抽象类可以有构造方法，接口中不能有构造方法。</p>
-</li>
-<li><p>抽象类中可以有普通成员变量，接口中没有普通成员变量。</p>
-</li>
-<li><p>抽象类中可以包含非抽象普通方法，接口中的所有方法必须都是抽象的，不能有非抽象的方法。</p>
-</li>
-<li><p>抽象类中的抽象方法的访问权限可以是 public、protected 和(默认类型，虽然 eclipse 不报错，但也不能用，默认类型子类不能继承)，接口中的抽象方法只能是 public 类型的，并且默认即为 public abstract 类型。</p>
-</li>
-<li><p>抽象类中可以包含静态方法，在 JDK1.8 之前接口中不能不包含静态方法，JDK1.8 以后可以包含。</p>
-</li>
-<li><p>抽象类和接口中都可以包含静态成员变量，抽象类中的静态成员变量的访问权限可以是任意的，但接口中定义的变量只能是 public static final 类型的，并且默认即为 public static final 类型。</p>
-</li>
-<li><p>一个类可以实现多个接口，用逗号隔开，但只能继承一个抽象类，接口不可以实现接口，但可以继承接口，并且可以继承多个接口，用逗号隔开。</p>
-</li>
-</ol>
+        <p>事务就是对一系列的数据库操作（比如插入多条数据）进行统一的提交或回滚操作，如果插入成功，那么一起成功，如果中间有一条出现异常，那么回滚之前的所有操作。<br>这样可以防止出现脏数据，防止数据库数据出现问题。</p>
+<p>开发中为了避免这种情况一般都会进行事务管理。</p>
+<p>在JDBC中是通过Connection对象进行事务管理的，默认是自动提交事务，可以手工将自动提交关闭，通过commit方法进行提交，rollback方法进行回滚，如果不提交，则数据不会真正的插入到数据库中。<br>Hibernate中是通过Transaction进行事务管理，处理方法与JDBC中类似。</p>
+<p>Spring中也有自己的事务管理机制，一般是使用TransactionMananger进行管理，可以通过Spring的注入来完成此功能。</p>
+<p>毕业报告中通过编写ShopOperationException.java继承runtime exception 完成插入数据库失败的回滚，如果是普通的exception，失败不会回滚，仍会插入。</p>
 
     </div>
 
@@ -372,8 +349,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/Differences-between-ArrayList-and-LinkedList-in-Java.html" rel="next" title="Java中ArrayList与LinkedList的区别">
-                  <i class="fa fa-chevron-left"></i> Java中ArrayList与LinkedList的区别
+                <a href="/RESTful.html" rel="next" title="RESTful">
+                  <i class="fa fa-chevron-left"></i> RESTful
                 </a>
               
             </div>
@@ -381,10 +358,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/CDN.html" rel="prev" title="CDN">
-                  CDN <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>

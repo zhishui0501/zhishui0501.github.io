@@ -203,7 +203,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">34</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">35</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -248,6 +248,103 @@
           <div id="content" class="content page-home">
             
   <section id="posts" class="posts-expand">
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/transaction-management.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="Keep Learning">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/transaction-management.html" class="post-title-link" itemprop="url">什么是spring的事务管理'</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-09-29 23:10:47 / Modified: 23:25:16" itemprop="dateCreated datePublished" datetime="2019-09-29T23:10:47+08:00">2019-09-29</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SSM/" itemprop="url" rel="index"><span itemprop="name">SSM</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>事务就是对一系列的数据库操作（比如插入多条数据）进行统一的提交或回滚操作，如果插入成功，那么一起成功，如果中间有一条出现异常，那么回滚之前的所有操作。<br>这样可以防止出现脏数据，防止数据库数据出现问题。</p>
+<p>开发中为了避免这种情况一般都会进行事务管理。</p>
+<p>在JDBC中是通过Connection对象进行事务管理的，默认是自动提交事务，可以手工将自动提交关闭，通过commit方法进行提交，rollback方法进行回滚，如果不提交，则数据不会真正的插入到数据库中。<br>Hibernate中是通过Transaction进行事务管理，处理方法与JDBC中类似。</p>
+<p>Spring中也有自己的事务管理机制，一般是使用TransactionMananger进行管理，可以通过Spring的注入来完成此功能。</p>
+<p>毕业报告中通过编写ShopOperationException.java继承runtime exception 完成插入数据库失败的回滚，如果是普通的exception，失败不会回滚，仍会插入。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
       
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1209,113 +1306,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/IP-and-MAC.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Aaron">
-      <meta itemprop="description" content="Keep Learning">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Aaron's blog">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/IP-and-MAC.html" class="post-title-link" itemprop="url">有了IP为什么还要有MAC</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              
-                
-              
-
-              <time title="Created: 2019-09-11 21:19:22" itemprop="dateCreated datePublished" datetime="2019-09-11T21:19:22+08:00">2019-09-11</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-14 13:09:09" itemprop="dateModified" datetime="2019-09-14T13:09:09+08:00">2019-09-14</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="为什么有了MAC地址，还需要IP地址？"><a href="#为什么有了MAC地址，还需要IP地址？" class="headerlink" title="为什么有了MAC地址，还需要IP地址？"></a>为什么有了MAC地址，还需要IP地址？</h2><p>Mac地址是物理层的地址，但它是以太网的物理地址。互联网是由很多异构的物理网络通过路由器联接起来的，不同的物理网络，寻址方式很可能是不同的，可能根本不使用MAC地址。如果只用MAC地址，不同的物理网络进行寻址时会非常困难，因为彼此的数据帧格式不一样相互不兼容。所以，我们需要一个公用的标准去遵循，这个标准就是IP地址。这里也体现了计算机网络中分层的好处，让你不再去考虑两个不同的实现方式的物理网之间如何通讯。它屏蔽了下层的东西，让所有的网络都建立在IP地址之上，整个互联网在第三层看起来就像是一个巨大的IP网，而不用去管底层物理网络是什么。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/IP-and-MAC.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1354,7 +1344,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

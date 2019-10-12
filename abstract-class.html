@@ -59,18 +59,18 @@
   };
 </script>
 
-  <meta name="description" content="持久层：DAO层（mapper层）（属于mybatis模块） DAO层：主要负责与数据库进行交互设计，用来处理数据的持久化工作。 DAO层的设计首先是设计DAO的接口，也就是项目中看到的Dao包。 然后在Spring的xml配置文件中定义此接口的实现类，就可在其他模块中调用此接口来进行数据业务的处理，而不用关心接口的具体实现类是哪个类，这里往往用到的就是反射机制，DAO层的jdbc.propert">
+  <meta name="description" content="抽象类就是不能使用new方法进行实例化的类，即没有具体实例对象的类。抽象类有点类似“模板”的作用，目的是根据其格式来创建和修改新的类。对象不能由抽象类直接创建，只可以通过抽象类派生出新的子类，再由其子类来创建对象。当一个类被声明为抽象类时，要在这个类前面加上修饰符abstract.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSM中各层作用及关系">
-<meta property="og:url" content="https://zhishui0501.github.io/The-Role-of-Layers-in-SSM.html">
+<meta property="og:title" content="关于抽象类中的抽象方法和非抽象方法的问题">
+<meta property="og:url" content="https://zhishui0501.github.io/abstract-class.html">
 <meta property="og:site_name" content="Aaron&#39;s blog">
-<meta property="og:description" content="持久层：DAO层（mapper层）（属于mybatis模块） DAO层：主要负责与数据库进行交互设计，用来处理数据的持久化工作。 DAO层的设计首先是设计DAO的接口，也就是项目中看到的Dao包。 然后在Spring的xml配置文件中定义此接口的实现类，就可在其他模块中调用此接口来进行数据业务的处理，而不用关心接口的具体实现类是哪个类，这里往往用到的就是反射机制，DAO层的jdbc.propert">
+<meta property="og:description" content="抽象类就是不能使用new方法进行实例化的类，即没有具体实例对象的类。抽象类有点类似“模板”的作用，目的是根据其格式来创建和修改新的类。对象不能由抽象类直接创建，只可以通过抽象类派生出新的子类，再由其子类来创建对象。当一个类被声明为抽象类时，要在这个类前面加上修饰符abstract.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-25T03:06:52.181Z">
+<meta property="og:updated_time" content="2019-10-12T08:13:26.096Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SSM中各层作用及关系">
-<meta name="twitter:description" content="持久层：DAO层（mapper层）（属于mybatis模块） DAO层：主要负责与数据库进行交互设计，用来处理数据的持久化工作。 DAO层的设计首先是设计DAO的接口，也就是项目中看到的Dao包。 然后在Spring的xml配置文件中定义此接口的实现类，就可在其他模块中调用此接口来进行数据业务的处理，而不用关心接口的具体实现类是哪个类，这里往往用到的就是反射机制，DAO层的jdbc.propert">
-  <link rel="canonical" href="https://zhishui0501.github.io/The-Role-of-Layers-in-SSM">
+<meta name="twitter:title" content="关于抽象类中的抽象方法和非抽象方法的问题">
+<meta name="twitter:description" content="抽象类就是不能使用new方法进行实例化的类，即没有具体实例对象的类。抽象类有点类似“模板”的作用，目的是根据其格式来创建和修改新的类。对象不能由抽象类直接创建，只可以通过抽象类派生出新的子类，再由其子类来创建对象。当一个类被声明为抽象类时，要在这个类前面加上修饰符abstract.">
+  <link rel="canonical" href="https://zhishui0501.github.io/abstract-class">
 
 
 <script id="page-configurations">
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title>SSM中各层作用及关系 | Aaron's blog</title>
+  <title>关于抽象类中的抽象方法和非抽象方法的问题 | Aaron's blog</title>
   
 
 
@@ -257,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/The-Role-of-Layers-in-SSM.html">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/abstract-class.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Aaron">
@@ -271,7 +271,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">SSM中各层作用及关系
+          <h1 class="post-title" itemprop="name headline">关于抽象类中的抽象方法和非抽象方法的问题
 
             
           </h1>
@@ -288,19 +288,11 @@
                 
               
 
-              <time title="Created: 2019-09-19 21:07:23" itemprop="dateCreated datePublished" datetime="2019-09-19T21:07:23+08:00">2019-09-19</time>
+              <time title="Created: 2019-10-12 15:52:36 / Modified: 16:13:26" itemprop="dateCreated datePublished" datetime="2019-10-12T15:52:36+08:00">2019-10-12</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-09-25 11:06:52" itemprop="dateModified" datetime="2019-09-25T11:06:52+08:00">2019-09-25</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -309,7 +301,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SSM/" itemprop="url" rel="index"><span itemprop="name">SSM</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JAVA/" itemprop="url" rel="index"><span itemprop="name">JAVA</span></a></span>
 
                 
                 
@@ -336,55 +328,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="持久层：DAO层（mapper层）（属于mybatis模块）"><a href="#持久层：DAO层（mapper层）（属于mybatis模块）" class="headerlink" title="持久层：DAO层（mapper层）（属于mybatis模块）"></a>持久层：DAO层（mapper层）（属于mybatis模块）</h2><ul>
-<li>DAO层：主要负责与数据库进行交互设计，用来处理数据的持久化工作。</li>
-<li>DAO层的设计首先是设计DAO的接口，也就是项目中看到的Dao包。</li>
-<li>然后在Spring的xml配置文件中定义此接口的实现类，就可在其他模块中调用此接口来进行数据业务的处理，而不用关心接口的具体实现类是哪个类，这里往往用到的就是反射机制，DAO层的jdbc.properties数据源配置，以及有关数据库连接的参数都在Spring的配置文件中进行配置。</li>
-<li>有的项目Dao层，写成mapper，当成一个意思理解。<a id="more"></a>
-
-</li>
-</ul>
-<h2 id="业务层：Service层（属于spring模块）"><a href="#业务层：Service层（属于spring模块）" class="headerlink" title="业务层：Service层（属于spring模块）"></a>业务层：Service层（属于spring模块）</h2><ul>
-<li>Service层：主要负责业务模块的逻辑应用设计。也就是项目中看到的Service包。</li>
-<li>Service层的设计首先是设计接口，再设计其实现的类。也就是项目中看到的service+impl包。</li>
-<li>接着再在Spring的xml配置文件中配置其实现的关联。这样我们就可以在应用中调用Service接口来进行业务处理。</li>
-<li>最后通过调用DAO层已定义的接口，去实现Service具体的实现类。</li>
-<li>Service层的业务实现，具体要调用到已定义的DAO层的接口。</li>
-</ul>
-<h2 id="控制层-表现层：Controller层（Handler层）-（属于springMVC模块）"><a href="#控制层-表现层：Controller层（Handler层）-（属于springMVC模块）" class="headerlink" title="控制层/表现层：Controller层（Handler层） （属于springMVC模块）"></a>控制层/表现层：Controller层（Handler层） （属于springMVC模块）</h2><ul>
-<li>Controller层：主要负责具体的业务模块流程控制，也就是看到的controller包。</li>
-<li>Controller层通过要调用Service层的接口来控制业务流程，控制的配置也同样是在Spring的xml配置文件里面，针对具体的业务流程，会有不同的控制器。</li>
-</ul>
-<h2 id="View层-（属于springMVC模块）"><a href="#View层-（属于springMVC模块）" class="headerlink" title="View层 （属于springMVC模块）"></a>View层 （属于springMVC模块）</h2><ul>
-<li>负责前台jsp页面的展示，此层需要与Controller层结合起来开发。</li>
-<li>Jsp发送请求，controller接收请求，处理，返回，jsp回显数据。</li>
-</ul>
-<h2 id="各层之间的联系"><a href="#各层之间的联系" class="headerlink" title="各层之间的联系"></a>各层之间的联系</h2><ul>
-<li>DAO层，Service层这两个层次可以单独开发，互相的耦合度很低。</li>
-<li>Controller，View层耦合度比较高，因而要结合在一起开发。也可以听当做两层来开发，这样，在层与层之前我们只需要知道接口的定义，调用接口即可完成所需要的逻辑单元应用，项目会显得清晰简单。</li>
-<li>值得注意的是，Service逻辑层设计：Service层是建立在DAO层之上的，在Controller层之下。因而Service层应该既调用DAO层的接口，又提供接口给Controller层的类来进行调用，它处于一个中间层的位置。每个模型都有一个Service接口，每个接口分别封装各自的业务处理方法。 </li>
-</ul>
-<h2 id="SSM框架实现一个web程序主要使用到如下三个技术："><a href="#SSM框架实现一个web程序主要使用到如下三个技术：" class="headerlink" title="SSM框架实现一个web程序主要使用到如下三个技术："></a>SSM框架实现一个web程序主要使用到如下三个技术：</h2><ul>
-<li>Spring：用到注解和自动装配，就是Spring的两个精髓IOC(反向控制)和 AOP(面向切面编程)。</li>
-<li>SpringMVC：用到了MVC模型，将流程控制代码放到Controller层处理，将业务逻辑代码放到Service层处理。</li>
-<li>Mybatis：用到了与数据库打交道的层面，dao（mapper）层，放在所有的逻辑之后，处理与数据库的CRUD相关的操作。</li>
-</ul>
-<h2 id="开发项目的时候，需要完成一个功能模块"><a href="#开发项目的时候，需要完成一个功能模块" class="headerlink" title="开发项目的时候，需要完成一个功能模块"></a>开发项目的时候，需要完成一个功能模块</h2><ul>
-<li>先写实体类entity，定义对象的属性，（可以参照数据库中表的字段来设置，数据库的设计应该在所有编码开始之前）。</li>
-<li>写Mapper.xml（Mybatis），其中定义功能，对应要对数据库进行的那些操作，比如 insert、selectAll、selectByKey、delete、update等。</li>
-<li>写Mapper.java/Dao.java，将Mapper.xml中的操作按照id映射成Java函数。实际上就是Dao接口，二者选一即可。</li>
-<li>写Service.java，为控制层提供服务，接受控制层的参数，完成相应的功能，并返回给控制层。</li>
-<li>写Controller.java，连接页面请求和服务层，获取页面请求的参数，通过自动装配，映射不同的URL到相应的处理函数，并获取参数，对参数进行处理，之后传给服务层。</li>
-<li>写JSP页面调用，请求哪些参数，需要获取什么数据。</li>
-</ul>
-<h2 id="面向对象——三层架构（表现层、业务层、持久层）"><a href="#面向对象——三层架构（表现层、业务层、持久层）" class="headerlink" title="面向对象——三层架构（表现层、业务层、持久层）"></a>面向对象——三层架构（表现层、业务层、持久层）</h2><p>三层架构：即表现层、业务层、持久层。</p>
-<ul>
-<li>持久层：采用DAO模式，建立实体类和数据库表映射（ORM映射）。也就是哪个类对应哪个表，哪个属性对应哪个列。持久层的目的就是，完成对象数据和关系数据的转换。</li>
-<li>业务层：采用事务脚本模式。将一个业务中所有的操作封装成一个方法，同时保证方法中所有的数据库更新操作，即保证同时成功或同时失败。避免部分成功部分失败引起的数据混乱操作。</li>
-<li>表现层：采用MVC模式。<br>M称为模型，也就是实体类。用于数据的封装和数据的传输。<br>V为视图，也就是GUI组件，用于数据的展示。<br>C为控制，也就是事件，用于流程的控制</li>
-<li>业务层接口的设计原则：一个实体类一个接口，一次提交一个业务方法。业务方法的参数自表现层。</li>
-<li>持久层接口的设计原则：一个实体类一个接口，一次数据库操作一个持久方法。</li>
-</ul>
+        <p>抽象类就是不能使用new方法进行实例化的类，即没有具体实例对象的类。抽象类有点类似“模板”的作用，目的是根据其格式来创建和修改新的类。对象不能由抽象类直接创建，只可以通过抽象类派生出新的子类，再由其子类来创建对象。当一个类被声明为抽象类时，要在这个类前面加上修饰符abstract.</p>
+<a id="more"></a>
+<p>在抽象类中的成员方法可以包括一般方法和抽象方法。抽象方法就是以abstract修饰的方法，这种方法只声明返回的数据类型、方法名称和所需的参数，没有方法体，也就是说抽象方法只需要声明而不需要实现。当一个方法为抽象方法时，意味着这个方法必须被子类的方法所重写，否则其子类的该方法仍然是abstract的，而这个子类也必须是抽象的，即声明为abstract.</p>
+<p>抽象类中不一定包含抽象方法，但是包含抽象方法的类一定要被声明为抽象类。抽象类本身不具备实际的功能，只能用于派生其子类。抽象类中可以包含构造方法，但是构造方法不能被声明为抽象。</p>
+<p>调用抽象类中的方法（抽象方法和非抽象方法），如果方法是static的，直接 抽象类.方法 就可以了；如果是非static的则必须需要一个继承的非抽象类，然后用这个非抽象类的实例来调用方法。</p>
+<p>抽象类可以实现接口，接口中的方法 在抽象类中可以不实现，当有子类继承 抽象类时，并且子类不是抽象类时，子类需要将抽象类中的 抽象方法和接口中的方法都实现。</p>
+<p>抽象类不能用final来修饰，即一个类不能既是最终类又是抽象类。</p>
+<p>总结： abstract不能与private、static、final、native并列修饰同一个方法。</p>
+<ol>
+<li>private :因为一个abstract方法需要被重写，所以不能修饰为private;</li>
+<li>final:因为一个abstract方法需要被重写。被final修饰的方法是不能被重写的，所以不能同final共存；</li>
+<li>static:因为一个abstract方法没有方法体。静态方法需要对方法体执行内容分配空间，所以不能同static共存；（abstract是没有实现的，不能产生对象，而是static是属于类的，类本身是已经存在的对象）</li>
+<li>synchronized: 是同步的，然而同步需要具体的操作才能同步，但， abstract是只有声明没有实现的（即，使用synchronized关键字的是需要有具体的实现同步的操作的，但是使用abstract是只有声明而没有实现的，这样就产生了冲突）</li>
+<li>native:他们本身的定义就是冲突的，native声明的方法是移交本地操作系统实现的，而abstract是移交子类对象实现的，同时修饰的话，导致不知道谁实现声明的方法</li>
+</ol>
 
     </div>
 
@@ -401,8 +359,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/microservice.html" rel="next" title="什么是微服务，SpringBoot和SpringCloud的关系">
-                  <i class="fa fa-chevron-left"></i> 什么是微服务，SpringBoot和SpringCloud的关系
+                <a href="/Data-Structure-and-Algorithms-4-Stack-and-Queue.html" rel="next" title="数据结构与算法4-栈和队列">
+                  <i class="fa fa-chevron-left"></i> 数据结构与算法4-栈和队列
                 </a>
               
             </div>
@@ -410,10 +368,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/Polymorphism.html" rel="prev" title="JAVA中的多态">
-                  JAVA中的多态 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -445,17 +399,8 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -544,23 +489,6 @@
 
         </div>
       </div>
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#持久层：DAO层（mapper层）（属于mybatis模块）"><span class="nav-number">1.</span> <span class="nav-text">持久层：DAO层（mapper层）（属于mybatis模块）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#业务层：Service层（属于spring模块）"><span class="nav-number">2.</span> <span class="nav-text">业务层：Service层（属于spring模块）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制层-表现层：Controller层（Handler层）-（属于springMVC模块）"><span class="nav-number">3.</span> <span class="nav-text">控制层/表现层：Controller层（Handler层） （属于springMVC模块）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#View层-（属于springMVC模块）"><span class="nav-number">4.</span> <span class="nav-text">View层 （属于springMVC模块）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#各层之间的联系"><span class="nav-number">5.</span> <span class="nav-text">各层之间的联系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSM框架实现一个web程序主要使用到如下三个技术："><span class="nav-number">6.</span> <span class="nav-text">SSM框架实现一个web程序主要使用到如下三个技术：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开发项目的时候，需要完成一个功能模块"><span class="nav-number">7.</span> <span class="nav-text">开发项目的时候，需要完成一个功能模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向对象——三层架构（表现层、业务层、持久层）"><span class="nav-number">8.</span> <span class="nav-text">面向对象——三层架构（表现层、业务层、持久层）</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
-      
 
     </div>
   </aside>

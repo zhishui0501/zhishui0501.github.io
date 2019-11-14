@@ -66,7 +66,7 @@
 <meta property="og:site_name" content="Aaron&#39;s blog">
 <meta property="og:description" content="RESTFUL是一种网络应用程序的设计风格和开发方式，基于HTTP，可以使用XML格式定义或JSON格式定义。RESTFUL适用于移动互联网厂商作为业务使能接口的场景，实现第三方OTT调用移动网络资源的功能，动作类型为新增、变更、删除所调用资源。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-26T14:26:00.331Z">
+<meta property="og:updated_time" content="2019-11-14T03:12:55.566Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RESTful">
 <meta name="twitter:description" content="RESTFUL是一种网络应用程序的设计风格和开发方式，基于HTTP，可以使用XML格式定义或JSON格式定义。RESTFUL适用于移动互联网厂商作为业务使能接口的场景，实现第三方OTT调用移动网络资源的功能，动作类型为新增、变更、删除所调用资源。">
@@ -204,7 +204,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">38</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">39</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -288,11 +288,19 @@
                 
               
 
-              <time title="Created: 2019-09-26 21:48:02 / Modified: 22:26:00" itemprop="dateCreated datePublished" datetime="2019-09-26T21:48:02+08:00">2019-09-26</time>
+              <time title="Created: 2019-09-26 21:48:02" itemprop="dateCreated datePublished" datetime="2019-09-26T21:48:02+08:00">2019-09-26</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-14 11:12:55" itemprop="dateModified" datetime="2019-11-14T11:12:55+08:00">2019-11-14</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -330,7 +338,10 @@
       
         <p>RESTFUL是一种网络应用程序的设计风格和开发方式，基于HTTP，可以使用XML格式定义或JSON格式定义。RESTFUL适用于移动互联网厂商作为业务使能接口的场景，实现第三方OTT调用移动网络资源的功能，动作类型为新增、变更、删除所调用资源。</p>
 <a id="more"></a>
-<h2 id="相关定义"><a href="#相关定义" class="headerlink" title="相关定义"></a>相关定义</h2><p>REST（英文：Representational State Transfer，简称REST）描述了一个架构样式的网络系统，比如 web 应用程序。它首次出现在 2000 年 Roy Fielding 的博士论文中，Roy Fielding是 HTTP 规范的主要编写者之一。在目前主流的三种Web服务交互方案中，REST相比于SOAP（Simple Object Access protocol，简单对象访问协议）以及XML-RPC更加简单明了，无论是对URL的处理还是对Payload的编码，REST都倾向于用更加简单轻量的方法设计和实现。值得注意的是REST并没有一个明确的标准，而更像是一种设计的风格。</p>
+<h2 id="相关定义"><a href="#相关定义" class="headerlink" title="相关定义"></a>相关定义</h2><p>REST描述了一个架构样式的网络系统，比如 web 应用程序。在目前主流的三种Web服务交互方案中，REST相比于SOAP（Simple Object Access protocol，简单对象访问协议）以及XML-RPC更加简单明了，无论是对URL的处理还是对Payload的编码，REST都倾向于用更加简单轻量的方法设计和实现。值得注意的是REST并没有一个明确的标准，而更像是一种设计的风格。<br>Resource REpresentational State Transfer</p>
+<p>Resource：资源，即数据。</p>
+<p>Representational：某种表现形式，比如用JSON，XML，JPEG等；</p>
+<p>State Transfer：状态变化。通过HTTP动词实现。</p>
 <h2 id="原则条件"><a href="#原则条件" class="headerlink" title="原则条件"></a>原则条件</h2><p>REST 指的是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是 RESTful。</p>
 <p>Web 应用程序最重要的 REST 原则是，客户端和服务器之间的交互在请求之间是无状态的。从客户端到服务器的每个请求都必须包含理解请求所必需的信息。如果服务器在请求之间的任何时间点重启，客户端不会得到通知。此外，无状态请求可以由任何可用服务器回答，这十分适合云计算之类的环境。客户端可以缓存数据以改进性能。</p>
 <p>在服务器端，应用程序状态和功能可以分为各种资源。资源是一个有趣的概念实体，它向客户端公开。资源的例子有：应用程序对象、数据库记录、算法等等。每个资源都使用 URI (Universal Resource Identifier) 得到一个唯一的地址。所有资源都共享统一的接口，以便在客户端和服务器之间传输状态。使用的是标准的 HTTP 方法，比如 GET、PUT、POST 和 DELETE。Hypermedia 是应用程序状态的引擎，资源表示通过超链接互联。</p>
@@ -349,6 +360,18 @@
 <h2 id="RESTful架构"><a href="#RESTful架构" class="headerlink" title="RESTful架构"></a>RESTful架构</h2><p>RESTful架构是对MVC架构改进后所形成的一种架构，通过使用事先定义好的接口与不同的服务联系起来。在RESTful架构中，浏览器使用POST，DELETE，PUT和GET四种请求方式分别对指定的URL资源进行增删改查操作。因此，RESTful是通过URI实现对资源的管理及访问，具有扩展性强、结构清晰的特点。</p>
 <p>RESTful架构将服务器分成前端服务器和后端服务器两部分，前端服务器为用户提供无模型的视图；后端服务器为前端服务器提供接口。浏览器向前端服务器请求视图，通过视图中包含的AJAX函数发起接口请求获取模型。</p>
 <p>项目开发引入RESTful架构，利于团队并行开发。在RESTful架构中，将多数HTTP请求转移到前端服务器上，降低服务器的负荷，使视图获取后端模型失败也能呈现。但RESTful架构却不适用于所有的项目，当项目比较小时无需使用RESTful架构，项目变得更加复杂。</p>
+<h2 id="RESTful-API-的特点"><a href="#RESTful-API-的特点" class="headerlink" title="RESTful API 的特点"></a>RESTful API 的特点</h2><p>RESTful API中，URL中只使用名词来指定资源，原则上不使用动词。“资源”是REST架构或者说整个网络处理的核心。比如：<a href="http://api.qc.com/v1/newsfeed" rel="external nofollow noopener noreferrer" target="_blank">http://api.qc.com/v1/newsfeed</a>: 获取某人的信息;<a href="http://api.qc.com/v1/friends" rel="external nofollow noopener noreferrer" target="_blank">http://api.qc.com/v1/friends</a>: 获取某人的好友列表;<a href="http://api.qc.com/v1/profile" rel="external nofollow noopener noreferrer" target="_blank">http://api.qc.com/v1/profile</a>: 获取某人的详细信息</p>
+<p>那么动词怎么办呢？毕竟光对着资源名字，我们并不知道到底想要干嘛</p>
+<p>GET     用来获取资源，POST  用来新建资源（也可以用于更新资源），</p>
+<p>PUT     用来更新资源，</p>
+<p>DELETE  用来删除资源。比如：DELETE <a href="http://api.qc.com/v1/friends" rel="external nofollow noopener noreferrer" target="_blank">http://api.qc.com/v1/friends</a>:</p>
+<p>删除某人的好友 （在http parameter指定好友id）POST <a href="http://api.qc.com/v1/friends" rel="external nofollow noopener noreferrer" target="_blank">http://api.qc.com/v1/friends</a>:</p>
+<p>添加好友PUT <a href="http://api.qc.com/v1/profile" rel="external nofollow noopener noreferrer" target="_blank">http://api.qc.com/v1/profile</a>: 更新个人资料</p>
+<h2 id="使用RESTful的好处是什么？"><a href="#使用RESTful的好处是什么？" class="headerlink" title="使用RESTful的好处是什么？"></a>使用RESTful的好处是什么？</h2><ol>
+<li>看Url就知道要什么</li>
+<li>看http method就知道干什么</li>
+<li>看http status  code就知道结果如何</li>
+</ol>
 
     </div>
 
@@ -432,7 +455,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -518,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关定义"><span class="nav-number">1.</span> <span class="nav-text">相关定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原则条件"><span class="nav-number">2.</span> <span class="nav-text">原则条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful与-RPC"><span class="nav-number">4.</span> <span class="nav-text">RESTful与 RPC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful架构"><span class="nav-number">5.</span> <span class="nav-text">RESTful架构</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#相关定义"><span class="nav-number">1.</span> <span class="nav-text">相关定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原则条件"><span class="nav-number">2.</span> <span class="nav-text">原则条件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">3.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful与-RPC"><span class="nav-number">4.</span> <span class="nav-text">RESTful与 RPC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful架构"><span class="nav-number">5.</span> <span class="nav-text">RESTful架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RESTful-API-的特点"><span class="nav-number">6.</span> <span class="nav-text">RESTful API 的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用RESTful的好处是什么？"><span class="nav-number">7.</span> <span class="nav-text">使用RESTful的好处是什么？</span></a></li></ol></div>
             
 
           </div>

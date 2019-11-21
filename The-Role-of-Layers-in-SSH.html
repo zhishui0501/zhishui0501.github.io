@@ -59,17 +59,18 @@
   };
 </script>
 
-  <meta name="description" content="Keep Learning">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aaron&#39;s blog">
-<meta property="og:url" content="https://zhishui0501.github.io/archives/2019/09/index.html">
+  <meta name="description" content="传统的Java Web应用程序是采用JSP+Servlet+Javabean来实现的，这种模式实现了最基本的MVC分层，使得程序结构分为基层，有负责前台展示的JSP，负责流程逻辑控制的Servlet以及负责数据封装的Javabean。但是这种结构仍然存在问题：如JSP页面中需要使用符号嵌入很多的Java代码，造成页面结构混乱，Servlet和Javabean负责了大量的跳转和运算工作，耦合紧密，程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSH">
+<meta property="og:url" content="https://zhishui0501.github.io/The-Role-of-Layers-in-SSH.html">
 <meta property="og:site_name" content="Aaron&#39;s blog">
-<meta property="og:description" content="Keep Learning">
+<meta property="og:description" content="传统的Java Web应用程序是采用JSP+Servlet+Javabean来实现的，这种模式实现了最基本的MVC分层，使得程序结构分为基层，有负责前台展示的JSP，负责流程逻辑控制的Servlet以及负责数据封装的Javabean。但是这种结构仍然存在问题：如JSP页面中需要使用符号嵌入很多的Java代码，造成页面结构混乱，Servlet和Javabean负责了大量的跳转和运算工作，耦合紧密，程">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-21T08:50:17.319Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aaron&#39;s blog">
-<meta name="twitter:description" content="Keep Learning">
-  <link rel="canonical" href="https://zhishui0501.github.io/archives/2019/09/">
+<meta name="twitter:title" content="SSH">
+<meta name="twitter:description" content="传统的Java Web应用程序是采用JSP+Servlet+Javabean来实现的，这种模式实现了最基本的MVC分层，使得程序结构分为基层，有负责前台展示的JSP，负责流程逻辑控制的Servlet以及负责数据封装的Javabean。但是这种结构仍然存在问题：如JSP页面中需要使用符号嵌入很多的Java代码，造成页面结构混乱，Servlet和Javabean负责了大量的跳转和运算工作，耦合紧密，程">
+  <link rel="canonical" href="https://zhishui0501.github.io/The-Role-of-Layers-in-SSH">
 
 
 <script id="page-configurations">
@@ -77,13 +78,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>Archive | Aaron's blog</title>
+  <title>SSH | Aaron's blog</title>
   
 
 
@@ -245,371 +246,135 @@
         <div class="content-wrap">
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
     
 
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/The-Role-of-Layers-in-SSH.html">
 
-          <div id="content" class="content page-archive">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="Keep Learning">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">SSH
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2019-11-21 16:37:01 / Modified: 16:50:17" itemprop="dateCreated datePublished" datetime="2019-11-21T16:37:01+08:00">2019-11-21</time>
+            </span>
+          
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 40 posts in total. Keep on posting.
-      </span>
-      
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/SSM/" itemprop="url" rel="index"><span itemprop="name">SSM</span></a></span>
 
-      
+                
+                
+              
+            </span>
+          
 
-  
-  
-  
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
 
-  
+        </div>
+      </header>
+
     
-    <div class="collection-title">
-      <h1 class="archive-year" id="archive-year-2019">2019</h1>
-    </div>
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/transaction-management.html" itemprop="url">
-            
-              <span itemprop="name">什么是spring的事务管理'</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-29T23:10:47+08:00" content="2019-09-29">
-          09-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/RESTful.html" itemprop="url">
-            
-              <span itemprop="name">RESTful</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-26T21:48:02+08:00" content="2019-09-26">
-          09-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/Front-and-back-end-separation-xu.html" itemprop="url">
-            
-              <span itemprop="name">前后端分离(续)</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-23T14:09:19+08:00" content="2019-09-23">
-          09-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/Why-SSH-is-no-longer-popular.html" itemprop="url">
-            
-              <span itemprop="name">为什么说SSH已经过时了</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-22T22:48:40+08:00" content="2019-09-22">
-          09-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/Polymorphism.html" itemprop="url">
-            
-              <span itemprop="name">JAVA中的多态</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-20T22:47:54+08:00" content="2019-09-20">
-          09-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/The-Role-of-Layers-in-SSM.html" itemprop="url">
-            
-              <span itemprop="name">SSM中各层作用及关系</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-19T21:07:23+08:00" content="2019-09-19">
-          09-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/microservice.html" itemprop="url">
-            
-              <span itemprop="name">什么是微服务，SpringBoot和SpringCloud的关系</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-17T18:36:59+08:00" content="2019-09-17">
-          09-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/Data-Structure-and-Algorithms-3-Sorting-algorithm.html" itemprop="url">
-            
-              <span itemprop="name">数据结构与算法3-简单排序（冒泡、选择、插入排序）</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-15T23:17:33+08:00" content="2019-09-15">
-          09-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/Data-Structure-and-Algorithms-2-Array.html" itemprop="url">
-            
-              <span itemprop="name">数据结构与算法2-数组</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-13T10:55:52+08:00" content="2019-09-13">
-          09-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-  
-  
-  
-
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/Data-Structure-and-Algorithms-1-Overview.html" itemprop="url">
-            
-              <span itemprop="name">数据结构与算法1-综述</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-12T16:14:07+08:00" content="2019-09-12">
-          09-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>传统的Java Web应用程序是采用JSP+Servlet+Javabean来实现的，这种模式实现了最基本的MVC分层，使得程序结构分为基层，有负责前台展示的JSP，负责流程逻辑控制的Servlet以及负责数据封装的Javabean。但是这种结构仍然存在问题：如JSP页面中需要使用符号嵌入很多的Java代码，造成页面结构混乱，Servlet和Javabean负责了大量的跳转和运算工作，耦合紧密，程序复用度低等等。</p>
+<a id="more"></a>
+<h2 id="Struts"><a href="#Struts" class="headerlink" title="Struts"></a>Struts</h2><p>为了解决这些问题，出现了Struts框架，他是一个完美的MVC实现，它有一个中央控制类（一个Servlet），针对不同的业务，我们需要一个Action类负责页面跳转和后台逻辑运算，一个或几个JSP页面负责数据的输入和输出显示，还有一个Form类负责传递Action和JSP中间的数据。JSP中可以使用Struts框架提供的一组标签，就像使用HTML标签一样简单，但是可以完成非常复杂的逻辑。从此JSP页面中不需要出现一行保卫的Java代码了。可是所有的运算逻辑都放在Struts的Action里将使得Action类复用度低和逻辑混乱，所以通常人们会把整个web应用分成三层，Struts负责显示层，它调用业务层完成运算逻辑，业务层再调用持久层完成数据库的读写。使用JDBC连接来读写数据库，我们最常见的就是打开数据库连接、使用复杂的SQL语句进行读写、关闭连接，获得的数据又需要转换或封装后往外传，这是一个繁琐的过程。</p>
+<h2 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h2><p>这时出现了Hibernate框架，它需要你创建一系列的持久化类，每个类的属性都可以简单的看做和一张数据库表的属性一一对应，当然也可以实现关系数据库的各种表间关联的对应。当我们需要相关操作时，不用再关注数据库表。我们不用再去一行行的查询数据库，只需要持久化类就可以完成增删改查的功能，使得我们的软件开发真正面向对象，而不是面向混乱的代码。使用欧冠Hibernate比JDBC方式减少了80%的编程量。</p>
+<p>现在我们有三个层了，可是每层之间的调用时怎样的呢？比如显示层的Struts需要调用一个业务类，就需要new一个业务类出来，然后使用；业务类需要调用持久层的类，也需要new一个持久层类出来用。通过这种new的方式互相调用就是软件开发中最糟糕设计的体现。简单的说，就是调用者依赖被调用者，它们之间形成了强耦合，如果我想在其他地方复用某个类，则这个类依赖的其他类也需要包含。程序就变得很混乱，每个类相互依赖相互调用，复用度极低。如果一个类做了修改，则依赖它的很多类都会受到牵连。</p>
+<h2 id="为此，出现Spring框架。"><a href="#为此，出现Spring框架。" class="headerlink" title="为此，出现Spring框架。"></a>为此，出现Spring框架。</h2><p>Spring的作用就是完全解耦类之间的依赖关系，一个类如果要依赖什么，那就是一个接口。至于如何实现这个接口，这都不重要了。只要拿到一个实现了这个接口的类，就可以轻松的通过xml配置文件把实现类注射到调用接口的那个类里。所有类之间的这种依赖关系就完全通过配置文件的方式替代了。所以Spring框架最核心的就是所谓的依赖注入和控制反转。</p>
+<p>现在的结构是，Struts负责显示层，Hibernate负责持久层，Spring负责中间层，这个结构是目前国内最流行的Java Web应用程序架构。</p>
+<p>另外，由于Spring使用的依赖注射以及AOP(面向切面编程），所以它的这种内部模式非常优秀，以至于Spring自己也实现了一个使用依赖注射的MVC框架，叫Spring MVC，同时为了很好的处理事务，Spring集成了Hibernate，使事务管理从Hibernate的持久层提升到业务层，使用更加方便和强大。</p>
+<p>业务流程：在表示层中，首先通过JSP页面实现交互界面，负责接收请求（Request）和传送响应（Response），然后Struts根据配置文件（struts-config.xml）将ActionServlet接收到的Request委派给相应的Action处理。在业务层中，管理服务组件的Spring IOC容器复杂向Action提交业务模型（Model）组件和该组件的协作对象数据处理（DAO）组件完成业务逻辑，并提供事务处理、缓冲池等容器组件以提升系统性能和保证数据的完整性。而在持久层中，则依赖于Hibernate的对象化映射和数据库交互，处理DAO组件请求的数据，返回处理结果。</p>
 
     </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/abstract-class-without-abstract-method.html" rel="next" title="对于没有抽象类的抽象方法的思考">
+                  <i class="fa fa-chevron-left"></i> 对于没有抽象类的抽象方法的思考
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/09/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/09/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -628,8 +393,17 @@
 
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -718,6 +492,23 @@
 
         </div>
       </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Struts"><span class="nav-number">1.</span> <span class="nav-text">Struts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hibernate"><span class="nav-number">2.</span> <span class="nav-text">Hibernate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为此，出现Spring框架。"><span class="nav-number">3.</span> <span class="nav-text">为此，出现Spring框架。</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
 
     </div>
   </aside>
@@ -839,5 +630,9 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
 </html>

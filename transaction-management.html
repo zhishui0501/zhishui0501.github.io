@@ -61,14 +61,14 @@
 
   <meta name="description" content="事务就是对一系列的数据库操作（比如插入多条数据）进行统一的提交或回滚操作，如果插入成功，那么一起成功，如果中间有一条出现异常，那么回滚之前的所有操作。这样可以防止出现脏数据，防止数据库数据出现问题。 开发中为了避免这种情况一般都会进行事务管理。 在JDBC中是通过Connection对象进行事务管理的，默认是自动提交事务，可以手工将自动提交关闭，通过commit方法进行提交，rollback方法进">
 <meta property="og:type" content="article">
-<meta property="og:title" content="什么是spring的事务管理&#39;">
+<meta property="og:title" content="什么是spring的事务管理">
 <meta property="og:url" content="https://zhishui0501.github.io/transaction-management.html">
 <meta property="og:site_name" content="Aaron&#39;s blog">
 <meta property="og:description" content="事务就是对一系列的数据库操作（比如插入多条数据）进行统一的提交或回滚操作，如果插入成功，那么一起成功，如果中间有一条出现异常，那么回滚之前的所有操作。这样可以防止出现脏数据，防止数据库数据出现问题。 开发中为了避免这种情况一般都会进行事务管理。 在JDBC中是通过Connection对象进行事务管理的，默认是自动提交事务，可以手工将自动提交关闭，通过commit方法进行提交，rollback方法进">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-29T15:25:16.706Z">
+<meta property="og:updated_time" content="2020-03-03T03:22:46.149Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="什么是spring的事务管理&#39;">
+<meta name="twitter:title" content="什么是spring的事务管理">
 <meta name="twitter:description" content="事务就是对一系列的数据库操作（比如插入多条数据）进行统一的提交或回滚操作，如果插入成功，那么一起成功，如果中间有一条出现异常，那么回滚之前的所有操作。这样可以防止出现脏数据，防止数据库数据出现问题。 开发中为了避免这种情况一般都会进行事务管理。 在JDBC中是通过Connection对象进行事务管理的，默认是自动提交事务，可以手工将自动提交关闭，通过commit方法进行提交，rollback方法进">
   <link rel="canonical" href="https://zhishui0501.github.io/transaction-management">
 
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title>什么是spring的事务管理' | Aaron's blog</title>
+  <title>什么是spring的事务管理 | Aaron's blog</title>
   
 
 
@@ -191,7 +191,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">13</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">11</span></a>
 
   </li>
       
@@ -204,7 +204,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">40</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">36</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -271,7 +271,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">什么是spring的事务管理'
+          <h1 class="post-title" itemprop="name headline">什么是spring的事务管理
 
             
           </h1>
@@ -288,11 +288,19 @@
                 
               
 
-              <time title="Created: 2019-09-29 23:10:47 / Modified: 23:25:16" itemprop="dateCreated datePublished" datetime="2019-09-29T23:10:47+08:00">2019-09-29</time>
+              <time title="Created: 2019-09-29 23:10:47" itemprop="dateCreated datePublished" datetime="2019-09-29T23:10:47+08:00">2019-09-29</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-03 11:22:46" itemprop="dateModified" datetime="2020-03-03T11:22:46+08:00">2020-03-03</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -359,8 +367,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/Data-Structure-and-Algorithms-4-Stack-and-Queue.html" rel="prev" title="数据结构与算法4-栈和队列">
-                  数据结构与算法4-栈和队列 <i class="fa fa-chevron-right"></i>
+                <a href="/abstract-class.html" rel="prev" title="关于抽象类中的抽象方法和非抽象方法的问题">
+                  关于抽象类中的抽象方法和非抽象方法的问题 <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -407,7 +415,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -444,11 +452,7 @@
         
           
         
-          
-        
-          
-        
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
@@ -494,7 +498,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

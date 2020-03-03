@@ -59,17 +59,18 @@
   };
 </script>
 
-  <meta name="description" content="Keep Learning">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Aaron&#39;s blog">
-<meta property="og:url" content="https://zhishui0501.github.io/categories/开发技巧/index.html">
+  <meta name="description" content="有类(Classful)网络 - 较早期，较垃圾。不支持子网掩码无类(Classless)网络 - 现今一般三层设备大都是无类，携带子网掩码。无类网络中才能部署vlsm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有类路由与无类路由的区别">
+<meta property="og:url" content="https://zhishui0501.github.io/Classful-and-Classless.html">
 <meta property="og:site_name" content="Aaron&#39;s blog">
-<meta property="og:description" content="Keep Learning">
+<meta property="og:description" content="有类(Classful)网络 - 较早期，较垃圾。不支持子网掩码无类(Classless)网络 - 现今一般三层设备大都是无类，携带子网掩码。无类网络中才能部署vlsm">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-03-03T04:01:01.012Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Aaron&#39;s blog">
-<meta name="twitter:description" content="Keep Learning">
-  <link rel="canonical" href="https://zhishui0501.github.io/categories/开发技巧/">
+<meta name="twitter:title" content="有类路由与无类路由的区别">
+<meta name="twitter:description" content="有类(Classful)网络 - 较早期，较垃圾。不支持子网掩码无类(Classless)网络 - 现今一般三层设备大都是无类，携带子网掩码。无类网络中才能部署vlsm">
+  <link rel="canonical" href="https://zhishui0501.github.io/Classful-and-Classless">
 
 
 <script id="page-configurations">
@@ -77,13 +78,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>Category: 开发技巧 | Aaron's blog</title>
+  <title>有类路由与无类路由的区别 | Aaron's blog</title>
   
 
 
@@ -190,7 +191,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">13</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">11</span></a>
 
   </li>
       
@@ -203,7 +204,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">40</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">36</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -245,85 +246,144 @@
         <div class="content-wrap">
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-          <div id="content" class="content ">
+          <div id="content" class="content page-post-detail">
             
 
-  
-  
-  
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>开发技巧<small>Category</small>
-        </h1>
-      </div>
-
-      
-
-  
-  
-  
-
-  
+  <div id="posts" class="posts-expand">
     
-    <div class="collection-title">
-      <h1 class="archive-year" id="archive-year-2019">2019</h1>
-    </div>
-  
-  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/Classful-and-Classless.html">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="Keep Learning">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's blog">
+    </span>
+      <header class="post-header">
+
         
-          <a class="post-title-link" href="/step-into-step-over-step-out.html" itemprop="url">
+          <h1 class="post-title" itemprop="name headline">有类路由与无类路由的区别
+
             
-              <span itemprop="name">单步跳入 单步跳过 单步返回</span>
-            
-          </a>
+          </h1>
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-19T18:22:07+08:00" content="2019-08-19">
-          08-19
-        </time>
-      </div>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
 
-    </header>
-  </article>
+              
+                
+              
 
+              <time title="Created: 2020-03-03 11:53:04 / Modified: 12:01:01" itemprop="dateCreated datePublished" datetime="2020-03-03T11:53:04+08:00">2020-03-03</time>
+            </span>
+          
+            
 
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机网络/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>有类(Classful)网络 - 较早期，较垃圾。不支持子网掩码<br>无类(Classless)网络 - 现今一般三层设备大都是无类，携带子网掩码。无类网络中才能部署vlsm</p>
+<a id="more"></a>
+<p>最近看到RIP和OSPF方面了，这两个协议在NA里面被划分为距离矢量路由协议和链路状态路由协议；但是在NP里面划分路由又有种方法是基于有类的路由协议和无类的路由协议。RIP基于有类的路由协议,OSPF则是无类的路由协议。</p>
+<ol>
+<li>有类路由不会识别子网的信息,如宣告10.0.1.0/24 172.16.1.0/22 192.168.1.64/28；路由表中只会识别(自动汇总,且不能关闭)A类10.0.0.0/8,B类172.16.0.0/16 C类192.168.1.0/24 </li>
+<li>无类的路由协议不会根据A B C类来识别,而是根据子网掩码的长度来区分网段,所以说无类的路由协议都可以关闭自动汇总</li>
+<li>有类的路由自然也就不支持VLSM；无类的路由就可以支持VLSM </li>
+</ol>
+<p>IP Classful : RIP v1, IGRP ,EGP<br>IP Classless : RIP v2 ,EIGRP, OSPF, IS-IS, BGP</p>
+<p>有类的路由协议只会传送网络前缀（网络地址），但是不会包含子网掩码。当它传送更新时，它首先检查直接连接的网络是否和发送更新的网络属于同一个大一点的子网，如果是的，那么它会继续检查它们的子网掩码是否相等，如果不等，那么更新信息会被丢弃而不会被广播。<br>当路由器A发送更新给路由器B时，它遵循下列几个步骤：</p>
+<ol>
+<li>路由器A检查192.168.1.0/24是否和192.168.2.0/30（更新传向过的网络）属于同一个大一点的网路。</li>
+<li>答案是是的，所以路由器A比较它们的子网掩码192.168.1.0/24和192.168.2.0/30。</li>
+<li>因为它们有两个不同的子网掩码，所以信息被丢弃。</li>
+</ol>
+<p>这就是为什么有类路由协议不支持VLSM(可变长子网掩码), 无类路由协议传输网络前缀（网络地址）的同时也会传输子网掩码，所以它支持VLSM</p>
+<p>有类地址：早期的ip地址没有子网掩码，所有的地址都属于相应的主类网，距离矢量路由协议如RIP1，igrp属于有类的路由协议，它不能从邻居那里学到子网，所有关于子网的路由学到后被自动转为相应的主类网。譬如182.16.1.0就会变成B类地址的主类网182.16.0.0。</p>
+<p>无类地址：根据可变长度的子网掩码划分不同的网络。譬如182.16.1.101，有类的话所在子网网段为182.16.0.0,子网掩码255.255.0.0，现在将子网掩码改为255.255.255.252的30位掩码，所在子网网段就是182.16.1.100。支持可变长度子网掩码的路由协议有RIP2，OSPF以及EIGRP。</p>
 
     </div>
 
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/The-Role-of-Layers-in-SSH.html" rel="next" title="SSH">
+                  <i class="fa fa-chevron-left"></i> SSH
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
   </div>
   
   
   
+  </article>
 
-  
-
+  </div>
 
 
           </div>
@@ -356,7 +416,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -393,11 +453,7 @@
         
           
         
-          
-        
-          
-        
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">categories</span>
         </a>
       </div>
@@ -443,7 +499,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -553,5 +609,9 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
 </html>

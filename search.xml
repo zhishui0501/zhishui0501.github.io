@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Graduate]]></title>
+    <url>%2FGraduate.html</url>
+    <content type="text"><![CDATA[在墨尔本的研究生生活开始啦，冲鸭！！！]]></content>
+      <categories>
+        <category>杂谈</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2Fhello-world.html</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[有类路由与无类路由的区别]]></title>
     <url>%2FClassful-and-Classless.html</url>
     <content type="text"><![CDATA[有类(Classful)网络 - 较早期，较垃圾。不支持子网掩码无类(Classless)网络 - 现今一般三层设备大都是无类，携带子网掩码。无类网络中才能部署vlsm 最近看到RIP和OSPF方面了，这两个协议在NA里面被划分为距离矢量路由协议和链路状态路由协议；但是在NP里面划分路由又有种方法是基于有类的路由协议和无类的路由协议。RIP基于有类的路由协议,OSPF则是无类的路由协议。 有类路由不会识别子网的信息,如宣告10.0.1.0/24 172.16.1.0/22 192.168.1.64/28；路由表中只会识别(自动汇总,且不能关闭)A类10.0.0.0/8,B类172.16.0.0/16 C类192.168.1.0/24 无类的路由协议不会根据A B C类来识别,而是根据子网掩码的长度来区分网段,所以说无类的路由协议都可以关闭自动汇总 有类的路由自然也就不支持VLSM；无类的路由就可以支持VLSM IP Classful : RIP v1, IGRP ,EGPIP Classless : RIP v2 ,EIGRP, OSPF, IS-IS, BGP 有类的路由协议只会传送网络前缀（网络地址），但是不会包含子网掩码。当它传送更新时，它首先检查直接连接的网络是否和发送更新的网络属于同一个大一点的子网，如果是的，那么它会继续检查它们的子网掩码是否相等，如果不等，那么更新信息会被丢弃而不会被广播。当路由器A发送更新给路由器B时，它遵循下列几个步骤： 路由器A检查192.168.1.0/24是否和192.168.2.0/30（更新传向过的网络）属于同一个大一点的网路。 答案是是的，所以路由器A比较它们的子网掩码192.168.1.0/24和192.168.2.0/30。 因为它们有两个不同的子网掩码，所以信息被丢弃。 这就是为什么有类路由协议不支持VLSM(可变长子网掩码), 无类路由协议传输网络前缀（网络地址）的同时也会传输子网掩码，所以它支持VLSM 有类地址：早期的ip地址没有子网掩码，所有的地址都属于相应的主类网，距离矢量路由协议如RIP1，igrp属于有类的路由协议，它不能从邻居那里学到子网，所有关于子网的路由学到后被自动转为相应的主类网。譬如182.16.1.0就会变成B类地址的主类网182.16.0.0。 无类地址：根据可变长度的子网掩码划分不同的网络。譬如182.16.1.101，有类的话所在子网网段为182.16.0.0,子网掩码255.255.0.0，现在将子网掩码改为255.255.255.252的30位掩码，所在子网网段就是182.16.1.100。支持可变长度子网掩码的路由协议有RIP2，OSPF以及EIGRP。]]></content>
@@ -279,10 +292,5 @@
       <categories>
         <category>杂谈</category>
       </categories>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2Fhello-world.html</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>

@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="google-site-verification" content="I0jUNsp40jMLLvChVvaEUlXNcTs1cSJSG4ktU1HF5-M">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="true">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="一旦建立了一个重要的数据库后，就可能根据某些需求对数据进行不同方式的排序。比如对姓名按字母顺序排序，对学生按年级排序，对顾客按照邮政编码排序，对国内销售品按价格排序等等。 由于排序非常重要而且可能非常耗时，所以它已经成为计算机可选中广泛研究的课题，而且人们的确已经研究出一些非常成熟的方法。本章里可以看到一些比较简单的算法:冒泡排序、选择排序和插入排序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构与算法3-简单排序（冒泡、选择、插入排序）">
+<meta property="og:url" content="https://zhishui0501.github.io/Data-Structure-and-Algorithms-3-Sorting-algorithm.html">
+<meta property="og:site_name" content="Aaron&#39;s blog">
+<meta property="og:description" content="一旦建立了一个重要的数据库后，就可能根据某些需求对数据进行不同方式的排序。比如对姓名按字母顺序排序，对学生按年级排序，对顾客按照邮政编码排序，对国内销售品按价格排序等等。 由于排序非常重要而且可能非常耗时，所以它已经成为计算机可选中广泛研究的课题，而且人们的确已经研究出一些非常成熟的方法。本章里可以看到一些比较简单的算法:冒泡排序、选择排序和插入排序。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://zhishui0501.github.io/images/1909221.jpg">
+<meta property="og:updated_time" content="2020-08-03T08:44:02.181Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构与算法3-简单排序（冒泡、选择、插入排序）">
+<meta name="twitter:description" content="一旦建立了一个重要的数据库后，就可能根据某些需求对数据进行不同方式的排序。比如对姓名按字母顺序排序，对学生按年级排序，对顾客按照邮政编码排序，对国内销售品按价格排序等等。 由于排序非常重要而且可能非常耗时，所以它已经成为计算机可选中广泛研究的课题，而且人们的确已经研究出一些非常成熟的方法。本章里可以看到一些比较简单的算法:冒泡排序、选择排序和插入排序。">
+<meta name="twitter:image" content="https://zhishui0501.github.io/images/1909221.jpg">
+  <link rel="canonical" href="https://zhishui0501.github.io/Data-Structure-and-Algorithms-3-Sorting-algorithm">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>数据结构与算法3-简单排序（冒泡、选择、插入排序） | Aaron's blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Aaron's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories<span class="badge">10</span></a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives<span class="badge">36</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+  </div>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://zhishui0501.github.io/Data-Structure-and-Algorithms-3-Sorting-algorithm.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Aaron">
+      <meta itemprop="description" content="Keep Learning">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Aaron's blog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">数据结构与算法3-简单排序（冒泡、选择、插入排序）
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              
+                
+              
+
+              <time title="Created: 2020-08-03 13:17:33 / Modified: 18:44:02" itemprop="dateCreated datePublished" datetime="2020-08-03T13:17:33+10:00">2020-08-03</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构与算法/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>一旦建立了一个重要的数据库后，就可能根据某些需求对数据进行不同方式的排序。比如对姓名按字母顺序排序，对学生按年级排序，对顾客按照邮政编码排序，对国内销售品按价格排序等等。</p>
+<p>由于排序非常重要而且可能非常耗时，所以它已经成为计算机可选中广泛研究的课题，而且人们的确已经研究出一些非常成熟的方法。本章里可以看到一些比较简单的算法:冒泡排序、选择排序和插入排序。</p>
+<a id="more"></a>
+<p>计算机程序通常不能像人的大脑一样一下就看到全景，一下就能几个队员进行高低排序，它只能一步一步地解决具体问题和遵循一些简单的规则。但这种方式的好处是，对海量的数据进行处理时候要远远效率高过人类。可能对5个人进行排序时候，人类的速度要块，可是如果对于5000万数据，人脑就无法应付过来了。</p>
+<p>下面介绍的三种算法都包括如下两个步骤，这两步循环执行，直到全部数据有序为止:</p>
+<ol>
+<li>比较两个数据项</li>
+<li>交换两个数据项，或复制其中一项<br>但是，每种算法具体实现的细节有所不同。</li>
+</ol>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><p>冒泡排序算法运行起来非常慢，但在概念上它是排序算法中最简单的，因此冒泡排序算法在刚开始研究排序技术时是一个非常好的算法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">public class BubbleSort &#123;</span><br><span class="line">    public void display(int[] arr)&#123;</span><br><span class="line">        for(int i:arr)&#123;</span><br><span class="line">            System.out.print(i + &quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public void bubbleSort(int[] arr)&#123;</span><br><span class="line">        int i,j;</span><br><span class="line">        for(i = arr.length -1; i &gt; 0; i--)&#123;</span><br><span class="line">            for(j = 0; j &lt; i; j++)&#123;</span><br><span class="line">                if(arr[j] &gt; arr[j + 1])&#123;</span><br><span class="line">                    int tmp;</span><br><span class="line">                    tmp = arr[j];</span><br><span class="line">                    arr[j] = arr[j+1];</span><br><span class="line">                    arr[j+1] = tmp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        BubbleSort bs = new BubbleSort();</span><br><span class="line">        int [] arr = &#123;2,4,1,3,5,8,2,7,6,9&#125;;</span><br><span class="line">        System.out.println(&quot;排序前:&quot;);</span><br><span class="line">        bs.display(arr);</span><br><span class="line">        System.out.println(&quot; &quot;);</span><br><span class="line">        bs.bubbleSort(arr);</span><br><span class="line">        System.out.println(&quot;排序后:&quot;);</span><br><span class="line">        bs.display(arr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">排序前:</span><br><span class="line">2 4 1 3 5 8 2 7 6 9  </span><br><span class="line">排序后:</span><br><span class="line">1 2 2 3 4 5 6 7 8 9</span><br></pre></td></tr></table></figure>
+
+<h3 id="程序分析"><a href="#程序分析" class="headerlink" title="程序分析"></a>程序分析</h3><p>冒泡排序从结果来看，一种是从小到大，一种是从大到小，两种原理是一样的，这里说的是从小到大。程序第5行定义了一个数组，这个数组就是我们要排序的对象。接着就是冒泡排序法。冒泡排序的原理是：首先进行相邻两个元素大小比较，如果左边的比右边的大，则进行左右交换，把大的放在右边，把小的放左边，然后再用上次比较的结果的靠右的更大的数，再次与右边的数进行比较，按此循环。在本例中第7行程序，调用了arr的length方法，也就是取得数组的长度，由于数组索引从0开始，因此，最后一个元素的索引是arr.length-1，本例中也就是10。当i=10时，进行内部循环，j=0,从第一个和第二个元素开始比较，也就是2和4比较，显然2小于4，所以不用交换，然后对j进行自加1，也就是j=1，再进行条件判断j=1&lt;i=10，所以继续循环，此时a[1]=4,a[2]=1,显然，a[1]&gt;a[2]，所以，进行交换，这样交换后变成2,1,4,3,5,8,2,7,6,9,重复上面的步骤，这样第一趟下来交换后的结果是2,1,3,4,5,2,7,6,8,9。我们注意到i这个变量，这个变量很多书上说它是趟的循环，比如第一趟循环，第二趟循环，其实质是将最大的数移到当前i所能达到的最大索引的位置，也就是说每一趟都是将当前索引范围内的数移到最大位置，如此循环，第10个位置，是1——10索引元素范围内的最大数，第9个位置是1——9索引元素范围内的最大数，类推，第2个位置是1——2最大数，第一个位置也就是本身。这样就能排序完毕。我们注意到理想情况下，这个排序需要10趟。所以这个排序效率是比较低的。</p>
+<h3 id="冒泡排序的效率"><a href="#冒泡排序的效率" class="headerlink" title="冒泡排序的效率"></a>冒泡排序的效率</h3><p>通过对上面冒泡排序的分析可以看到，第1趟，总共10个数，需要9次比较，第二趟9个数，进行8次比较，依次类推，第10趟1个数，1次比较(这一次比较其实是没有用的)，总共就是9+8+7+6+5+4+3+2+1=45</p>
+<p>一般来说，数组中有N个数据项，则第一趟排序有N-1次比较，第二趟有N-2次，如此类推，这样求和公式是:(N-1)+(N-2)+…+1=N(N-1)/2<br>当N很大时候，忽略掉低次项，也就是进行了约0.5N^2次比较。</p>
+<p>上面是一种理论情况，实际进行交换的次数是少于比较的次数，如果数据是随机的，那么大概有一半数据需要交换，则交换次数为0.25(N^2)(最坏的情况是，初始数据完全是逆序的，每次比较都需要进行交换)</p>
+<p>交换和比较操作次数都和N^2成正比。由于常数不算在大O表示法中，可以忽略掉系数，并且认为冒泡排序运行需要O(N^2)时间级别。这种排序是很慢的。</p>
+<p>事实上，我们也可以这样计算，只要看到一个循环嵌套在另一个循环里，例如在冒泡排序和本章中的其他排序算法中，就可以怀疑这个算法的运行时间为O(N^2)级。外层循环执行N次，内部循环对于每一次外层循环都执行N次(或者几分之N次)，这就意味着将大约需要执行N*N或者N^2次某个基本操作。</p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>在上面的冒泡排序中，我们提到了比较次数和交换次数，比较是进行两个元素的比较，但不一定交换。</p>
+<p>选择排序改进了冒泡排序，将必要的交换次数从O(N2)减少到O(N)。不幸的是比较次数仍然保持为O(N^2)。然而，选择排序依然为大记录量的排序提出了一个非常重要的改进，因为这些大量的记录需要在内存移动，这就使交换的时间和比较的时间相比起来，交换的时间更为重要。(一般来说，在Java语言中不是这种情况，Java中只是改变了引用位置，而实际对象的位置并没有改变。)</p>
+<p>选择排序首先将最小的打上标签，然后将最小的移到最左边，作为已经排好的，然后接着从第二个元素开始，与剩余元素比较，然后找出最小的，再将最小的和第二个元素交换，按此迭代，直到排序结束。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public void selectSort(int[] arr)&#123;</span><br><span class="line">        int i,j,min;</span><br><span class="line">        for(i = 0; i &lt; arr.length - 1; i++)&#123;</span><br><span class="line">            min = i;</span><br><span class="line">            for(j = i + 1; j &lt; arr.length; j++)&#123;</span><br><span class="line">                if(arr[j] &lt; arr[min])&#123;</span><br><span class="line">                    min = i;</span><br><span class="line">                &#125;</span><br><span class="line">                if(arr[i] &gt; arr[min])&#123;</span><br><span class="line">                    int tmp;</span><br><span class="line">                    tmp = arr[i];</span><br><span class="line">                    arr[i] = arr[min];</span><br><span class="line">                    arr[min] = tmp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>在大多数情况下，插入排序算法是本章描述的基本的排序算法中最好的一种。虽然插入排序算法仍然需要O(N^2)的时间，但是在一边情况下，它要比冒泡排序快一倍，比选择排序还要快一点。它经常被用在较复杂的排序算法的最后阶段，例如快速排序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">for(int i=1;i&lt;a.length;i++)&#123;</span><br><span class="line">    int temp=a[i],j=i;</span><br><span class="line">    if(a[j-1]&gt;temp)&#123;</span><br><span class="line">        while(j&gt;=1&amp;&amp;a[j-1]&gt;temp)&#123;</span><br><span class="line">            a[j]=a[j-1];</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    a[j]=temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：分析这个程序时候需要明确一点temp的值是在一次循环时候不变的，while循环后，j会进行自减。<br>我们以3 1 4 2 来进行分析，并且分析i = 1时情况 3 1 4 2<br>temp=a[1]=1，i = j = 1<br>首先j &gt;= 1，a[j-1]=a[0]=3 &gt; temp = 1，所以将a[0]的值赋给a[1]，这样，变成 3 3 4 2，<br>然后j自减变成0，由于j = 0 &lt; 1循环中止，此时j = 0，所以执行a[0] = temp=1，也就是1 3,4 2 </p>
+<p>i = 2，满足条件，不用执行循环</p>
+<p>i = 3, temp = a[3] = 2, i = j = 3<br>首先j &gt;= 1,a[j-1]=a[2]=4&gt;temp=2,所以将a[2]的赋给a[3]，这样变成1 3 4 4<br>接着将j自减1，变成2，首先j = 2&gt;=1,a[2-1]=a[1]=3，注意temp是不变的，所以a[1]依然大于temp=2，于是将a[1]赋给a[2]，变成1 3 3 4<br>然后j自减1，变成1，首先j = 1 &gt;= 1,a[1-1]=a[0]=1 &lt; 3，循环停止，于是<br>a[1]=temp=2<br>1 2 3 4<br>j再自减一次，已经不符合条件，整个循环中止，排序完成</p>
+<h2 id="几种简单排序之间的比较"><a href="#几种简单排序之间的比较" class="headerlink" title="几种简单排序之间的比较"></a>几种简单排序之间的比较</h2><p>除非手边没有算法书可以参考，一般情况下，几乎不太使用冒泡排序算法，它过于简单了。当数据量很小的时候可以有应用价值。</p>
+<p>选择排序虽然可以把交换次数降到最低，但比较次数仍然很大，当数据量比较小时候，并且交换数据相对于比较数据更加耗时情况下，可以应用选择排序。</p>
+<p>在大多数情况下，数据量比较小或基本有序时，插入排序算法是三种简单排序算法中最好的选择，对于更大数据量，快速排序是最快的。<br>本章介绍的所有算法时间复杂度都是O(n^2)<br><img src="images/1909221.jpg" alt></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/Classful-and-Classless.html" rel="next" title="有类路由与无类路由的区别">
+                  <i class="fa fa-chevron-left"></i> 有类路由与无类路由的区别
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" src="/images/touxiang.jpg" alt="Aaron">
+  <p class="site-author-name" itemprop="name">Aaron</p>
+  <div class="site-description motion-element" itemprop="description">Keep Learning</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/zhishui0501" title="GitHub &rarr; https://github.com/zhishui0501" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:876944049@qq.com" title="E-Mail &rarr; mailto:876944049@qq.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+
+
+
+        </div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.</span> <span class="nav-text">冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#程序分析"><span class="nav-number">1.1.</span> <span class="nav-text">程序分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序的效率"><span class="nav-number">1.2.</span> <span class="nav-text">冒泡排序的效率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择排序"><span class="nav-number">2.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入排序"><span class="nav-number">3.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几种简单排序之间的比较"><span class="nav-number">4.</span> <span class="nav-text">几种简单排序之间的比较</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aaron</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> v3.9.0</div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> v7.3.0</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/affix.js?v=7.3.0"></script>
+  <script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>
